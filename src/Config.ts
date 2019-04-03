@@ -6,7 +6,7 @@ export class Config {
     public static db: any = {
         host: `127.0.0.1`,
         user: "root",
-        database: "edeals"
+        database: "high_mountains"
     };
     public static gcmAPIKey: string = "AAAAFlPX7b0:APA91bH6eWFzowQueJiUPPSsiMxr_1FAzQffkTKlOX98Uh3VVuyz4SaH5kJ9iLGNRep_bEw3kq-YSY7X2yTxidpeKkRiHNSIhYVfayCAyytTkV6Y2qgtguwUNjrhEbBwlg2boTkzDo_U";
     public static messages = {
@@ -15,13 +15,9 @@ export class Config {
     public static errorCodes = {
         NotFound: "not_found"
     };
-    public static groupByOptions = {
-        sale: "sale",
-        brand: "brand",
-        category: "category"
+    public static mailTemplate: any = {
+        forgetPassword: `forgot_password.html`,
+        registrationSuccessfull: `registrationVerification.html`
     };
-    public static viewAsOptions = {
-        list: "list",
-        grid: "grid"
-    };
+   
 }

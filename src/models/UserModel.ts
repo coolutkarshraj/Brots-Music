@@ -5,6 +5,8 @@ export interface UserModel {
     firstName?: string;
     middleName?: string;
     lastName?: string;
+    userName?: string;
+    referalCode?: string;
     email?: string;
     gender?: string;
     dob?: string;
@@ -15,8 +17,13 @@ export interface UserModel {
     state?: string;
     country?: string;
     address?: string;
-    userType?: string;
+    about?: string;
     deviceToken?: string;
     status?: string;
     isLoggedIn?: number;
+    onlineStatus?: number;
+    adhar_number?: number;
+    following?: number;
+    followers?: number;
+    level?: number;
 }

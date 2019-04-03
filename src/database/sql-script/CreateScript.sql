@@ -26,8 +26,8 @@ CREATE TABLE `user` (
   `firstName` varchar(100) DEFAULT NULL,
   `middleName` varchar(100) DEFAULT NULL,
   `lastName` varchar(100) DEFAULT NULL,
-  `userType` varchar(100) DEFAULT NULL,
-  `shopType` varchar(100) DEFAULT NULL,
+  `userName` varchar(100) DEFAULT NULL,
+  `referalCode` char(25) DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `dob` datetime DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
@@ -38,12 +38,16 @@ CREATE TABLE `user` (
   `city` varchar(200) DEFAULT NULL,
   `state` varchar(200) DEFAULT NULL,
   `country` varchar(200) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `deviceToken` varchar(200) DEFAULT NULL,
   `isLoggedIn` tinyint(4) not null DEFAULT 0,
   `onlineStatus` tinyint(4) not null DEFAULT 0,
-  PRIMARY KEY (`id`)
+ `adhar_number` varchar(200) DEFAULT NULL,
+ `followers` varchar(200) DEFAULT NULL,
+ `following` varchar(200) DEFAULT NULL,
+ `level` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE (`email`),
+  unique(`userName`)
 );
-
-
-

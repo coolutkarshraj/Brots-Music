@@ -101,4 +101,67 @@ export class UserController extends BaseController {
             }
         }, (error) => null, null);
     }
+
+    public verifyRegistration(req: Request, res: Response) {
+        let data = req.body;
+        let email = data['email']
+        let otp = data["otp"]
+        let name = data["name"]
+        console.log(req.body);
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+            return res.json({
+                "status":"false",
+                "message":"Missing All Parameter",
+                "error":"false",  
+            });  
+        } else if(email == null){
+            return res.json({
+                "status":"false",
+
+                "message":"Missing Paramenter email",
+                "error":"false",  
+            });     
+        }else if(otp == null){
+            return res.json({
+                "status":"false",
+                "message":"Missing Paramenter OTP",
+                "error":"false",  
+            }); 
+                
+        }else if(name == null){
+            return  res.json({
+                "status":"false",
+                "message":"Missing Paramenter Name",
+                "error":"false",  
+            });     
+        }
+        else if(req.body.username == null){
+            return  res.json({
+                "status":"false",
+                "message":"Missing Paramenter userName",
+                "error":"false",  
+            });     
+        }
+        this.userService.userExists(email,req.body.username).subscribe((user) => {
+            if((_.isEmpty(user))){
+                this.userService.sendMailToVerifyRegistration(email,name,otp)
+                res.json({
+                    "status":"true",
+                    "message":"Email Sent Succesfully",
+                    "error":"true",
+                    "date":{
+                        passcode: req.body.otp,
+                        "message":"Email Sent Successfully"
+                    }  
+                });    
+            }else{
+                res.json({
+                    "status":"false",
+                    "message":"Email Already Exist",
+                    "error":"false", 
+                });   
+            }
+           
+        });
+     }
 }
