@@ -89,6 +89,22 @@ export class UserController extends BaseController {
         this.sendResponseWithStatus(promise, res);
     }
 
+    public updatePassword(req: Request, res: Response) {
+        const userId = req.body.userId;
+        const token = req.body.token;
+        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
+        const promise = this.sqlService.executeQuery(query);
+        this.sendResponseWithStatus(promise, res);
+    }
+
+    public sendForgetPasswordLink(req: Request, res: Response) {
+        const userId = req.body.userId;
+        const token = req.body.token;
+        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
+        const promise = this.sqlService.executeQuery(query);
+        this.sendResponseWithStatus(promise, res);
+    }
+
     private isAlreadyLoggedIn(user: UserModel): boolean {
         return user.isLoggedIn.toString() === "1";
     }
