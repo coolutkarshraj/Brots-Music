@@ -4,9 +4,12 @@ export class Config {
         baseUrl: `http://localhost:9090/`
     };
     public static db: any = {
-        host: `127.0.0.1`,
-        user: "root",
-        database: "high_mountains"
+        host: `highmountains.ctifvjah2djq.ap-south-1.rds.amazonaws.com`,
+        port:"3306",
+        user: "high_mountains",
+        database: "high_mountains",
+        password:"high_mountains"
+    
     };
     public static gcmAPIKey: string = "AAAAFlPX7b0:APA91bH6eWFzowQueJiUPPSsiMxr_1FAzQffkTKlOX98Uh3VVuyz4SaH5kJ9iLGNRep_bEw3kq-YSY7X2yTxidpeKkRiHNSIhYVfayCAyytTkV6Y2qgtguwUNjrhEbBwlg2boTkzDo_U";
     public static messages = {
