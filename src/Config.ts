@@ -4,7 +4,7 @@ export class Config {
         baseUrl: `http://localhost:9000/`
     };
     public static db: any = {
-        host: `highmountains.ctifvjah2djq.ap-south-1.rds.amazonaws.com`,
+        host: `testingdb.ctifvjah2djq.ap-south-1.rds.amazonaws.com`,
         port:"3306",
         user: "TestingDb",
         database: "high_mountains",
