@@ -16,10 +16,9 @@ var transport = nodemailer.createTransport(smtpTransport({
     tls: { rejectUnauthorized: false }
 }))
 export class EmailService {
-    
     public sendMail(emailData: EmailData, templateModel, templateName: string){
-            const filePath = path.resolve(__dirname, '..', 'mailTemplate');
-            fs.readFile(filePath + '../' + templateName, 'utf8', (err, htmlString) => {
+            const filePath = path.resolve(__dirname, '../../', 'mailTemplate');
+            fs.readFile(filePath + '/' + templateName, 'utf8', (err, htmlString) => {
                 if (err) {
                     console.log('template not found');
                     console.log(err);
