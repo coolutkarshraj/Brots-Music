@@ -150,8 +150,7 @@ export class UserController extends BaseController {
                     "message":"Email Sent Succesfully",
                     "error":"true",
                     "date":{
-                        passcode: req.body.otp,
-                        "message":"Email Sent Successfully"
+                        "OTP": req.body.otp
                     }  
                 });    
             }else{
