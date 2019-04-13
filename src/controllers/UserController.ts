@@ -90,17 +90,17 @@ export class UserController extends BaseController {
     }
 
     public updatePassword(req: Request, res: Response) {
-        const userId = req.body.userId;
-        const token = req.body.token;
-        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
+        const email = req.body.email;
+        const password = req.body.password;
+        const query = `update ${Tables.user} set password = '${password}' where email = ${email};`;
         const promise = this.sqlService.executeQuery(query);
         this.sendResponseWithStatus(promise, res);
     }
 
     public sendForgetPasswordLink(req: Request, res: Response) {
-        const userId = req.body.userId;
+        const email_number = req.body.forgetPasswordData;
         const token = req.body.token;
-        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
+        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${email_number};`;
         const promise = this.sqlService.executeQuery(query);
         this.sendResponseWithStatus(promise, res);
     }
@@ -121,9 +121,8 @@ export class UserController extends BaseController {
     public verifyRegistration(req: Request, res: Response) {
         let data = req.body;
         let email = data['email']
-        let otp = data["otp"]
         let name = data["name"]
-        console.log(req.body);
+        let otp = this.getFourDigitRandomNumber();
         if(req.body.constructor === Object && Object.keys(req.body).length === 0){
             return res.json({
                 "status":"false",
@@ -136,14 +135,7 @@ export class UserController extends BaseController {
 
                 "message":"Missing Paramenter email",
                 "error":"false",  
-            });     
-        }else if(otp == null){
-            return res.json({
-                "status":"false",
-                "message":"Missing Paramenter OTP",
-                "error":"false",  
-            }); 
-                
+            });  
         }else if(name == null){
             return  res.json({
                 "status":"false",
@@ -151,13 +143,7 @@ export class UserController extends BaseController {
                 "error":"false",  
             });     
         }
-        else if(req.body.username == null){
-            return  res.json({
-                "status":"false",
-                "message":"Missing Paramenter userName",
-                "error":"false",  
-            });     
-        }
+    
         this.userService.userExists(email,req.body.username).subscribe((user) => {
             if((_.isEmpty(user))){
                 this.userService.sendMailToVerifyRegistration(email,name,otp)
@@ -179,4 +165,10 @@ export class UserController extends BaseController {
            
         });
      }
+
+
+     public getFourDigitRandomNumber(min = 1000, max = 9999) {
+        const numberInString = Math.floor(Math.random() * (max - min + 1) + min);
+        return parseInt(numberInString.toString());
+    }
 }
