@@ -8,6 +8,9 @@ import {Tables} from "../database/Tables";
 import * as _ from "lodash";
 import * as __ from "underscore";
 import * as os from "os";
+import {ErrorModel} from "../models/ErrorModel";
+import {SucessModel} from "../models/SucessModel";
+import { json } from "body-parser";
 
 export class UserController extends BaseController {
     private userService: UserService;
@@ -28,9 +31,10 @@ export class UserController extends BaseController {
         res.send(result);
     }
 
-    public registerUser(req: Request, res: Response) {
-        const user = this.userService.registerUser(req.body);
-        this.sendResponse(user, res);
+     public registerUser(req: Request, res: Response) {
+     const user =  this.userService.registerUser(req.body)
+     this.sendResponse(user,res)
+        
     }
 
     public loginUser(req: Request, res: Response) {
@@ -48,7 +52,7 @@ export class UserController extends BaseController {
                 res.sendStatus(403);
                 return;
             }
-            this.updateLoginStatus(result.id, 1, (err, success) => {
+            this.updateLoginStatus( 1,1,result.id, (err, success) => {
                 if (err == null) {
                     if (result.imageUrl !== undefined) {
                         result.imageUrl = super.getImageUrl(result.id, result.imageUrl);
@@ -73,13 +77,6 @@ export class UserController extends BaseController {
         this.sendResponse(user, res);
     }
 
-    public updateOnlineStatus(req: Request, res: Response) {
-        const userId = req.body.userId;
-        const onlineStatus = req.body.onlineStatus;
-        const query = `update ${Tables.user} set onlineStatus = ${onlineStatus} where id = ${userId};`;
-        const promise = this.sqlService.executeQuery(query);
-        this.sendResponseWithStatus(promise, res);
-    }
 
     public updateDeviceToken(req: Request, res: Response) {
         const userId = req.body.userId;
@@ -109,8 +106,8 @@ export class UserController extends BaseController {
         return user.isLoggedIn.toString() === "1";
     }
 
-    private updateLoginStatus(userId: number, loggedInStatus: number, callback) {
-        const query = `update ${Tables.user} set isLoggedIn = ${loggedInStatus} where id = ${userId};`;
+    private updateLoginStatus(onlineStatus: number, loggedInStatus: number, id:number, callback) {
+        const query = `update ${Tables.user} set isLoggedIn = ${loggedInStatus} ,onlineStatus = ${onlineStatus} where id = ${id};`;
         this.sqlService.executeQuery(query).subscribe((result) => {
             if (result !== null) {
                 callback(null, result);
@@ -132,7 +129,6 @@ export class UserController extends BaseController {
         } else if(email == null){
             return res.json({
                 "status":"false",
-
                 "message":"Missing Paramenter email",
                 "error":"false",  
             });  

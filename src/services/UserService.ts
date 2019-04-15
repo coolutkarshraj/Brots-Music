@@ -19,22 +19,45 @@ export class UserService extends ServiceBase {
             .flatMap((userExistsResult) => {
                 if (_.isEmpty(userExistsResult)) {
                     const query = this.queryBuilderService.getInsertQuery(Tables.user, model);
-                    return this.sqlService.executeQuery(query);
+                    return this.sqlService.executeQuery(query); 
                 }
-                const error: ErrorModel = {
-                    code: "email_exists",
-                    message: `User with email ${model.email} already exists.`
-                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email ${model.email} already exists.`,
+                        error:"false"           
+                    }
+                
+               
                 return Rx.Observable.throw(error);
             })
             .flatMap((result) => {
-                model.password = "";
                 model.id = result.insertId;
+                this.updateLoginStatus(1, 1, model.id,(err, success)=>{
+                    if(err== null){
+                        return this.sendSuccessfullyRegisteredMail(model.email,model.name,model.password)
+                    }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email ${model.email} already exists.`,
+                        error:"false"           
+                    }
+                    return Rx.Observable.throw(error)
+                   
+                })
                 return Rx.Observable.create((observer) => {
                     observer.next(model);
                     observer.complete();
                 });
             });
+    }
+
+    private updateLoginStatus(onlineStatus: number, loggedInStatus: number, id:number, callback) {
+        const query = `update ${Tables.user} set isLoggedIn = ${loggedInStatus} ,onlineStatus = ${onlineStatus} where id = ${id};`;
+        this.sqlService.executeQuery(query).subscribe((result) => {
+            if (result !== null) {
+                callback(null, result);
+            }
+        }, (error) => null, null);
     }
 
     public userExists(email,userName): Rx.Observable<any> {
@@ -51,6 +74,22 @@ export class UserService extends ServiceBase {
             const templateModal = {
                 name: name,
                 sent_otp: otp,
+            };
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.registrationVerify);
+          
+    }
+
+
+    public sendSuccessfullyRegisteredMail(email,name,Password) {
+        const userEmail = email;
+            const emailData = {
+                email: userEmail,
+                subject: 'Welcome To High Mountains',
+            };
+            const templateModal = {
+                name: name,
+                Password: Password,
+                email:email
             };
             this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.registrationSuccessfull);
 
