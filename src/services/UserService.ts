@@ -95,4 +95,21 @@ export class UserService extends ServiceBase {
 
     
     }
+
+    public sendAlreadylogggedInMail(email,name,city,country,address) {
+        const userEmail = email;
+            const emailData = {
+                email: userEmail,
+                subject: 'Welcome To High Mountains',
+            };
+            const templateModal = {
+                name: name,
+                City: city+" "+ country,
+                email:email,
+                address:address
+            };
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.registrationSuccessfull);
+
+    
+    }
 }

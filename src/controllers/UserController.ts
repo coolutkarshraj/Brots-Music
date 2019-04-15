@@ -38,18 +38,34 @@ export class UserController extends BaseController {
     }
 
     public loginUser(req: Request, res: Response) {
+        var query;
         const email = req.body.email;
         const password = req.body.password;
-        const query = `select * from ${Tables.user} where email = '${email}' and password = '${password}'`;
-
+        const type = req.body.type
+        if(type == "1"){
+            query = `select * from ${Tables.user} where email = '${email}' and password = '${password}'`;
+        }else if(type == "2"){
+            query = `select * from ${Tables.user} where userName = '${email}' and password = '${password}'`;
+        }
         const promise = this.sqlService.getSingle(query);
         promise.subscribe((result: UserModel) => {
             if (_.isEmpty(result)) {
-                res.sendStatus(401);
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User with email ${req.body.email} doesn't exists.`,
+                    error:"false"           
+                }
+                res.send(error);
                 return;
             }
             if (this.isAlreadyLoggedIn(result)) {
-                res.sendStatus(403);
+                this.userService.sendAlreadylogggedInMail(result.email,result.name,result.city,result.country,result.address)
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User with email ${req.body.email} already Logged in From Device.`,
+                    error:"false"           
+                }
+                res.send(error);
                 return;
             }
             this.updateLoginStatus( 1,1,result.id, (err, success) => {
