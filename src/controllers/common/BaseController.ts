@@ -7,16 +7,59 @@ import * as path from "path";
 export class BaseController {
     protected sendResponse(observable: Rx.Observable<any>, res) {
         observable.subscribe((result) => {
-            res.json(result);
+            const ResponseData = {
+                "status":"true",
+                "Code":200,
+                "error":"true",
+                "data":result
+        }
+            res.send(ResponseData);
         }, (err) => {
             Logger.logError(err);
             if (err && err.code && err.code.toString().toLowerCase() === Config.errorCodes.NotFound.toLowerCase()) {
-                res.status(404).json({error: err});
+                const ResponseData = {
+                    "status":"true",
+                    "Code":404,
+                    "error":"true",
+            }
+                res.send(ResponseData)
             } else {
-                res.status(500).json({error: err});
+                const ResponseData = {
+                    "status":"true",
+                    "Code":500,
+                    "error":"true",
+            }
+                res.send(ResponseData)
             }
         }, null);
     }
+
+    protected sendResponseWithonlystatusCodeError(observable: Rx.Observable<any>, res) {
+        observable.subscribe((result) => {
+            const registrationResponse = {
+                "status":"true",
+                "Code":200,
+                "error":"true"
+        }
+            res.json(registrationResponse);
+        }, (err) => {
+            Logger.logError(err);
+            if (err && err.code && err.code.toString().toLowerCase() === Config.errorCodes.NotFound.toLowerCase()) {
+               res.json({
+                "status":"False",
+                "Code":404,
+                "error":"False",  
+              })
+            } else {
+               res.json({
+                "status":"False",
+                "Code":422,
+                "error":"False", 
+              })
+            }
+        }, null);
+    }
+   
 
     protected sendResponseWithKey(key: string, observable: Rx.Observable<any>, res) {
         observable.subscribe((result) => {

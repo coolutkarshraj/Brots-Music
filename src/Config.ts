@@ -24,7 +24,10 @@ export class Config {
     public static mailTemplate: any = {
         forgetPassword: `forgot_password.html`,
         registrationVerify: `registrationVerification.html`,
-        registrationSuccessfull:`registration_successfull.html`
+        registrationSuccessfull:`registration_successfull.html`,
+        alreadyLoggedInMail:`alreadyloggedIn.html`,
+        loggedInMail:`after_login.html`,
+        updatePassword:`update_password.html`
     };
    
 }

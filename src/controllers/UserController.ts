@@ -33,7 +33,7 @@ export class UserController extends BaseController {
 
      public registerUser(req: Request, res: Response) {
      const user =  this.userService.registerUser(req.body)
-     this.sendResponse(user,res)
+     this.sendResponseWithonlystatusCodeError(user,res)
         
     }
 
@@ -69,12 +69,16 @@ export class UserController extends BaseController {
                 return;
             }
             this.updateLoginStatus( 1,1,result.id, (err, success) => {
+               
                 if (err == null) {
-                    if (result.imageUrl !== undefined) {
-                        result.imageUrl = super.getImageUrl(result.id, result.imageUrl);
-                    }
+                    this.userService.sendlogggedInMail(result.email,result.name,result.city,result.country,result.address)
                     Logger.logInfo(result, "login response => ");
-                    res.json(result);
+                    const sucess: SucessModel = {
+                        status: "true",
+                        message: `User with email ${req.body.email}  Logged inSuccessfull.`,
+                        error:"true"           
+                    }
+                    res.send(sucess)
                 }
             });
 
@@ -99,23 +103,89 @@ export class UserController extends BaseController {
         const token = req.body.token;
         const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
         const promise = this.sqlService.executeQuery(query);
-        this.sendResponseWithStatus(promise, res);
+        promise.subscribe((result)=>{
+            if(_.isEmpty(result)){
+                return res.json({
+                    status: "false",
+                    message: `SomeThing Went Wrong`,
+                    error:"false"    
+                })
+               
+
+            }
+            const query = `select * from ${Tables.user} where email = '${req.body.email}' and id = '${req.body.userId}'`;  
+            const User = this.sqlService.getSingle(query) 
+            User.subscribe((result)=>{
+                if(_.isEmpty(result)){
+                   return res.json({
+                        status: "false",
+                        message: `No User Found To Update Token`,
+                        error:"false"
+                    }) 
+                }
+                res.json({
+                    status: "true",
+                    message: `Token Updated Successfully`,
+                    error:"true",
+                    data:result 
+                })
+            })
+           
+        })     
     }
 
     public updatePassword(req: Request, res: Response) {
         const email = req.body.email;
+        const type =  req.body.type
         const password = req.body.password;
-        const query = `update ${Tables.user} set password = '${password}' where email = ${email};`;
+        const name = req.body.name;
+        const id = req.body.id;
+        const query = `update ${Tables.user} set password = '${password}' where id = ${id};`;
         const promise = this.sqlService.executeQuery(query);
-        this.sendResponseWithStatus(promise, res);
+        promise.subscribe((result)=>{
+            if(_.isEmpty(result)){
+                return res.json({
+                    status: "false",
+                    message: `Password Not Updated`,
+                    error:"false"
+                }) 
+            }
+          this.userService.SendupdatePasswordMail(email,name,password)
+         res.json({
+            status: "true",
+            message: `Password Updated SuccessFully`,
+            error:"true",
+         })
+        })
     }
 
     public sendForgetPasswordLink(req: Request, res: Response) {
-        const email_number = req.body.forgetPasswordData;
-        const token = req.body.token;
-        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${email_number};`;
-        const promise = this.sqlService.executeQuery(query);
-        this.sendResponseWithStatus(promise, res);
+        const email = req.body.email_number;
+        const type  = req.body.type
+        const query = `select * from ${Tables.user} where email = '${email}'`; 
+        const promise = this.sqlService.getSingle(query);
+        promise.subscribe((result)=>{
+            if(_.isEmpty(result)){
+               return res.json({
+                    "status":"false",
+                    "message":"Email not Sent Succesfully",
+                    "error":"false",
+               })
+            }
+                let otp = this.getFourDigitRandomNumber();
+                this.userService.forgetPasswordMail(result.email,result.name,otp)
+                res.json({
+                    "status":"true",
+                    "message":"Email Sent Succesfully",
+                    "error":"true",
+                    "date":{
+                        "OTP": otp,
+                        "name":result.name,
+                        "id":result.id
+                    }  
+                });    
+        })
+    
     }
 
     private isAlreadyLoggedIn(user: UserModel): boolean {

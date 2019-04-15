@@ -2,6 +2,7 @@ import * as Rx from "rxjs/Rx";
 import {ServiceBase} from "./common/ServiceBase";
 import * as _ from "lodash";
 import {ErrorModel} from "../models/ErrorModel";
+import {SucessModel} from "../models/SucessModel";
 import {UserModel} from "../models/UserModel";
 import {Tables} from "../database/Tables";
 import { EmailService } from '../services/EmailServices';
@@ -108,8 +109,54 @@ export class UserService extends ServiceBase {
                 email:email,
                 address:address
             };
-            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.registrationSuccessfull);
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.alreadyLoggedInMail);
 
     
+    }
+
+    public sendlogggedInMail(email,name,city,country,address) {
+        const userEmail = email;
+            const emailData = {
+                email: userEmail,
+                subject: 'Welcome To High Mountains',
+            };
+            const templateModal = {
+                name: name,
+                City: city+" "+ country,
+                email:email,
+                address:address
+            };
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.loggedInMail);
+
+    
+    }
+
+    public forgetPasswordMail(email,name,otp) {
+        const userEmail = email;
+            const emailData = {
+                email: userEmail,
+                subject: 'Welcome To High Mountains',
+            };
+            const templateModal = {
+                name: name,
+                sent_otp: otp,
+            };
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.forgetPassword);
+          
+    }
+
+    public SendupdatePasswordMail(email,name,password) {
+        const userEmail = email;
+            const emailData = {
+                email: userEmail,
+                subject: 'Welcome To High Mountains',
+            };
+            const templateModal = {
+                name: name,
+                password: password,
+                email:email
+            };
+            this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.updatePassword);
+          
     }
 }
