@@ -66,11 +66,6 @@ export class UserService extends ServiceBase {
         return this.sqlService.executeQuery(query);
     }
 
-    public userExistswithUserName(email,userName): Rx.Observable<any> {
-        let query = `select id from ${Tables.user} userName = "${userName}";`;
-      return this.sqlService.executeQuery(query);
-  }
-
     public sendMailToVerifyRegistration(email,name,otp) {
         const userEmail = email;
             const emailData = {
@@ -165,24 +160,5 @@ export class UserService extends ServiceBase {
           
     }
 
-    public checkUserNameExistOrNot(model: UserModel): Rx.Observable<any> {
-        return this.userExists(model.email,model.userName)
-            .flatMap((userExistsResult) => {
-                if (_.isEmpty(userExistsResult)) {
-                    let query = `select * from ${Tables.user}  or userName = "${model.userName}";`;
-                    return this.sqlService.executeQuery(query); 
-                }
-                    const error: ErrorModel = {
-                        status: "false",
-                        message: `User with email ${model.email} already exists.`,
-                        error:"false"           
-                    }
-                
-               
-                return Rx.Observable.throw(error);
-            })
-            
-
-    }
 
 }

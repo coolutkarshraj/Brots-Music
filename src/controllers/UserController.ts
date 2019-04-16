@@ -255,8 +255,24 @@ export class UserController extends BaseController {
     }
 
     public checkUserNameExistOrNot(req: Request, res: Response) {
-        const user =  this.userService.checkUserNameExistOrNot(req.body)
-        this.sendResponseWithonlystatusCodeError(user,res)
+        const query = `select * from ${Tables.user} where email = '${req.body.email}' or userName = '${req.body.userName}'`;  
+ 
+        this.sqlService.getSingle(query).subscribe((result)=>{
+                console.log(result)
+                if(_.isEmpty(result)){
+                    return res.json({
+                        "status":"true",
+                        "message":"userName Exist",
+                        "error":"true",
+                    })
+                }
+                res.json({
+                        "status":"true",
+                        "message":"userName doesn't Exist",
+                        "error":"true", 
+                })
+        })
+       
            
        }
 }
