@@ -233,8 +233,8 @@ export class UserController extends BaseController {
                     "status":"true",
                     "message":"Email Sent Succesfully",
                     "error":"true",
-                    "date":{
-                        "OTP": req.body.otp
+                    "data":{
+                        "OTP": otp
                     }  
                 });    
             }else{
@@ -253,4 +253,10 @@ export class UserController extends BaseController {
         const numberInString = Math.floor(Math.random() * (max - min + 1) + min);
         return parseInt(numberInString.toString());
     }
+
+    public checkUserNameExistOrNot(req: Request, res: Response) {
+        const user =  this.userService.checkUserNameExistOrNot(req.body)
+        this.sendResponseWithonlystatusCodeError(user,res)
+           
+       }
 }
