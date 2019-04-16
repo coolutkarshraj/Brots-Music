@@ -49,5 +49,24 @@ CREATE TABLE `user` (
  `level` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE (`email`),
-  unique(`userName`)
+  unique(`userName`),
+   unique(`phone`)
 );
+
+-- -----------------------------------------------------
+-- Table `World Places List known as SpringField Like Country,Continent,State`
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `springField`;
+CREATE TABLE `springField` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `imageUrl` varchar(200) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `description` varchar(350) DEFAULT NULL,
+ `followers` varchar(200) DEFAULT NULL,
+ `following` varchar(200) DEFAULT NULL,
+ `StarrLevel` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+

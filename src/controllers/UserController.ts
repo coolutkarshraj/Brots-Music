@@ -255,7 +255,7 @@ export class UserController extends BaseController {
     }
 
     public checkUserNameExistOrNot(req: Request, res: Response) {
-        const query = `select * from ${Tables.user} where email = '${req.body.email}' or userName = '${req.body.userName}'`;  
+       const  query = `select * from ${Tables.user} where email = '${req.body.email}' and userName = '${req.body.userName}'`;
  
         this.sqlService.getSingle(query).subscribe((result)=>{
                 console.log(result)
