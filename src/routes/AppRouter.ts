@@ -21,5 +21,6 @@ export class AppRouter {
         app.post("/v1/user/updateDeviceToken", (req: Request, res: Response) => this.userController.updateDeviceToken(req, res));
         app.post("/v1/user/sendforgetPasswordLink", (req: Request, res: Response) => this.userController.sendForgetPasswordLink(req, res));
         app.post("/v1/user/updatePassword", (req: Request, res: Response) => this.userController.updatePassword(req, res));
+        app.post("/v1/user/checkForUserNameExistOrNot", (req: Request, res: Response) => this.userController.checkUserNameExistOrNot(req, res));
     }
 }
