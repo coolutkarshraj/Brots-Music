@@ -155,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `places` (
   `places` varchar(30) NOT NULL,
   `state_id` int(11) NOT NULL DEFAULT '1',
   `country_id` varchar(200) Not NULL default '',
+  `places_image` varchar(200) Not NULL default '',
   `city_id` varchar(11) NOT NULL default '',
   `star` varchar(11) NOT NULL default '',
   `townsStatus` varchar(5) NOT NULL default '',
