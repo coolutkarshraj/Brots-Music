@@ -30,8 +30,9 @@ export class AppRouter {
           /** User Destination Apin*/
           app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
           app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
-          app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
-          app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+          app.post("/v1/user/getContinentOverView", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+          app.get("/v1/user/continentOverview", (req: Request, res: Response) => this.springField.getContinentOverView(req, res));
+          app.get("/v1/user/continentdescription", (req: Request, res: Response) => this.springField.getContinentOverView(req, res));
 
 
 

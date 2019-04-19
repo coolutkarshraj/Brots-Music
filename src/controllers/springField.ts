@@ -21,6 +21,11 @@ export class springField extends BaseController {
         this.sendResponse(user, res);     
        }
 
+       public getContinentOverView(req: Request, res: Response) {
+        res.sendfile("forgot_password.html") 
+       }
+
+
        public addSpringFieldData(req: Request, res: Response) {
         if(req.body.constructor === Object && Object.keys(req.body).length === 0){
             return res.json({
