@@ -29,6 +29,9 @@ export class AppRouter {
     
           /** User Destination Apin*/
           app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+          app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+          app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+          app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
 
 
 

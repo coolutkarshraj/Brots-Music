@@ -68,5 +68,95 @@ CREATE TABLE `springField` (
  `following` varchar(200) DEFAULT NULL,
  `StarrLevel` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
+
 );
 
+-- -----------------------------------------------------
+-- Table ` List known as continent `
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `continents`; 
+CREATE TABLE `continents`(
+`id` int(11) NOT NULL auto_increment,
+`continents_name` varchar(100) NOT NULL default '',
+`continents_image` varchar(200) Not NULL default '',
+`Star` varchar(5) NOT NULL default '',
+`continentsStatus` varchar(5) NOT NULL default '',
+PRIMARY KEY (`id`)
+) ;
+
+
+-- -----------------------------------------------------
+-- Table ` List known as Countries List `
+-- -----------------------------------------------------
+
+
+DROP TABLE IF EXISTS `countriesList`;
+CREATE TABLE `countriesList` (
+`id` int(11) NOT NULL auto_increment,
+`country_code` varchar(2) NOT NULL default '',
+`country_name` varchar(100) NOT NULL default '',
+`country_image` varchar(200) Not NULL default '',
+`Star` varchar(5) NOT NULL default '',
+`countryStatus` varchar(5) NOT NULL default '',
+`continentId` varchar(50) NOT NULL default '',
+PRIMARY KEY (`id`)
+) ;
+
+
+-- -----------------------------------------------------
+-- Table ` List known as States `
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `country_id` int(11) NOT NULL DEFAULT '1',
+  `state_image` varchar(200) Not NULL default '',
+  `Star` varchar(5) NOT NULL default '',
+  `stateStatus` varchar(5) NOT NULL default '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` List known as cities `
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `state_id` int(11) NOT NULL DEFAULT '1',
+  `city_image` varchar(200) Not NULL default '',
+  `Star` varchar(5) NOT NULL default '',
+  `stateStatus` varchar(5) NOT NULL default '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` List known as towns `
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `towns` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `towns_name` varchar(30) NOT NULL,
+  `state_id` int(11) NOT NULL DEFAULT '1',
+  `towns_image` varchar(200) Not NULL default '',
+  `Star` varchar(5) NOT NULL default '',
+  `townsStatus` varchar(5) NOT NULL default '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` List known as places `
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `places` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `places` varchar(30) NOT NULL,
+  `state_id` int(11) NOT NULL DEFAULT '1',
+  `country_id` varchar(200) Not NULL default '',
+  `city_id` varchar(11) NOT NULL default '',
+  `star` varchar(11) NOT NULL default '',
+  `townsStatus` varchar(5) NOT NULL default '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
