@@ -32,16 +32,74 @@ export class UserController extends BaseController {
     }
 
      public registerUser(req: Request, res: Response) {
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+            return res.json({
+                "status":"false",
+                "message":"Missing All Parameter",
+                "error":"false",  
+            });  
+        }
+        else if(req.body.imageUrl == null || req.body.name == null
+            || req.body.firstName == null || req.body.lastName == null
+            || req.body.userName == null || req.body.dob == null || 
+            req.body.gender == null || req.body.email == null || req.body.phone  == null
+            || req.body.password == null || req.body.followers == null
+            || req.body.following == null || req.body.adhar_number == null || 
+            req.body.adhar_number == null ){
+                return  res.json({
+                    "status":"false",
+                    "message":"Missing Paramenter",
+                    "error":"false",  
+                });   
+    
+            }
+
+            else if(req.body.imageUrl == '' || req.body.name == ''
+                || req.body.firstName == '' || req.body.lastName == ''
+                || req.body.userName == '' || req.body.dob == '' || 
+                req.body.gender == '' || req.body.email == '' || req.body.phone  == ''
+                || req.body.password == '' || req.body.followers == ''
+                || req.body.following == '' || req.body.adhar_number == '' || 
+                req.body.adhar_number == '' ){
+                    return  res.json({
+                        "status":"false",
+                        "message":"Missing Paramenter",
+                        "error":"false",  
+                    });   
+        
+                }
      const user =  this.userService.registerUser(req.body)
      this.sendResponseWithonlystatusCodeError(user,res)
         
     }
 
     public loginUser(req: Request, res: Response) {
+        console.log(req.body)
         var query;
         const email = req.body.email;
         const password = req.body.password;
         const type = req.body.type
+        if(req.body.type == null||req.body.type == ''){
+            return res.json({
+                    status: "false",
+                    message: `Missing Paramater Type`,
+                    error:"false"    
+            })
+        }
+        if(req.body.email == null||req.body.email == ''){
+            return res.json({
+                    status: "false",
+                    message: `Missing Paramater email`,
+                    error:"false"    
+            })
+        }
+        if(req.body.password == null||req.body.password == ''){
+            return res.json({
+                    status: "false",
+                    message: `Missing Paramater password`,
+                    error:"false"    
+            })
+        }
         if(type == "1"){
             query = `select * from ${Tables.user} where email = '${email}' and password = '${password}'`;
         }else if(type == "2"){
@@ -52,7 +110,7 @@ export class UserController extends BaseController {
             if (_.isEmpty(result)) {
                 const error: ErrorModel = {
                     status: "false",
-                    message: `User with email ${req.body.email} doesn't exists.`,
+                    message: `User with email ${req.body.email} and Password ${req.body.password} doesn't exists.`,
                     error:"false"           
                 }
                 res.send(error);
@@ -87,9 +145,29 @@ export class UserController extends BaseController {
 
     public logoutUser(req: Request, res: Response) {
         const id = req.params.id;
-        const query = `update ${Tables.user} set isLoggedIn = 0, onlineStatus = 0 where id = ${id};`;
-        const promise = this.sqlService.getSingle(query);
-        this.sendResponseWithStatus(promise, res);
+        if(id == null || id == ''){
+            return res.json({
+                status: "false",
+                message: `User Not Found.`,
+                error:"false"   
+            })
+        }
+        const getUser = `select * from ${Tables.user} where id = ${id};`;
+        const promisedata = this.sqlService.getSingle(getUser)
+        promisedata.subscribe((result)=>{
+            if(_.isEmpty(result)){
+                     return res.json({
+                        status: "false",
+                        message: `User Not Found.`,
+                        error:"true"   
+                     })
+            }else{
+                const query = `update ${Tables.user} set isLoggedIn = 0, onlineStatus = 0 where id = ${id};`;
+                const promise = this.sqlService.getSingle(query);
+                this.sendResponseWithonlystatusCodeError(promise, res);
+            }
+        })
+      
     }
 
     public getAllUsers(req: Request, res: Response) {
@@ -101,74 +179,83 @@ export class UserController extends BaseController {
     public updateDeviceToken(req: Request, res: Response) {
         const userId = req.body.userId;
         const token = req.body.token;
-        const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
-        const promise = this.sqlService.executeQuery(query);
-        promise.subscribe((result)=>{
+        const getUser = `select * from ${Tables.user} where id = ${userId};`;
+        const promisedata = this.sqlService.getSingle(getUser)
+        promisedata.subscribe((result)=>{
             if(_.isEmpty(result)){
                 return res.json({
                     status: "false",
-                    message: `SomeThing Went Wrong`,
-                    error:"false"    
-                })
-               
-
+                    message: `No User Found To Update Token`,
+                    error:"false"
+                }) 
+            }else{
+                const query = `update ${Tables.user} set deviceToken = '${token}' where id = ${userId};`;
+                const promise = this.sqlService.executeQuery(query);
+                this.sendResponseWithonlystatusCodeError(promise,res)
             }
-            const query = `select * from ${Tables.user} where email = '${req.body.email}' and id = '${req.body.userId}'`;  
-            const User = this.sqlService.getSingle(query) 
-            User.subscribe((result)=>{
-                if(_.isEmpty(result)){
-                   return res.json({
-                        status: "false",
-                        message: `No User Found To Update Token`,
-                        error:"false"
-                    }) 
-                }
-                res.json({
-                    status: "true",
-                    message: `Token Updated Successfully`,
-                    error:"true",
-                    data:result 
-                })
-            })
-           
-        })     
+
+        })
+      
+       
     }
 
     public updatePassword(req: Request, res: Response) {
-        const email = req.body.email;
-        const type =  req.body.type
         const password = req.body.password;
-        const name = req.body.name;
         const id = req.body.id;
-        const query = `update ${Tables.user} set password = '${password}' where id = ${id};`;
-        const promise = this.sqlService.executeQuery(query);
-        promise.subscribe((result)=>{
+        if(id == null || id == ''){
+            return res.json({
+                status: "false",
+                message: `Missing Parameter id`,
+                error:"false"
+            }) 
+        }else if(password == null ||password == ''){
+            return res.json({
+                status: "false",
+                message: `Missing parameter password`,
+                error:"false"
+            }) 
+        }
+        const getUser = `select * from ${Tables.user} where id = ${id};`;
+        const promisedata = this.sqlService.getSingle(getUser)
+        promisedata.subscribe((result)=>{
             if(_.isEmpty(result)){
                 return res.json({
                     status: "false",
-                    message: `Password Not Updated`,
+                    message: `User Not Found`,
                     error:"false"
                 }) 
+            }else{
+                const query = `update ${Tables.user} set password = '${password}' where id = ${id};`;
+                const promise = this.sqlService.executeQuery(query);
+                this.sendResponseWithonlystatusCodeError(promise,res)
             }
-          this.userService.SendupdatePasswordMail(email,name,password)
-         res.json({
-            status: "true",
-            message: `Password Updated SuccessFully`,
-            error:"true",
-         })
         })
+      
     }
 
     public sendForgetPasswordLink(req: Request, res: Response) {
         const email = req.body.email_number;
         const type  = req.body.type
+        if(email == null|| email == ''){
+            return res.json({
+                "status":"false",
+                "message":"Missing Parameter email",
+                "error":"false",
+           })
+        }else if(type == null || type == ''){
+            return res.json({
+                "status":"false",
+                "message":"Missing Parameter type",
+                "error":"false",
+           })
+        }
         const query = `select * from ${Tables.user} where email = '${email}'`; 
         const promise = this.sqlService.getSingle(query);
         promise.subscribe((result)=>{
             if(_.isEmpty(result)){
                return res.json({
                     "status":"false",
-                    "message":"Email not Sent Succesfully",
+                    "message":"No User Found",
                     "error":"false",
                })
             }
@@ -212,13 +299,13 @@ export class UserController extends BaseController {
                 "message":"Missing All Parameter",
                 "error":"false",  
             });  
-        } else if(email == null){
+        } else if(email == null||email == ''){
             return res.json({
                 "status":"false",
                 "message":"Missing Paramenter email",
                 "error":"false",  
             });  
-        }else if(name == null){
+        }else if(name == null|| name == ''){
             return  res.json({
                 "status":"false",
                 "message":"Missing Paramenter Name",
@@ -255,8 +342,21 @@ export class UserController extends BaseController {
     }
 
     public checkUserNameExistOrNot(req: Request, res: Response) {
-       const  query = `select * from ${Tables.user} where email = '${req.body.email}' and userName = '${req.body.userName}'`;
- 
+        if(req.body.userName == null || req.body.userName == ''){
+            return  res.json({
+                "status":"false",
+                "message":"Missing Parameter userName",
+                "error":"false", 
+        })
+        }
+        if(req.body.email == null ){
+            res.json({
+                "status":"false",
+                "message":"Missing Parameter email",
+                "error":"false", 
+        })
+        }
+       const  query = `select * from ${Tables.user} where email = '${req.body.email}' or userName = '${req.body.userName}'`;
         this.sqlService.getSingle(query).subscribe((result)=>{
                 console.log(result)
                 if(_.isEmpty(result)){
