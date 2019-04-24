@@ -18,16 +18,16 @@ export class BaseController {
             Logger.logError(err);
             if (err && err.code && err.code.toString().toLowerCase() === Config.errorCodes.NotFound.toLowerCase()) {
                 const ResponseData = {
-                    "status":"true",
+                    "status":"false",
                     "Code":404,
-                    "error":"true",
+                    "error":"false",
             }
                 res.send(ResponseData)
             } else {
                 const ResponseData = {
-                    "status":"true",
+                    "status":"false",
                     "Code":500,
-                    "error":"true",
+                    "error":"false",
             }
                 res.send(ResponseData)
             }
@@ -40,6 +40,32 @@ export class BaseController {
                 "status":"true",
                 "Code":200,
                 "error":"true"
+        }
+            res.json(registrationResponse);
+        }, (err) => {
+            Logger.logError(err);
+            if (err && err.code && err.code.toString().toLowerCase() === Config.errorCodes.NotFound.toLowerCase()) {
+               res.json({
+                "status":"False",
+                "Code":404,
+                "error":"False",  
+              })
+            } else {
+               res.json({
+                "status":"False",
+                "Code":422,
+                "error":"False", 
+              })
+            }
+        }, null);
+    }
+    protected sendRegistrationResponse(observable: Rx.Observable<any>, res) {
+        observable.subscribe((result) => {
+            const registrationResponse = {
+                "status":"true",
+                "Code":200,
+                "error":"true",
+                "data":result.id
         }
             res.json(registrationResponse);
         }, (err) => {

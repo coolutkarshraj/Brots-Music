@@ -69,7 +69,7 @@ export class UserController extends BaseController {
         
                 }
      const user =  this.userService.registerUser(req.body)
-     this.sendResponseWithonlystatusCodeError(user,res)
+     this.sendRegistrationResponse(user,res)
         
     }
 
@@ -121,7 +121,8 @@ export class UserController extends BaseController {
                 const error: ErrorModel = {
                     status: "false",
                     message: `User with email ${req.body.email} already Logged in From Device.`,
-                    error:"false"           
+                    error:"false"  
+
                 }
                 res.send(error);
                 return;
@@ -134,7 +135,8 @@ export class UserController extends BaseController {
                     const sucess: SucessModel = {
                         status: "true",
                         message: `User with email ${req.body.email}  Logged inSuccessfull.`,
-                        error:"true"           
+                        error:"true" ,
+                        data: result.id         
                     }
                     res.send(sucess)
                 }
@@ -174,7 +176,11 @@ export class UserController extends BaseController {
         const user = this.sqlService.executeQuery(`select * from ${Tables.user};`);
         this.sendResponse(user, res);
     }
-
+    public getSingleUserData(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.user} where id = ${req.body.id};`);
+        this.sendResponse(user, res);
+    }
+    
 
     public updateDeviceToken(req: Request, res: Response) {
         const userId = req.body.userId;
@@ -367,9 +373,9 @@ export class UserController extends BaseController {
                     })
                 }
                 res.json({
-                        "status":"true",
+                        "status":"false",
                         "message":"userName doesn't Exist",
-                        "error":"true", 
+                        "error":"false", 
                 })
         })
        

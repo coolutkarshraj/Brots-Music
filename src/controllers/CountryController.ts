@@ -13,8 +13,8 @@ export class CountryController extends BaseController {
         this.sqlService = new SqlService();
     }
 
-    public getAllSpringFieldData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield};`);
+    public getAllCountryDataonTheBasisofContinent(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.countriesList} where continentId = ${req.body.continentId};`);
         this.sendResponse(user, res);     
        }
 
