@@ -4,6 +4,7 @@ import {UserController} from "../controllers/UserController";
 import {springField} from "../controllers/springField"
 import { continentController } from "../controllers/continentController";
 import { CountryController } from "../controllers/CountryController";
+import { StateController } from "../controllers/StateController";
 
 
 export class AppRouter {
@@ -37,7 +38,7 @@ export class AppRouter {
           app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
           app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
           app.post("/v1/user/getAllCountryOnthebasisofContinent", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
-          app.get("/v1/user/continentOverview", (req: Request, res: Response) => this.springField.getContinentOverView(req, res));
+          app.get("/v1/user/gwtAllStateOnThebasisOfContry", (req: Request, res: Response) => this.springField.getContinentOverView(req, res));
           app.get("/v1/user/continentdescription", (req: Request, res: Response) => this.springField.getContinentOverView(req, res));
 
 

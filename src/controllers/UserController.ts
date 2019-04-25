@@ -118,13 +118,14 @@ export class UserController extends BaseController {
             }
             if (this.isAlreadyLoggedIn(result)) {
                 this.userService.sendAlreadylogggedInMail(result.email,result.name,result.city,result.country,result.address)
-                const error: ErrorModel = {
+                const sucessButAlreadyLoggedin: SucessModel = {
                     status: "false",
                     message: `User with email ${req.body.email} already Logged in From Device.`,
-                    error:"false"  
+                    error:"false" ,
+                    data:result.id 
 
                 }
-                res.send(error);
+                res.send(sucessButAlreadyLoggedin);
                 return;
             }
             this.updateLoginStatus( 1,1,result.id, (err, success) => {

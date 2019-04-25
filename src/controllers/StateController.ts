@@ -18,5 +18,4 @@ export class StateController extends BaseController {
         this.sendResponse(user, res);     
        }
 
-
 }
