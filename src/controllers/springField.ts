@@ -17,14 +17,11 @@ export class springField extends BaseController {
     }
 
     public getAllSpringFieldData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield};`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield} ORDER BY name Asc;`);
         this.sendResponse(user, res);     
        }
 
-       public getContinentOverView(req: Request, res: Response) {
-        res.sendfile("forgot_password.html") 
-       }
-
+    
 
        public addSpringFieldData(req: Request, res: Response) {
         if(req.body.constructor === Object && Object.keys(req.body).length === 0){

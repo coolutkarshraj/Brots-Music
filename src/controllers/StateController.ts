@@ -13,9 +13,31 @@ export class StateController extends BaseController {
         this.sqlService = new SqlService();
     }
 
-    public getAllSpringFieldData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield};`);
+    public getAllState(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.states} where country_id  = ${req.body.country_id}  ORDER BY name Asc;`);
         this.sendResponse(user, res);     
        }
+       
+       public getAllstatesOnbasiOfTrandingPopularDispopularv(req: Request, res: Response) {
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '2' ORDER BY name Asc;`);
+        trending.subscribe((result) => {
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '3' ORDER BY name Asc;`);
+            featured.subscribe((result1) => {
+                const allCountry = this.sqlService.executeQuery(`select * from ${Tables.states} ORDER BY name Asc;`);
+                allCountry.subscribe((result3) => {
+                    res.json({
+                        "status": "true",
+                        "Code": "true",
+                        "error": "true",
+                        "trending": result,
+                        "featured":result1,
+                        "allCountry":result3
+
+                    })
+                })
+
+            })
+        })
+    }
 
 }

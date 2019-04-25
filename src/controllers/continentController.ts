@@ -14,7 +14,7 @@ export class continentController extends BaseController {
     }
 
     public getAllContinentData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.continents};`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.continents} ORDER BY continents_name Asc;`);
         this.sendResponse(user, res);     
        }
 

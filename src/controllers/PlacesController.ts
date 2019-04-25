@@ -13,10 +13,31 @@ export class PlacesController extends BaseController {
         this.sqlService = new SqlService();
     }
 
-    public getAllSpringFieldData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield};`);
+    public getAllplaces(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.places} where city_id = ${req.body.city_id} ORDER BY places desc;`);
         this.sendResponse(user, res);     
        }
+       
+       public getAllplacesOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.places} where townsStatus = '2' ORDER BY places Asc;`);
+        trending.subscribe((result) => {
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.places} where townsStatus = '3' ORDER BY places Asc;`);
+            featured.subscribe((result1) => {
+                const allCountry = this.sqlService.executeQuery(`select * from ${Tables.places} ORDER BY places Asc;`);
+                allCountry.subscribe((result3) => {
+                    res.json({
+                        "status": "true",
+                        "Code": "true",
+                        "error": "true",
+                        "trending": result,
+                        "featured":result1,
+                        "allCountry":result3
 
+                    })
+                })
+
+            })
+        })  
+       }
 
 }
