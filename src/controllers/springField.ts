@@ -17,7 +17,7 @@ export class springField extends BaseController {
     }
 
     public getAllSpringFieldData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield} ORDER BY name Asc;`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield} ORDER BY id Asc;`);
         this.sendResponse(user, res);     
        }
 
