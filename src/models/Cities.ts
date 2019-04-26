@@ -1,8 +1,8 @@
 export interface Cities{
     id ?:number;
-    name ?:number;
+    name ?:String;
     state_id ?:number;
-    city_image ?:number;
+    city_image ?:String;
     Star ?:number;
     stateStatus ?:number;
 }

@@ -7,6 +7,7 @@ import { CountryController } from "../controllers/CountryController";
 import { StateController } from "../controllers/StateController";
 import { CityController } from "../controllers/CityController";
 import { PlacesController } from "../controllers/PlacesController";
+import { BestOffer } from "../controllers/BestOffer";
 
 
 export class AppRouter {
@@ -17,6 +18,7 @@ export class AppRouter {
     private StateController :StateController;
     private cityController :CityController;
     private placesController :PlacesController;
+    private bestOffer :BestOffer;
    
 
     constructor(app: express.Application) {
@@ -27,6 +29,7 @@ export class AppRouter {
         this.StateController = new StateController
         this.cityController = new CityController
         this.placesController = new PlacesController()
+        this.bestOffer =  new BestOffer();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -49,6 +52,7 @@ export class AppRouter {
           app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllState(req, res));
           app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
           app.post("/v1/user/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllplaces(req, res));
+          app.post("/v1/user/city/bestOffer", (req: Request, res: Response) => this.bestOffer.getAllBestOffer(req, res));
 
         /** User Destination Country Api*/
         app.post("/v1/user/getAllCountryOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.CountryController.getAllCountryOnbasiOfTrandingPopularDispopular(req, res));

@@ -7,5 +7,6 @@ export class Tables {
     public static cities: string = "cities";
     public static towns: string = "towns";
     public static places: string = "places";
+    public static bestOffer: string = "bestOffer";
 
 }

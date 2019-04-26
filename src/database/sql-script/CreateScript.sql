@@ -161,3 +161,22 @@ CREATE TABLE IF NOT EXISTS `places` (
   `townsStatus` varchar(5) NOT NULL default '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` BestOffer `
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `bestOffer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `city_id` int(11),
+  `state_id` int(200) ,
+  `country_id` int(11) ,
+  `continent_id` int(11) ,
+  `discount` int(11) NOT NULL default '0',
+  `star` int(11) NOT NULL default '0',
+  `discountStatus` int(5) NOT NULL default '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
