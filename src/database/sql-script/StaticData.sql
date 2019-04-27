@@ -53381,7 +53381,9 @@ INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`,
 INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `places_image`, `city_id`, `star`, `townsStatus`) VALUES ('22', 'Ranakpur', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '4', '3');
 INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `places_image`, `city_id`, `star`, `townsStatus`) VALUES ('23', 'Bundi', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '5', '3');
 INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `places_image`, `city_id`, `star`, `townsStatus`) VALUES ('24', 'Mysore palace', '1334', '80', 'https://www.travelogyindia.com/images/kerala/kumarakom-tipl-600x436-1.jpg', '18250', '5', '2');
-
+---------------------------------------------------------------------
+------------------Insert BestOffer--------------------
+----------------------------------------------------------------------
 
 INSERT INTO `high_mountains`.`bestOffer` (`id`, `title`, `image`, `description`, `city_id`, `state_id`, `country_id`, `continent_id`, `discount`, `star`, `discountStatus`) VALUES ('1', 'cheaper Bike', 'https://www.travelogyindia.com/images/hill-station/rishikesh.jpg', 'Get Cheaper Bike', '18250', '1334', '80', '4', '50', '4', '0');
 INSERT INTO `high_mountains`.`bestOffer` (`id`, `title`, `image`, `description`, `city_id`, `state_id`, `country_id`, `continent_id`, `discount`, `star`, `discountStatus`) VALUES ('2', 'Taj Mahal ', 'https://www.travelogyindia.com/images/hill-station/manali.jpg', 'Travelling is easy', '18250', '1334', '80', '4', '60', '4', '1');
@@ -53392,7 +53394,87 @@ INSERT INTO `high_mountains`.`bestOffer` (`id`, `title`, `image`, `description`,
 INSERT INTO `high_mountains`.`bestOffer` (`id`, `title`, `image`, `description`, `city_id`, `state_id`, `country_id`, `continent_id`, `discount`, `star`, `discountStatus`) VALUES ('7', 'Red Fort', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', 'Travelling is easy', '18250', '1334', '80', '4', '25', '5', '6');
 
 
-
+---------------------------------------------------------------------
+------------------update  bestOffer---------------------
+----------------------------------------------------------------------
 UPDATE `high_mountains`.`bestOffer` SET `title` = 'cheaper Restro', `description` = 'Get Cheaper Restro' WHERE (`id` = '3');
 UPDATE `high_mountains`.`bestOffer` SET `title` = 'couple Package', `description` = 'get Best Furnished room ' WHERE (`id` = '5');
 UPDATE `high_mountains`.`bestOffer` SET `description` = 'Book Delux cab' WHERE (`id` = '7');
+
+---------------------------------------------------------------------
+------------------insert towns---------------------
+----------------------------------------------------------------------
+
+
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`, `state_id`) VALUES ('1', 'Chapra', '');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('2', 'Achhnera');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('3', 'Adalajv');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('4', 'Adoor');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('5', 'Adyar');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('6', 'Adra');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('7', 'Afzalpur');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('8', 'Amalapuram');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('9', 'Afzalpur');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('10', 'Amalapuram');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('11', 'chapra');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('12', 'Hazipur');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('13', 'Sonpur');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('14', 'Nagra');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('15', 'Dalhousie');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('16', 'Benicave');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('17', 'DharamSala');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('18', 'Dalhousie');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('19', 'Benicave');
+INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('20', 'ModelTown');
+
+---------------------------------------------------------------------
+------------------update towns---------------------
+----------------------------------------------------------------------
+
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '11');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '12');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '13');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '14');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '15');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '16');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '17');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '18');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '19');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '20');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '10');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '9');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '8');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '7');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '6');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '5');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '4');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '3');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '2');
+UPDATE `high_mountains`.`towns` SET `state_id` = '1334' WHERE (`id` = '1');
+
+---------------------------------------------------------------------
+------------------update towns---------------------
+----------------------------------------------------------------------
+
+
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '11');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '12');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '13');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '14');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '15');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '16');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '17');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '18');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '19');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '20');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '10');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '9');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '8');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '7');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '6');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '5');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '4');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '3');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '2');
+UPDATE `high_mountains`.`towns` SET `city_id` = '18250' WHERE (`id` = '1');
+

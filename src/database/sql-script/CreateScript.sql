@@ -139,7 +139,8 @@ CREATE TABLE IF NOT EXISTS `cities` (
 CREATE TABLE IF NOT EXISTS `towns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `towns_name` varchar(30) NOT NULL,
-  `state_id` int(11) NOT NULL DEFAULT '1',
+  `city_id` int(11) NOT NULL DEFAULT '1',
+  `state_id` int(11) NOT NULL DEFAULT '0',
   `towns_image` varchar(200) Not NULL default '',
   `Star` varchar(5) NOT NULL default '',
   `townsStatus` varchar(5) NOT NULL default '',
