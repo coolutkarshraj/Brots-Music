@@ -40,4 +40,26 @@ export class PlacesController extends BaseController {
         })  
        }
 
+       public getHomeData(req: Request, res: Response) {
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.cities} where stateStatus = '2' ORDER BY name Asc;`);
+        trending.subscribe((result) => {
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.countriesList} where countryStatus = '3' ORDER BY country_name Asc;`);
+            featured.subscribe((result1) => {
+                const allCountry = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '3' ORDER BY places Asc;`);
+                allCountry.subscribe((result3) => {
+                    res.json({
+                        "status": "true",
+                        "Code": "true",
+                        "error": "true",
+                        "trending": result,
+                        "featured":result1,
+                        "allCountry":result3
+
+                    })
+                })
+
+            })
+        })  
+       }
+
 }
