@@ -51,9 +51,9 @@ export class PlacesController extends BaseController {
                         "status": "true",
                         "Code": "true",
                         "error": "true",
-                        "trending": result,
-                        "featured":result1,
-                        "allCountry":result3
+                        "trendingCities": result,
+                        "featuredCountry":result1,
+                        "PopularStates":result3
 
                     })
                 })
