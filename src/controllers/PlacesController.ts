@@ -45,7 +45,7 @@ export class PlacesController extends BaseController {
         trending.subscribe((result) => {
             const featured = this.sqlService.executeQuery(`select * from ${Tables.countriesList} where countryStatus = '3' ORDER BY country_name Asc;`);
             featured.subscribe((result1) => {
-                const allCountry = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '3' ORDER BY places Asc;`);
+                const allCountry = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '3' ORDER BY name Asc;`);
                 allCountry.subscribe((result3) => {
                     res.json({
                         "status": "true",
