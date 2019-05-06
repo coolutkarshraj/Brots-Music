@@ -18,41 +18,93 @@ USE `high_mountains`;
 -- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Table `user`
+-- -----------------------------------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `imageUrl` varchar(200) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `firstName` varchar(100) DEFAULT NULL,
-  `middleName` varchar(100) DEFAULT NULL,
-  `lastName` varchar(100) DEFAULT NULL,
-  `userName` varchar(100) DEFAULT NULL,
-  `referalCode` char(25) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imageUrl` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `middleName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
+  `referalCode` char(10) DEFAULT NULL,
+  `gender` smallint(2) DEFAULT NULL,
   `dob` datetime DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `phone` varchar(100) DEFAULT NULL,
-  `password` varchar(200) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `lastLogin` datetime DEFAULT NULL,
-  `status` varchar(200) DEFAULT NULL,
-  `city` varchar(200) DEFAULT NULL,
-  `state` varchar(200) DEFAULT NULL,
-  `country` varchar(200) DEFAULT NULL,
-  `about` varchar(350) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
-  `deviceToken` varchar(200) DEFAULT NULL,
-  `isLoggedIn` tinyint(4) not null DEFAULT 0,
-  `onlineStatus` tinyint(4) not null DEFAULT 0,
- `adhar_number` varchar(200) DEFAULT NULL,
- `followers` varchar(200) DEFAULT NULL,
- `following` varchar(200) DEFAULT NULL,
- `level` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE (`email`),
-  unique(`userName`),
+  `status` smallint(2) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `about` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `userStatus` varchar(255) DEFAULT NULL,
+  `languages` varchar(255) DEFAULT NULL,
+  `deviceToken` varchar(255) DEFAULT NULL,
+  `isLoggedIn` tinyint(2) not null DEFAULT 0,
+  `onlineStatus` tinyint(2) not null DEFAULT 0,
+  `interstedIn` tinyint(2) not null DEFAULT 0,
+  `adhar_number` varchar(255) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `isBloodDonated` varchar(255) DEFAULT NULL,
+  `isVolunterinComunityServices` varchar(255) DEFAULT NULL,
+  `wantToHelpPeople` varchar(255) DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   UNIQUE (`email`),
+   unique(`userName`),
    unique(`phone`)
 );
 
+-- -----------------------------------------------------
+-- Table user Profile Places,Education,
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `userProfilePlace`;
+CREATE TABLE `userProfilePlaace` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) not NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+   FOREIGN KEY fk_user_id(`userId`)
+   REFERENCES user(`id`)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+);
+
+DROP TABLE IF EXISTS `userProfileeducation`;
+CREATE TABLE `userProfileeducation` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) not NULL,
+  `educationTitle` varchar(255) DEFAULT NULL,
+  `educationDescription` varchar(255) DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY fk_user_id(`userId`)
+   REFERENCES user(`id`)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+);
+
+DROP TABLE IF EXISTS `userProfilepublicTag`;
+CREATE TABLE `userProfilepublicTag` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) not NULL,
+  `publictagTitle` varchar(255) DEFAULT NULL,
+  `publictagDescription` varchar(255) DEFAULT NULL,
+  `publictagrating` smallint(2) DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY fk_user_id(`userId`)
+   REFERENCES user(`id`)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+);
 -- -----------------------------------------------------
 -- Table `World Places List known as SpringField Like Country,Continent,State`
 -- -----------------------------------------------------
@@ -179,5 +231,19 @@ CREATE TABLE IF NOT EXISTS `bestOffer` (
   `discount` int(11) NOT NULL default '0',
   `star` int(11) NOT NULL default '0',
   `discountStatus` int(5) NOT NULL default '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` Place Information `
+-- -----------------------------------------------------v
+CREATE TABLE IF NOT EXISTS `placeInformation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `currentLatLng` varchar(30) NOT NULL,
+  `Address` varchar(300) NOT NULL DEFAULT '1',
+  `number` varchar(5) NOT NULL default '',
+  `websiteUrl` varchar(5) NOT NULL default '',
+  `time` varchar(5) NOT NULL default '',
+  `place_id` varchar(5) NOT NULL default '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;

@@ -8,5 +8,9 @@ export class Tables {
     public static towns: string = "towns";
     public static places: string = "places";
     public static bestOffer: string = "bestOffer";
+    public static placeInformation: string = "placeInformation";
+    public static userProfilePlace: string = "userProfilePlace";
+    public static userProfileeducation: string = "userProfileeducation";
+    public static userProfilepublicTag: string = "userProfilepublicTag";
 
 }

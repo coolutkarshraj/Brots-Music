@@ -61,5 +61,10 @@ export class PlacesController extends BaseController {
             })
         })  
        }
-
+       
+       public getPlaceInFormation(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.placeInformation} where place_id = ${req.body.place_id} ORDER BY places desc;`);
+        this.sendResponse(user, res);     
+       }
+       
 }

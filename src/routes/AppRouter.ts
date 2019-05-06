@@ -46,7 +46,7 @@ export class AppRouter {
         app.post("/v1/user/sendforgetPasswordLink", (req: Request, res: Response) => this.userController.sendForgetPasswordLink(req, res));
         app.post("/v1/user/updatePassword", (req: Request, res: Response) => this.userController.updatePassword(req, res));
         app.post("/v1/user/checkForUserNameExistOrNot", (req: Request, res: Response) => this.userController.checkUserNameExistOrNot(req, res)); 
-        app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userController.getSingleUserData(req, res)); 
+       
     
           /** User Destination continent Api*/
           app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
@@ -64,6 +64,15 @@ export class AppRouter {
         app.post("/v1/user/getAllplacesOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.placesController.getAllplacesOnbasiOfTrandingPopularDispopular(req, res));
         app.post("/v1/user/getAlltownsOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.townController.getAllTownsData(req, res));
         app.post("/v1/user/getHomeData", (req: Request, res: Response) => this.placesController.getHomeData(req, res));
+        app.post("/v1/user/getPlaceInformation", (req: Request, res: Response) => this.placesController.getPlaceInFormation(req, res));
+      
+       /** user  Profile Details Api*/
+       app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userController.getSingleUserData(req, res)); 
+       app.get("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUserPlaceData(req,res));
+       app.get("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUsereducationData(req,res));
+       app.get("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUserpublicTagData(req,res));
+
+
 
 
          /** Admnin Destination Api Not Tested*/
