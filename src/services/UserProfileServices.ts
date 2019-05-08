@@ -1,14 +1,11 @@
 import * as Rx from "rxjs/Rx";
 import {ServiceBase} from "./common/ServiceBase";
 import * as _ from "lodash";
-import {SucessModel} from "../models/SucessModel";
-import {SpringFieldModel} from "../models/SpringFieldModel"
 import {Tables} from "../database/Tables";
-import { EmailService } from './EmailServices';
-import { from } from "rxjs/observable/from";
 import {userProfilePlace } from "../models/userProfilePlace"
 import {userProfilepublicTag } from "../models/userProfilepublicTag"
 import {userProfileeducation } from "../models/userProfileeducation"
+import {ErrorModel} from "../models/ErrorModel";
 
 export class UserProfileServices extends ServiceBase {
    
@@ -16,32 +13,76 @@ export class UserProfileServices extends ServiceBase {
         super();
        
     }
-
     public addUserPlaceData(model: userProfilePlace): Rx.Observable<any> {
-        const promise = new Promise((resolve, reject) => {
-           const query =  this.queryBuilderService.getInsertQuery(Tables.userProfilePlace, model);
-           const userPlaceData =  this.sqlService.executeQuery(query);  
-           resolve(userPlaceData)
-        });
-        return Rx.Observable.fromPromise(promise);
+        return this.userExists(model.userId)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    console.log("errocbnxjhcbhjxkjcbjxkljjcvxkjlvncxkjl")
+                    const query = this.queryBuilderService.getInsertQuery(Tables.userProfilePlace, model);
+                    return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User doesnot exist.`,
+                        error:"false"           
+                    }
+                 
+                return Rx.Observable.throw(error);
+            })
+            .flatMap((result) => {
+                let query = `select * from ${Tables.userProfilePlace} where userId = ${model.userId}`;
+                const getQuery = this.sqlService.executeQuery(query)
+                return getQuery;
+            });
     }
 
-
+    public userExists(id): Rx.Observable<any> {
+        let query = `select id from ${Tables.user} where id = ${id}`;
+      return this.sqlService.executeQuery(query);
+  }
+    
     public addUserPublicTacData(model: userProfilepublicTag): Rx.Observable<any> {
-        const promise = new Promise((resolve, reject) => {
-            const query =  this.queryBuilderService.getInsertQuery(Tables.userProfilepublicTag, model);
-            const userPlaceData =  this.sqlService.executeQuery(query);  
-            resolve(userPlaceData)
+        return this.userExists(model.userId)
+        .flatMap((userExistsResult) => {
+            if (!_.isEmpty(userExistsResult)) {
+                const query = this.queryBuilderService.getInsertQuery(Tables.userProfilepublicTag, model);
+                return this.sqlService.executeQuery(query); 
+            }
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User doesnot exist.`,
+                    error:"false"           
+                }
+             
+            return Rx.Observable.throw(error);
+        })
+        .flatMap((result) => {
+            let query = `select * from ${Tables.userProfilepublicTag} where userId = ${model.userId}`;
+            const getQuery = this.sqlService.executeQuery(query)
+            return getQuery;
         });
-        return Rx.Observable.fromPromise(promise);
     }
     public addUserEducationData(model: userProfileeducation): Rx.Observable<any> {
-        const promise = new Promise((resolve, reject) => {
-            const query =  this.queryBuilderService.getInsertQuery(Tables.userProfileeducation, model);
-           const userPlaceData =  this.sqlService.executeQuery(query);  
-           resolve(userPlaceData)
+        return this.userExists(model.userId)
+        .flatMap((userExistsResult) => {
+            if (!_.isEmpty(userExistsResult)) {
+                const query = this.queryBuilderService.getInsertQuery(Tables.userProfileeducation, model);
+                return this.sqlService.executeQuery(query); 
+            }
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User doesnot exist.`,
+                    error:"false"           
+                }
+             
+            return Rx.Observable.throw(error);
+        })
+        .flatMap((result) => {
+            let query = `select * from ${Tables.userProfileeducation} where userId = ${model.userId}`;
+            const getQuery = this.sqlService.executeQuery(query)
+            return getQuery;
         });
-        return Rx.Observable.fromPromise(promise);
+       
     }
 
 

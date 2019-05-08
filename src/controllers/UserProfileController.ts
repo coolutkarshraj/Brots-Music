@@ -39,8 +39,8 @@ export class UserProfileController extends BaseController {
     }
 
     public addUserPlaceData(req: Request, res: Response) {
-        const user = this.userProfileServices.addUserPlaceData(req.body);
-        this.sendResponse(user, res);
+        const user = this.userProfileServices.addUserPlaceData(req.body)  
+        this.sendResponse(user,res)
     }
     public addUsereducationData(req: Request, res: Response) {
         const user = this.sqlService.executeQuery(`select * from ${Tables.userProfileeducation} where id = ${req.body.userId};`);
