@@ -43,12 +43,12 @@ export class UserProfileController extends BaseController {
         this.sendResponse(user,res)
     }
     public addUsereducationData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfileeducation} where id = ${req.body.userId};`);
-        this.sendResponse(user, res);
+        const user = this.userProfileServices.addUserEducationData(req.body)  
+        this.sendResponse(user,res)
     }
     public addUserpublicTagData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilepublicTag} where id = ${req.body.userId};`);
-        this.sendResponse(user, res);
+        const user = this.userProfileServices.addUserPublicTacData(req.body)  
+        this.sendResponse(user,res)
     }
     
 
