@@ -26,15 +26,15 @@ export class UserProfileController extends BaseController {
         this.sendResponse(user, res);
     }
     public getUserPlaceData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilePlace} where id = ${req.body.userId};`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilePlace} where userId = ${req.body.userId};`);
         this.sendResponse(user, res);
     }
     public getUsereducationData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfileeducation} where id = ${req.body.userId};`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfileeducation} where userId = ${req.body.userId};`);
         this.sendResponse(user, res);
     }
     public getUserpublicTagData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilepublicTag} where id = ${req.body.userId};`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilepublicTag} where userId = ${req.body.userId};`);
         this.sendResponse(user, res);
     }
 
