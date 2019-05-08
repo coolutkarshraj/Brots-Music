@@ -74,7 +74,7 @@ export class AppRouter {
        app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userProfileController.getSingleUserData(req, res)); 
        app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userProfileController.getUserPlaceData(req,res));
        app.post("/v1/user/addPlaceUserData",(req:Request,res:Response) => this.userProfileController.addUserPlaceData(req,res));
-       app.post("/v1/user/addUserEducationData",(req:Request,res:Response) => this.userProfileController.getUsereducationData(req,res));
+       app.post("/v1/user/getUserEducationData",(req:Request,res:Response) => this.userProfileController.getUsereducationData(req,res));
        app.post("/v1/user/addUserEducationData",(req:Request,res:Response) => this.userProfileController.addUsereducationData(req,res));
        app.post("/v1/user/getUserpublicTagData",(req:Request,res:Response) => this.userProfileController.getUserpublicTagData(req,res));
        app.post("/v1/user/addUserpublicTagData",(req:Request,res:Response) => this.userProfileController.addUserpublicTagData(req,res));
