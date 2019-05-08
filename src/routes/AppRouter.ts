@@ -68,9 +68,9 @@ export class AppRouter {
       
        /** user  Profile Details Api*/
        app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userController.getSingleUserData(req, res)); 
-       app.get("/v1/user/getPlaceUserData/:id",(req:Request,res:Response) => this.userController.getUserPlaceData(req,res));
-       app.get("/v1/user/getPlaceUserData/:id",(req:Request,res:Response) => this.userController.getUsereducationData(req,res));
-       app.get("/v1/user/getPlaceUserData/:id",(req:Request,res:Response) => this.userController.getUserpublicTagData(req,res));
+       app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUserPlaceData(req,res));
+       app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUsereducationData(req,res));
+       app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUserpublicTagData(req,res));
 
 
 
