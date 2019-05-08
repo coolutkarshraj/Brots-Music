@@ -67,7 +67,7 @@ CREATE TABLE `user` (
 -- -----------------------------------------------------
 
 DROP TABLE IF EXISTS `userProfilePlace`;
-CREATE TABLE `userProfilePlaace` (
+CREATE TABLE `userProfilePlace` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `userId` int(11) not NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -78,6 +78,7 @@ CREATE TABLE `userProfilePlaace` (
    ON UPDATE CASCADE
    ON DELETE RESTRICT
 );
+
 
 DROP TABLE IF EXISTS `userProfileeducation`;
 CREATE TABLE `userProfileeducation` (
