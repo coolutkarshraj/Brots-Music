@@ -100,6 +100,7 @@ CREATE TABLE `userProfilepublicTag` (
   `publictagTitle` varchar(255) DEFAULT NULL,
   `publictagDescription` varchar(255) DEFAULT NULL,
   `publictagrating` smallint(2) DEFAULT NULL,
+  `publictagUrl` smallint(2) DEFAULT NULL,
    PRIMARY KEY (`id`),
    FOREIGN KEY fk_user_id(`userId`)
    REFERENCES user(`id`)

@@ -9,6 +9,8 @@ import { CityController } from "../controllers/CityController";
 import { PlacesController } from "../controllers/PlacesController";
 import { BestOffer } from "../controllers/BestOffer";
 import { TownsController } from "../controllers/TownsController";
+import {UserProfileController} from "../controllers/UserProfileController"
+import { from } from "rxjs/observable/from";
 
 
 export class AppRouter {
@@ -21,6 +23,7 @@ export class AppRouter {
     private placesController :PlacesController;
     private bestOffer :BestOffer;
     private townController :TownsController;
+    private userProfileController :UserProfileController;
    
 
     constructor(app: express.Application) {
@@ -33,6 +36,7 @@ export class AppRouter {
         this.placesController = new PlacesController()
         this.bestOffer =  new BestOffer();
         this.townController =  new TownsController();
+        this.userProfileController = new UserProfileController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -41,7 +45,7 @@ export class AppRouter {
         app.post("/v1/user/register", (req: Request, res: Response) => this.userController.registerUser(req, res));
         app.post("/v1/user/login", (req: Request, res: Response) => this.userController.loginUser(req, res));
         app.get("/v1/user/logout/:id", (req: Request, res: Response) => this.userController.logoutUser(req, res));
-        app.get("/v1/getAllUsers", (req: Request, res: Response) => this.userController.getAllUsers(req, res));
+        app.get("/v1/getAllUsers", (req: Request, res: Response) => this.userProfileController.getAllUsers(req, res));
         app.post("/v1/user/updateDeviceToken", (req: Request, res: Response) => this.userController.updateDeviceToken(req, res));
         app.post("/v1/user/sendforgetPasswordLink", (req: Request, res: Response) => this.userController.sendForgetPasswordLink(req, res));
         app.post("/v1/user/updatePassword", (req: Request, res: Response) => this.userController.updatePassword(req, res));
@@ -67,10 +71,13 @@ export class AppRouter {
         app.post("/v1/user/getPlaceInformation", (req: Request, res: Response) => this.placesController.getPlaceInFormation(req, res));
       
        /** user  Profile Details Api*/
-       app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userController.getSingleUserData(req, res)); 
-       app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userController.getUserPlaceData(req,res));
-       app.post("/v1/user/getUserEducationData",(req:Request,res:Response) => this.userController.getUsereducationData(req,res));
-       app.post("/v1/user/geteUserpublicTagData",(req:Request,res:Response) => this.userController.getUserpublicTagData(req,res));
+       app.post("/v1/user/getSingleUserData", (req: Request, res: Response) => this.userProfileController.getSingleUserData(req, res)); 
+       app.post("/v1/user/getPlaceUserData",(req:Request,res:Response) => this.userProfileController.getUserPlaceData(req,res));
+       app.post("/v1/user/addPlaceUserData",(req:Request,res:Response) => this.userProfileController.addUserPlaceData(req,res));
+       app.post("/v1/user/addUserEducationData",(req:Request,res:Response) => this.userProfileController.getUsereducationData(req,res));
+       app.post("/v1/user/addUserEducationData",(req:Request,res:Response) => this.userProfileController.addUsereducationData(req,res));
+       app.post("/v1/user/getUserpublicTagData",(req:Request,res:Response) => this.userProfileController.getUserpublicTagData(req,res));
+       app.post("/v1/user/addUserpublicTagData",(req:Request,res:Response) => this.userProfileController.addUserpublicTagData(req,res));
 
 
 

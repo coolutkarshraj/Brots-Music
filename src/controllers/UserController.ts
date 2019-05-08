@@ -173,29 +173,6 @@ export class UserController extends BaseController {
       
     }
 
-    public getAllUsers(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.user};`);
-        this.sendResponse(user, res);
-    }
-    public getSingleUserData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.user} where id = ${req.body.id};`);
-        this.sendResponse(user, res);
-    }
-    public getUserPlaceData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilePlace} where id = ${req.body.userId};`);
-        this.sendResponse(user, res);
-    }
-    public getUsereducationData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfileeducation} where id = ${req.body.userId};`);
-        this.sendResponse(user, res);
-    }
-    public getUserpublicTagData(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.userProfilepublicTag} where id = ${req.body.userId};`);
-        this.sendResponse(user, res);
-    }
-    
-    
-
     public updateDeviceToken(req: Request, res: Response) {
         const userId = req.body.userId;
         const token = req.body.token;
