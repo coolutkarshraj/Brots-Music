@@ -19,8 +19,9 @@ export class UserProfileServices extends ServiceBase {
 
     public addUserPlaceData(model: userProfilePlace): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
-           
-           // resolve(song);
+           const query =  this.queryBuilderService.getInsertQuery(Tables.userProfilePlace, model);
+           const userPlaceData =  this.sqlService.executeQuery(query);  
+           resolve(userPlaceData)
         });
         return Rx.Observable.fromPromise(promise);
     }
@@ -28,15 +29,17 @@ export class UserProfileServices extends ServiceBase {
 
     public addUserPublicTacData(model: userProfilepublicTag): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
-           
-           // resolve(song);
+            const query =  this.queryBuilderService.getInsertQuery(Tables.userProfilepublicTag, model);
+            const userPlaceData =  this.sqlService.executeQuery(query);  
+            resolve(userPlaceData)
         });
         return Rx.Observable.fromPromise(promise);
     }
     public addUserEducationData(model: userProfileeducation): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
-           
-           // resolve(song);
+            const query =  this.queryBuilderService.getInsertQuery(Tables.userProfileeducation, model);
+           const userPlaceData =  this.sqlService.executeQuery(query);  
+           resolve(userPlaceData)
         });
         return Rx.Observable.fromPromise(promise);
     }
