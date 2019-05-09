@@ -17,7 +17,6 @@ export class UserProfileServices extends ServiceBase {
         return this.userExists(model.userId)
             .flatMap((userExistsResult) => {
                 if (!_.isEmpty(userExistsResult)) {
-                    console.log("errocbnxjhcbhjxkjcbjxkljjcvxkjlvncxkjl")
                     const query = this.queryBuilderService.getInsertQuery(Tables.userProfilePlace, model);
                     return this.sqlService.executeQuery(query); 
                 }

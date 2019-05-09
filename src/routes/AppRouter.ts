@@ -10,7 +10,8 @@ import { PlacesController } from "../controllers/PlacesController";
 import { BestOffer } from "../controllers/BestOffer";
 import { TownsController } from "../controllers/TownsController";
 import {UserProfileController} from "../controllers/UserProfileController"
-import { from } from "rxjs/observable/from";
+import {EditProfileController} from "../controllers/EditProfileController"
+import {DeleteUserProfileController} from "../controllers/DeleteUserProfileController"
 
 
 export class AppRouter {
@@ -24,6 +25,8 @@ export class AppRouter {
     private bestOffer :BestOffer;
     private townController :TownsController;
     private userProfileController :UserProfileController;
+    private editProfileController :EditProfileController;
+    private deleteUserProfileController :DeleteUserProfileController;
    
 
     constructor(app: express.Application) {
@@ -37,6 +40,8 @@ export class AppRouter {
         this.bestOffer =  new BestOffer();
         this.townController =  new TownsController();
         this.userProfileController = new UserProfileController();
+        this.editProfileController =  new EditProfileController();
+        this.deleteUserProfileController =  new DeleteUserProfileController()
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -52,14 +57,14 @@ export class AppRouter {
         app.post("/v1/user/checkForUserNameExistOrNot", (req: Request, res: Response) => this.userController.checkUserNameExistOrNot(req, res)); 
        
     
-          /** User Destination continent Api*/
-          app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
-          app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
-          app.post("/v1/user/getAllCountryOnthebasisofContinent", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
-          app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllState(req, res));
-          app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
-          app.post("/v1/user/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllplaces(req, res));
-          app.post("/v1/user/city/bestOffer", (req: Request, res: Response) => this.bestOffer.getAllBestOffer(req, res));
+         /** User Destination continent Api*/
+        app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
+        app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
+        app.post("/v1/user/getAllCountryOnthebasisofContinent", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
+        app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllState(req, res));
+        app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
+        app.post("/v1/user/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllplaces(req, res));
+        app.post("/v1/user/city/bestOffer", (req: Request, res: Response) => this.bestOffer.getAllBestOffer(req, res));
 
         /** User Destination Country Api*/
         app.post("/v1/user/getAllCountryOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.CountryController.getAllCountryOnbasiOfTrandingPopularDispopular(req, res));
@@ -80,10 +85,21 @@ export class AppRouter {
        app.post("/v1/user/addUserpublicTagData",(req:Request,res:Response) => this.userProfileController.addUserpublicTagData(req,res));
 
 
-
-
-         /** Admnin Destination Api Not Tested*/
-          app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));
+       /** user  Profile Edit Api*/
+       app.post("/v1/user/editBasicDetails", (req: Request, res: Response) => this.editProfileController.editBasicDetails(req, res)); 
+       app.post("/v1/user/editPublicTag",(req:Request,res:Response) => this.editProfileController.editUserPublicData(req,res));
+       app.post("/v1/user/editPlaceData",(req:Request,res:Response) => this.editProfileController.editUserPlaceData(req,res));
+       app.post("/v1/user/editUserEducation",(req:Request,res:Response) => this.editProfileController.editUsereducationData(req,res));
+       app.post("/v1/user/deletePublicTag",(req:Request,res:Response) => this.deleteUserProfileController.deleteBasicDetails(req,res));
+       app.post("/v1/user/deletePlaceData",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPlaceData(req,res));
+       app.post("/v1/user/deleteUserEducation",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPublicData(req,res));   
+       app.post("/v1/user/sendPasswordLink",(req:Request,res:Response) => this.editProfileController.sendPasswordResetLink(req,res));   
+       app.post("/v1/user/updatePassword",(req:Request,res:Response) => this.editProfileController.updatePassword(req,res));   
+       app.post("/v1/user/updateAdharCard",(req:Request,res:Response) => this.editProfileController.updateAdharCard(req,res));   
+       app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));   
+    
+       /** Admnin Destination Api Not Tested*/
+       app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));
       
     
     }
