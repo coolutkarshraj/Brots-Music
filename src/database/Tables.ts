@@ -12,5 +12,7 @@ export class Tables {
     public static userProfilePlace: string = "userProfilePlace";
     public static userProfileeducation: string = "userProfileeducation";
     public static userProfilepublicTag: string = "userProfilepublicTag";
+    public static createUserGallery: string = "createUserGallery";
+    public static userImageGallery: string = "userImageGallery";
 
 }

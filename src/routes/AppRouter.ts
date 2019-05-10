@@ -12,7 +12,7 @@ import { TownsController } from "../controllers/TownsController";
 import {UserProfileController} from "../controllers/UserProfileController"
 import {EditProfileController} from "../controllers/EditProfileController"
 import {DeleteUserProfileController} from "../controllers/DeleteUserProfileController"
-
+import {UserGalleryController} from "../controllers/UserGalleryController"
 
 export class AppRouter {
     private userController: UserController;
@@ -27,6 +27,7 @@ export class AppRouter {
     private userProfileController :UserProfileController;
     private editProfileController :EditProfileController;
     private deleteUserProfileController :DeleteUserProfileController;
+    private userGalleryController : UserGalleryController;
    
 
     constructor(app: express.Application) {
@@ -42,6 +43,7 @@ export class AppRouter {
         this.userProfileController = new UserProfileController();
         this.editProfileController =  new EditProfileController();
         this.deleteUserProfileController =  new DeleteUserProfileController()
+        this.userGalleryController = new UserGalleryController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -93,7 +95,12 @@ export class AppRouter {
        app.post("/v1/user/deletePlaceData",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPlaceData(req,res));
        app.post("/v1/user/deleteUserEducation",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPublicData(req,res));   
        app.post("/v1/user/updateAdharCard",(req:Request,res:Response) => this.editProfileController.updateAdharCard(req,res));   
-       app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));   
+       app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));
+       app.post("/v1/user/createGallery",(req:Request,res:Response)=>this.userGalleryController.addGalleryFolder(req,res))   
+       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.uploadGalleryImages(req,res))   
+       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getGalleryImages(req,res))   
+       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getBookMarkedImages(req,res))   
+       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getImageWithCategories(req,res))   
     
        /** Admnin Destination Api Not Tested*/
        app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));

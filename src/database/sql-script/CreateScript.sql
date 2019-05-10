@@ -238,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `bestOffer` (
 
 -- -----------------------------------------------------
 -- Table ` Place Information `
--- -----------------------------------------------------v
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `placeInformation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `currentLatLng` varchar(30) NOT NULL,
@@ -249,3 +249,40 @@ CREATE TABLE IF NOT EXISTS `placeInformation` (
   `place_id` varchar(5) NOT NULL default '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` UserGallery `
+-- -----------------------------------------------------
+CREATE TABLE `createUserGallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `galleryTile` varchar(100) NOT NULL,
+  `galleyIcon` varchar(100) NOT NULL,
+  `createdDate` datetime DEFAULT NULL,
+  `galleryDescription` varchar(200) DEFAULT NULL,
+  `location` int(200) DEFAULT NULL,
+  `userId` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+-- -----------------------------------------------------
+-- Table ` User Image Gallery `
+-- -----------------------------------------------------
+CREATE TABLE `userImageGallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imageTitle` varchar(100) NOT NULL,
+  `imageIcon` varchar(100) NOT NULL,
+  `createdDate` datetime DEFAULT NULL,
+  `total_like` int(11) DEFAULT NULL,
+  `total_comment` int(200) DEFAULT NULL,
+  `total_share` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `gallery_Id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `isBookMarked` boolean default false,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY fk_gallery_id(`gallery_Id`)
+   REFERENCES createUserGallery(`id`)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

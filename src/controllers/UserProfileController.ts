@@ -5,7 +5,7 @@ import SqlService from "../services/common/SQLService";
 import {Tables} from "../database/Tables";
 import * as _ from "lodash";
 import * as __ from "underscore";
-import { from } from "rxjs/observable/from";
+
 
 export class UserProfileController extends BaseController {
     private sqlService: SqlService;
