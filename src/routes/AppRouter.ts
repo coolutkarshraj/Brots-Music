@@ -90,11 +90,8 @@ export class AppRouter {
        app.post("/v1/user/editPublicTag",(req:Request,res:Response) => this.editProfileController.editUserPublicData(req,res));
        app.post("/v1/user/editPlaceData",(req:Request,res:Response) => this.editProfileController.editUserPlaceData(req,res));
        app.post("/v1/user/editUserEducation",(req:Request,res:Response) => this.editProfileController.editUsereducationData(req,res));
-       app.post("/v1/user/deletePublicTag",(req:Request,res:Response) => this.deleteUserProfileController.deleteBasicDetails(req,res));
        app.post("/v1/user/deletePlaceData",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPlaceData(req,res));
        app.post("/v1/user/deleteUserEducation",(req:Request,res:Response) => this.deleteUserProfileController.deleteUserPublicData(req,res));   
-       app.post("/v1/user/sendPasswordLink",(req:Request,res:Response) => this.editProfileController.sendPasswordResetLink(req,res));   
-       app.post("/v1/user/updatePassword",(req:Request,res:Response) => this.editProfileController.updatePassword(req,res));   
        app.post("/v1/user/updateAdharCard",(req:Request,res:Response) => this.editProfileController.updateAdharCard(req,res));   
        app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));   
     

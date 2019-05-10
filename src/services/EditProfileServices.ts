@@ -1,11 +1,12 @@
 import * as Rx from "rxjs/Rx";
 import {ServiceBase} from "./common/ServiceBase";
 import * as _ from "lodash";
-import {SucessModel} from "../models/SucessModel";
-import {SpringFieldModel} from "../models/SpringFieldModel"
+import {ErrorModel} from "../models/ErrorModel";
+import {UserModel} from "../models/UserModel";
 import {Tables} from "../database/Tables";
-import { EmailService } from './EmailServices';
-import { from } from "rxjs/observable/from";
+import { userProfilepublicTag } from "../models/userProfilepublicTag";
+import { userProfilePlace } from "../models/userProfilePlace";
+import { userProfileeducation } from "../models/userProfileeducation";
 
 export class EditProfileServices extends ServiceBase {
    
@@ -14,48 +15,82 @@ export class EditProfileServices extends ServiceBase {
        
     }
 
-    public editBasicDetails(model: SpringFieldModel,res, callback) {
-        console.log(model)
-
-        const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);
-        this.sqlService.executeQuery(query).subscribe((result) => {
-            if (result !== null) {
-                callback(null, result);
-            }
-        }, (error) => null, null);
+    public editBasicDetails(model: UserModel): Rx.Observable<any> {
+        return this.userExists(model.id)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    const condition = 'where id = ' + model.id;
+                    delete model.id;
+                    const query = this.queryBuilderService.getUpdateQuery(Tables.user, model,condition);
+                    return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email ${model.email} not exists.`,
+                        error:"false"           
+                    } 
+                return Rx.Observable.throw(error);
+            })
     }
 
-    public editEductionDetails(model: SpringFieldModel,res, callback) {
-        console.log(model)
+    public userExists(id): Rx.Observable<any> {
+        let query = `select id from ${Tables.user} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
+    
 
-        const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);
-        this.sqlService.executeQuery(query).subscribe((result) => {
-            if (result !== null) {
-                callback(null, result);
+    public editEductionDetails(model: userProfileeducation):Rx.Observable<any> {
+        return this.userExists(model.id)
+        .flatMap((userExistsResult) => {
+            if (!_.isEmpty(userExistsResult)) {
+                const condition = 'where id = ' + model.id;
+                delete model.id;
+                const query = this.queryBuilderService.getUpdateQuery(Tables.userProfileeducation, model,condition);
+                return this.sqlService.executeQuery(query); 
             }
-        }, (error) => null, null);
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User doesn't exists.`,
+                    error:"false"           
+                } 
+            return Rx.Observable.throw(error);
+        })
     }
 
-    public editPublicTagData(model: SpringFieldModel,res, callback) {
-        console.log(model)
-
-        const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);
-        this.sqlService.executeQuery(query).subscribe((result) => {
-            if (result !== null) {
-                callback(null, result);
+    public editPublicTagData(model: userProfilepublicTag):Rx.Observable<any> {
+        return this.userExists(model.id)
+        .flatMap((userExistsResult) => {
+            if (!_.isEmpty(userExistsResult)) {
+                const condition = 'where id = ' + model.id;
+                delete model.id;
+                const query = this.queryBuilderService.getUpdateQuery(Tables.userProfilepublicTag, model,condition);
+                return this.sqlService.executeQuery(query); 
             }
-        }, (error) => null, null);
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User doesn't exists.`,
+                    error:"false"           
+                } 
+            return Rx.Observable.throw(error);
+        })
     }
 
-    public editPlaceTagData(model: SpringFieldModel,res, callback) {
-        console.log(model)
-
-        const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);
-        this.sqlService.executeQuery(query).subscribe((result) => {
-            if (result !== null) {
-                callback(null, result);
+    public editPlacePlaceData(model: userProfilePlace):Rx.Observable<any> {
+        return this.userExists(model.id)
+        .flatMap((userExistsResult) => {
+            if (!_.isEmpty(userExistsResult)) {
+                const condition = 'where id = ' + model.id;
+                delete model.id;
+                const query = this.queryBuilderService.getUpdateQuery(Tables.userProfilePlace, model,condition);
+                return this.sqlService.executeQuery(query); 
             }
-        }, (error) => null, null);
+                const error: ErrorModel = {
+                    status: "false",
+                    message: `User doesn't exists.`,
+                    error:"false"           
+                } 
+            return Rx.Observable.throw(error);
+        })
     }
 
 }

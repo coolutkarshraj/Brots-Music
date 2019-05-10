@@ -85,6 +85,31 @@ export class BaseController {
             }
         }, null);
     }
+    protected sendResponseWithoutData(observable: Rx.Observable<any>, res) {
+        observable.subscribe((result) => {
+            const registrationResponse = {
+                "status":"true",
+                "Code":200,
+                "error":"true",
+        }
+            res.json(registrationResponse);
+        }, (err) => {
+            Logger.logError(err);
+            if (err && err.code && err.code.toString().toLowerCase() === Config.errorCodes.NotFound.toLowerCase()) {
+               res.json({
+                "status":"False",
+                "Code":404,
+                "error":"False",  
+              })
+            } else {
+               res.json({
+                "status":"False",
+                "Code":422,
+                "error":"False", 
+              })
+            }
+        }, null);
+    }
    
 
     protected sendResponseWithKey(key: string, observable: Rx.Observable<any>, res) {

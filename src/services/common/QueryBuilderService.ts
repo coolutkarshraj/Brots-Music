@@ -33,7 +33,6 @@ export default class QueryBuilderService {
             }
         }
         sql = sql.slice(0, -2);
-        // Logger.logSql(sql);
         return sql + ";";
     }
 
