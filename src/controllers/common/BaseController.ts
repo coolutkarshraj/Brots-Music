@@ -2,7 +2,6 @@ import * as Rx from "rxjs/Rx";
 import {Logger} from "../../services/common/Logger";
 import {Config} from "../../Config";
 import * as gcm from "node-gcm";
-import * as path from "path";
 
 export class BaseController {
     protected sendResponse(observable: Rx.Observable<any>, res) {
@@ -104,7 +103,7 @@ export class BaseController {
             } else {
                res.json({
                 "status":"False",
-                "Code":422,
+                "Code":500,
                 "error":"False", 
               })
             }

@@ -1,7 +1,7 @@
 export interface UserGalleryModel{
     id ?: number;   
     galleryTile ?: String;   
-    galleyIcon ?: number;   
+    galleyIcon ?: String;   
     createdDate ?: Date;   
     galleryDescription ?: String;   
     location ?: String;   

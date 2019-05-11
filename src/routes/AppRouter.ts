@@ -98,9 +98,9 @@ export class AppRouter {
        app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));
        app.post("/v1/user/createGallery",(req:Request,res:Response)=>this.userGalleryController.addGalleryFolder(req,res))   
        app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.uploadGalleryImages(req,res))   
-       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getGalleryImages(req,res))   
-       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getBookMarkedImages(req,res))   
-       app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.getImageWithCategories(req,res))   
+       app.post("/v1/user/delteImage",(req:Request,res:Response)=>this.userGalleryController.getGalleryImages(req,res))   
+       app.post("/v1/user/bookmarkImage",(req:Request,res:Response)=>this.userGalleryController.getBookMarkedImages(req,res))   
+       app.post("/v1/user/getAllImages",(req:Request,res:Response)=>this.userGalleryController.getImageWithCategories(req,res))   
     
        /** Admnin Destination Api Not Tested*/
        app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));

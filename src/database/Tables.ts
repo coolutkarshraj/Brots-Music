@@ -13,6 +13,6 @@ export class Tables {
     public static userProfileeducation: string = "userProfileeducation";
     public static userProfilepublicTag: string = "userProfilepublicTag";
     public static createUserGallery: string = "createUserGallery";
-    public static userImageGallery: string = "userImageGallery";
+    public static userimagegallery: string = "userimagegallery";
 
 }
