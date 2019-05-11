@@ -53,12 +53,9 @@ export class UserGalleryServices extends ServiceBase {
                             "error":"false"
                        })) 
                     }
-                    model.imageIcon = req['file'].location
-                    // const result = `INSERT INTO ${Tables.userImageGallery} (imageTitle, imageIcon, createdDate,total_like,total_comment,total_share,userIdgallery_Id,isBookMarked )
-                    // VALUES (${req.body.imageTitle}, ${req['file'].location}, ${req.body.createdDate}, ${req.body.total_like},${req.body.total_comment},${req.body.total_share}
-                    //     ${req.body.userIdgallery_Id}, ${req.body.isBookMarked});` 
-                    this.sqlService.executeQuery(result)
-                    resolve( result)    
+                    model.imageIcon = req['file'].location 
+                    
+                    resolve( req['file'].location )    
                     
                   
                 }

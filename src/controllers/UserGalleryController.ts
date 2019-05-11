@@ -62,9 +62,6 @@ export class UserGalleryController extends BaseController {
         this.sendResponseWithoutData(user,res)  
     }
     
-    public userExists(id): Rx.Observable<any> {
-        let query = `select id from ${Tables.user} where id = "${id}";`;
-      return this.sqlService.executeQuery(query);
-  }
+
 
 }
