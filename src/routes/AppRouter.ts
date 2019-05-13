@@ -102,7 +102,8 @@ export class AppRouter {
        app.post("/v1/user/bookmarkImage",(req:Request,res:Response)=>this.userGalleryController.getBookMarkedImages(req,res))   
        app.post("/v1/user/createBookmarkImage",(req:Request,res:Response)=>this.userGalleryController.createBookMarkedImages(req,res))   
        app.post("/v1/user/deleteBookmarkImage",(req:Request,res:Response)=>this.userGalleryController.deleteBookMarkedImages(req,res))   
-       app.post("/v1/user/getAllImages",(req:Request,res:Response)=>this.userGalleryController.getImageWithCategories(req,res))   
+       app.post("/v1/user/getAllImagesAcToAlbum",(req:Request,res:Response)=>this.userGalleryController.getImageAccordingToAlbumFolder(req,res))   
+       app.post("/v1/user/deleteUserProfileImages",(req:Request,res:Response)=>this.userGalleryController.deleteUserProfileImages(req,res))   
     
        /** Admnin Destination Api Not Tested*/
        app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));

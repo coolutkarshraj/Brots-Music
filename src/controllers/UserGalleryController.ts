@@ -2,8 +2,6 @@ import {Request, Response} from "express";
 import {BaseController} from "./common/BaseController";
 import {UserGalleryServices} from "../services/UserGalleryServices"
 import SqlService from "../services/common/SQLService"; 
-import QueryBuilderService from "../services/common/QueryBuilderService"; 
-import {UserImageGallery} from "../models/UserImageGallery";
 import * as _ from "lodash";
 import * as __ from "underscore";
 import {Tables} from "../database/Tables";
@@ -72,10 +70,18 @@ const query = `select * from ${Tables.userimagegallery} where userId = ${req.bod
     }
     
 
-    public getImageWithCategories(req: Request, res: Response) {
-        const user =  this.userGalleryServices.createGalleryFolder(req.body)
-        this.sendResponseWithoutData(user,res)  
+    public getImageAccordingToAlbumFolder(req: Request, res: Response) {
+        const query =  `select * from ${Tables.userimagegallery} where gallery_Id = ${req.body.gallery_Id} ORDER BY imageTitle Asc;`
+        const executeQuery =  this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)  
     }
+    
+    public deleteUserProfileImages(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.userBookMarkedImage} WHERE id = ${req.body.imageId};`
+        const executeQuery =  this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)  
+    }
+    
     
 
 
