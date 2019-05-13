@@ -44,11 +44,16 @@ export class UserGalleryController extends BaseController {
     }
 
     public getGalleryImages(req: Request, res: Response) {
-        const user =  this.userGalleryServices.createGalleryFolder(req.body)
-        this.sendResponseWithoutData(user,res)  
+const query = `select * from ${Tables.userimagegallery} where userId = ${req.body.userId} ORDER BY imageTitle LIMIT ${req.body.offsetLimit};`
+       const executeQuery = this.sqlService.executeQuery(query)
+       this.sendResponse(executeQuery,res)  
     }
 
     public getBookMarkedImages(req: Request, res: Response) {
+        const user =  this.userGalleryServices.createGalleryFolder(req.body)
+        this.sendResponseWithoutData(user,res)  
+    }
+    public createBookMarkedImages(req: Request, res: Response) {
         const user =  this.userGalleryServices.createGalleryFolder(req.body)
         this.sendResponseWithoutData(user,res)  
     }

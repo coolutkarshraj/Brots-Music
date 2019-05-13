@@ -25,5 +25,9 @@ export interface UserModel {
     adhar_number?: number;
     following?: number;
     followers?: number;
+    isBloodDonated?: number;
+    isVolunterinComunityServices?: number;
+    wantToHelpPeople?: number;
     level?: number;
+    interstedIn?: number;
 }
