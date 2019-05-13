@@ -7,6 +7,8 @@ import {Tables} from "../database/Tables";
 import { userProfilepublicTag } from "../models/userProfilepublicTag";
 import { userProfilePlace } from "../models/userProfilePlace";
 import { userProfileeducation } from "../models/userProfileeducation";
+const uploadProfileImage = require('../s3Services/S3Services');
+const profileImageUpload = uploadProfileImage.single('imageIcon');
 
 export class EditProfileServices extends ServiceBase {
    
@@ -92,5 +94,50 @@ export class EditProfileServices extends ServiceBase {
             return Rx.Observable.throw(error);
         })
     }
+
+    public uploadImages(req, res): Rx.Observable<any> {
+        const promise = new Promise((resolve, reject) => {
+         profileImageUpload(req, res, function (err) {
+                if (err) {  
+                    return res.json({
+                         "status":"false",
+                         "message":"File Upload Error",
+                         "error":"false"
+                    })
+                }else{
+                    if (req.file == undefined) {
+                      reject(res.json({
+                            "status":"false",
+                            "message":"Something Went Wrong",
+                            "error":"false"
+                       })) 
+                    }
+                    resolve( req['file'].location )    
+                    
+                  
+                }
+            })
+          
+        });
+        return Rx.Observable.fromPromise(promise);
+    }
+    public updateProfileImage(model: UserModel): Rx.Observable<any> {
+        return this.userExists(model.id)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    const condition = 'where id = ' + model.id;
+                    delete model.id;
+                    const query = this.queryBuilderService.getUpdateQuery(Tables.user, model,condition);
+                    return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email ${model.email} not exists.`,
+                        error:"false"           
+                    } 
+                return Rx.Observable.throw(error);
+            })
+    }
+
 
 }

@@ -49,5 +49,21 @@ export class EditProfileController extends BaseController {
            
        })
        }
+
+       public updateProfilePic(req: Request, res: Response) {
+        this.editProfileServices.uploadImages(req,res).subscribe((result1)=>{
+           if (!_.isEmpty(result1)) {
+            const user =  this.editProfileServices.updateProfileImage(req.body)
+            this.sendResponseWithoutData(user,res)  
+             
+           }else{
+               return res.json({
+                   "status":"false",
+                   "message":"Something Went Wrong",
+                   "error":"false"
+               })
+           }
+        }) 
+       }
     
 }

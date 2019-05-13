@@ -50,6 +50,7 @@ export class AppRouter {
         /** user  Basic Details Api*/
         app.post("/v1/user/registrationVerify", (req: Request, res: Response) => this.userController.verifyRegistration(req, res));
         app.post("/v1/user/register", (req: Request, res: Response) => this.userController.registerUser(req, res));
+        app.post("/v1/user/uploadProfilePic", (req: Request, res: Response) => this.userController.uploadProfilePic(req, res));
         app.post("/v1/user/login", (req: Request, res: Response) => this.userController.loginUser(req, res));
         app.get("/v1/user/logout/:id", (req: Request, res: Response) => this.userController.logoutUser(req, res));
         app.get("/v1/getAllUsers", (req: Request, res: Response) => this.userProfileController.getAllUsers(req, res));
@@ -89,6 +90,7 @@ export class AppRouter {
 
        /** user  Profile Edit Api*/
        app.post("/v1/user/editBasicDetails", (req: Request, res: Response) => this.editProfileController.editBasicDetails(req, res)); 
+       app.post("/v1/user/updateProfilePic", (req: Request, res: Response) => this.editProfileController.updateProfilePic(req, res)); 
        app.post("/v1/user/editPublicTag",(req:Request,res:Response) => this.editProfileController.editUserPublicData(req,res));
        app.post("/v1/user/editPlaceData",(req:Request,res:Response) => this.editProfileController.editUserPlaceData(req,res));
        app.post("/v1/user/editUserEducation",(req:Request,res:Response) => this.editProfileController.editUsereducationData(req,res));

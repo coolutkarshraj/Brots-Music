@@ -72,6 +72,27 @@ export class UserController extends BaseController {
      this.sendRegistrationResponse(user,res)
         
     }
+    
+    
+    public uploadProfilePic(req: Request, res: Response) {
+        this.userService.uploadImages(req,res).subscribe((result1)=>{
+           if (!_.isEmpty(result1)) {
+              return res.json({
+                "status":"true",
+                "message":"Profile Uploaded Successfully",
+                "error":"true",
+                "data":result1
+              })
+             
+           }else{
+               return res.json({
+                   "status":"false",
+                   "message":"Something Went Wrong",
+                   "error":"false"
+               })
+           }
+        }) 
+       }
 
     public loginUser(req: Request, res: Response) {
         console.log(req.body)

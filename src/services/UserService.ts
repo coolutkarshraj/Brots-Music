@@ -2,7 +2,8 @@ import * as Rx from "rxjs/Rx";
 import {ServiceBase} from "./common/ServiceBase";
 import * as _ from "lodash";
 import {ErrorModel} from "../models/ErrorModel";
-import {SucessModel} from "../models/SucessModel";
+const uploadProfileImage = require('../s3Services/S3Services');
+const profileImageUpload = uploadProfileImage.single('imageIcon');
 import {UserModel} from "../models/UserModel";
 import {Tables} from "../database/Tables";
 import { EmailService } from '../services/EmailServices';
@@ -158,6 +159,33 @@ export class UserService extends ServiceBase {
             };
             this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.updatePassword);
           
+    }
+
+    public uploadImages(req, res): Rx.Observable<any> {
+        const promise = new Promise((resolve, reject) => {
+         profileImageUpload(req, res, function (err) {
+                if (err) {  
+                    return res.json({
+                         "status":"false",
+                         "message":"File Upload Error",
+                         "error":"false"
+                    })
+                }else{
+                    if (req.file == undefined) {
+                      reject(res.json({
+                            "status":"false",
+                            "message":"Something Went Wrong",
+                            "error":"false"
+                       })) 
+                    }
+                    resolve( req['file'].location )    
+                    
+                  
+                }
+            })
+          
+        });
+        return Rx.Observable.fromPromise(promise);
     }
 
 

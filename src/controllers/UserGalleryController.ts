@@ -42,7 +42,7 @@ export class UserGalleryController extends BaseController {
     }
 
     public getGalleryImages(req: Request, res: Response) {
-const query = `select * from ${Tables.userimagegallery} where userId = ${req.body.userId} ORDER BY imageTitle LIMIT ${req.body.offsetLimit};`
+       const query = `select * from ${Tables.userimagegallery} where userId = ${req.body.userId} ORDER BY imageTitle LIMIT ${req.body.offsetLimit};`
        const executeQuery = this.sqlService.executeQuery(query)
        this.sendResponse(executeQuery,res)  
     }
