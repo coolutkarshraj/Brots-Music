@@ -279,7 +279,7 @@ CREATE TABLE `userImageGallery` (
   `userId` int(11) NOT NULL,
   `gallery_Id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `isBookMarked` boolean default false,
+  `isBookMarked` int(11) NOT NULL,
    PRIMARY KEY (`id`),
    FOREIGN KEY fk_gallery_id(`gallery_Id`)
    REFERENCES createUserGallery(`id`)

@@ -2,7 +2,7 @@ export interface UserImageGallery{
     id ?: number;   
     imageTitle ?: string;   
     imageIcon ?: String;   
-    createdDate ?: String;    
+    createdDate ?: Date;    
     total_like ?: number;    
     total_comment ?: number;    
     total_share ?: number;    

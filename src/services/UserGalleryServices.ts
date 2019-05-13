@@ -3,10 +3,10 @@ import {ServiceBase} from "./common/ServiceBase";
 import * as _ from "lodash";
 import {ErrorModel} from "../models/ErrorModel";
 import {UserGalleryModel} from "../models/UserGalleryModel";
-import {UserImageGallery} from "../models/UserImageGallery";
 import {Tables} from "../database/Tables";
 const uploadProfileImage = require('../s3Services/S3Services');
 const profileImageUpload = uploadProfileImage.single('imageIcon');
+import {UserImageGallery} from "../models/UserImageGallery";
 
 
 export class UserGalleryServices extends ServiceBase {
@@ -25,21 +25,39 @@ export class UserGalleryServices extends ServiceBase {
                 }
                     const error: ErrorModel = {
                         status: "false",
-                        message: `User with email already exists.`,
+                        message: `User with email does not exists.`,
                         error:"false"           
                     }
                 return Rx.Observable.throw(error);
             })
     }
 
-    public uploadImages(req, res,model: UserImageGallery): Rx.Observable<any> {
-        var status =  "true";
+    public insertImage(model: UserImageGallery): Rx.Observable<any> {
+        return this.userExists(model.userId)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    console.log("djskjfhkdsjfhkjdfhdjkfhdjk")
+                    console.log(model.imageIcon)
+                    console.log("fcdiofdhfhdhfdhfhdfhdhfhdhfdkfhdhfhd")
+                    const query = `INSERT INTO ${Tables.userimagegallery} (imageTitle, imageIcon, createdDate,total_like,total_comment,total_share,gallery_Id,isBookMarked )
+                    VALUES ('${model.imageTitle}', '${model.imageIcon}', ${model.createdDate}, ${model.total_like},${model.total_comment},${model.total_share},
+                        ${model.gallery_Id}, ${model.isBookMarked});` 
+                        console.log(this.sqlService.executeQuery(query))  
+                 return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email does not exists.`,
+                        error:"false"           
+                    }
+                return Rx.Observable.throw(error);
+            })
+    }
 
+    public uploadImages(req, res): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
          profileImageUpload(req, res, function (err) {
-            status = "false"
                 if (err) {  
-                    console.log('error');
                     return res.json({
                          "status":"false",
                          "message":"File Upload Error",
@@ -53,8 +71,6 @@ export class UserGalleryServices extends ServiceBase {
                             "error":"false"
                        })) 
                     }
-                    model.imageIcon = req['file'].location 
-                    
                     resolve( req['file'].location )    
                     
                   
@@ -70,9 +86,6 @@ export class UserGalleryServices extends ServiceBase {
       return this.sqlService.executeQuery(query);
   }
 
-  public insertImages(table,model: UserImageGallery): Rx.Observable<any> {
-    const query =this.queryBuilderService.getInsertQuery(table, model)
-    return this.sqlService.executeQuery(query);
-}
+
 
 }

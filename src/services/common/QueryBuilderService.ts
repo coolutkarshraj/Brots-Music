@@ -33,6 +33,7 @@ export default class QueryBuilderService {
             }
         }
         sql = sql.slice(0, -2);
+        console.log(sql)
         return sql + ";";
     }
 
