@@ -7,6 +7,7 @@ import {Tables} from "../database/Tables";
 const uploadProfileImage = require('../s3Services/S3Services');
 const profileImageUpload = uploadProfileImage.single('imageIcon');
 import {UserImageGallery} from "../models/UserImageGallery";
+import {BookMarkModel} from "../models/BookMarkModel";
 
 
 export class UserGalleryServices extends ServiceBase {
@@ -31,8 +32,23 @@ export class UserGalleryServices extends ServiceBase {
                 return Rx.Observable.throw(error);
             })
     }
+    public createBookMarkedImages(model: BookMarkModel): Rx.Observable<any> {
+        return this.userExists(model.user_Id)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    const query = this.queryBuilderService.getInsertQuery(Tables.userBookMarkedImage, model);
+                    return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email does not exists.`,
+                        error:"false"           
+                    }
+                return Rx.Observable.throw(error);
+            })
+    }
 
-
+    
 
     public insertImage(model: UserImageGallery): Rx.Observable<any> {
         return this.userExists(model.userId)

@@ -52,7 +52,7 @@ const query = `select * from ${Tables.userimagegallery} where userId = ${req.bod
     public getBookMarkedImages(req: Request, res: Response) {
        const query = `SELECT
        userimagegallery.id,userimagegallery.imageTitle,userimagegallery.imageIcon,userimagegallery.total_like,
-       userimagegallery.total_comment,userBookMarkedImage.isBookMarked, userBookMarkedImage.id
+       userimagegallery.total_comment,userBookMarkedImage.isBookMarked, userBookMarkedImage.bookMarkId
        FROM
        ${Tables.userimagegallery}
            INNER JOIN
@@ -65,6 +65,12 @@ const query = `select * from ${Tables.userimagegallery} where userId = ${req.bod
         const user =  this.userGalleryServices.createGalleryFolder(req.body)
         this.sendResponseWithoutData(user,res)  
     }
+    public deleteBookMarkedImages(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.userBookMarkedImage} WHERE bookMarkId = ${req.body.bookMarkId};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)  
+    }
+    
 
     public getImageWithCategories(req: Request, res: Response) {
         const user =  this.userGalleryServices.createGalleryFolder(req.body)

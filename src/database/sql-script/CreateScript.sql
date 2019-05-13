@@ -291,13 +291,21 @@ CREATE TABLE `userImageGallery` (
 -- Table ` User BookMark Image Gallery `
 -- -----------------------------------------------------
 CREATE TABLE `userBookMarkedImage` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookMarkId` int(11) NOT NULL AUTO_INCREMENT,
   `isBookMarked` varchar(100) NOT NULL,
   `user_Id` int(11) NOT NULL,
   `imageId` int DEFAULT NULL,
-   PRIMARY KEY (`id`),
+   PRIMARY KEY (`bookMarkId`),
    FOREIGN KEY fk_image_id(`imageId`)
    REFERENCES userimagegallery(`id`)
    ON UPDATE CASCADE
    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+ALTER TABLE userBookMarkedImage
+Change id bookMarkId int(11);
+
+
+-- -----------------------------------------------------
+-- Table ` User BookMark Image Gallery `
+-- -----------------------------------------------------
