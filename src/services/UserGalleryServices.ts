@@ -32,6 +32,8 @@ export class UserGalleryServices extends ServiceBase {
             })
     }
 
+
+
     public insertImage(model: UserImageGallery): Rx.Observable<any> {
         return this.userExists(model.userId)
             .flatMap((userExistsResult) => {
@@ -79,6 +81,22 @@ export class UserGalleryServices extends ServiceBase {
           
         });
         return Rx.Observable.fromPromise(promise);
+    }
+
+    public createBookMarkImages(model: UserGalleryModel): Rx.Observable<any> {
+        return this.userExists(model.userId)
+            .flatMap((userExistsResult) => {
+                if (!_.isEmpty(userExistsResult)) {
+                    const query = this.queryBuilderService.getInsertQuery(Tables.createUserGallery, model);
+                    return this.sqlService.executeQuery(query); 
+                }
+                    const error: ErrorModel = {
+                        status: "false",
+                        message: `User with email does not exists.`,
+                        error:"false"           
+                    }
+                return Rx.Observable.throw(error);
+            })
     }
 
     public userExists(id): Rx.Observable<any> {

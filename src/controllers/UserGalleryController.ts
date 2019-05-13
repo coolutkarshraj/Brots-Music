@@ -50,8 +50,16 @@ const query = `select * from ${Tables.userimagegallery} where userId = ${req.bod
     }
 
     public getBookMarkedImages(req: Request, res: Response) {
-        const user =  this.userGalleryServices.createGalleryFolder(req.body)
-        this.sendResponseWithoutData(user,res)  
+       const query = `SELECT
+       userimagegallery.id,userimagegallery.imageTitle,userimagegallery.imageIcon,userimagegallery.total_like,
+       userimagegallery.total_comment,userBookMarkedImage.isBookMarked, userBookMarkedImage.id
+       FROM
+       ${Tables.userimagegallery}
+           INNER JOIN
+           ${Tables.userBookMarkedImage} ON  ${Tables.userimagegallery}.id = ${Tables.userBookMarkedImage}.imageId where user_id = ${req.body.userId};`
+       const executeQuery =this.sqlService.executeQuery(query)
+       console.log(query)
+           this.sendResponse(executeQuery,res)  
     }
     public createBookMarkedImages(req: Request, res: Response) {
         const user =  this.userGalleryServices.createGalleryFolder(req.body)
