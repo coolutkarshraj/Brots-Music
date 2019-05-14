@@ -42,7 +42,7 @@ export class EditProfileServices extends ServiceBase {
     
 
     public editEductionDetails(model: userProfileeducation):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.userExists(model.userId)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;

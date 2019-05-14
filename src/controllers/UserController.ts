@@ -10,7 +10,7 @@ import * as __ from "underscore";
 import * as os from "os";
 import {ErrorModel} from "../models/ErrorModel";
 import {SucessModel} from "../models/SucessModel";
-import { json } from "body-parser";
+
 
 export class UserController extends BaseController {
     private userService: UserService;

@@ -21,7 +21,7 @@ USE `high_mountains`;
 -- -----------------------------------------------------
 -- Table `user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `user`;
+SET FOREIGN_KEY_CHECKS=0; DROP TABLE user; SET FOREIGN_KEY_CHECKS=1;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imageUrl` varchar(255) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `user` (
   `phone` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `lastLogin` datetime DEFAULT NULL,
-  `status` smallint(2) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
@@ -56,6 +56,9 @@ CREATE TABLE `user` (
   `isBloodDonated` varchar(255) DEFAULT NULL,
   `isVolunterinComunityServices` varchar(255) DEFAULT NULL,
   `wantToHelpPeople` varchar(255) DEFAULT NULL,
+  `religious` varchar(255) DEFAULT NULL,
+  `pets` smallint(3) DEFAULT NULL,
+  `smoke` smallint(3) DEFAULT NULL,
    PRIMARY KEY (`id`),
    UNIQUE (`email`),
    unique(`userName`),
@@ -297,7 +300,7 @@ CREATE TABLE `userBookMarkedImage` (
   `imageId` int DEFAULT NULL,
    PRIMARY KEY (`bookMarkId`),
    FOREIGN KEY fk_image_id(`imageId`)
-   REFERENCES userimagegallery(`id`)
+   REFERENCES userImageGallery(`id`)
    ON UPDATE CASCADE
    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
