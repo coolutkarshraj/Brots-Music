@@ -23,6 +23,12 @@ export class UserGalleryController extends BaseController {
         const user =  this.userGalleryServices.createGalleryFolder(req.body)
         this.sendResponseWithoutData(user,res)  
     }
+    public getGalleryFolder(req: Request, res: Response) {
+        const query = `select * from ${Tables.createUserGallery} where userId = ${req.body.userId} ORDER BY imageTitle LIMIT ${req.body.offsetLimit};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponse(executeQuery,res)  
+    }
+    
 
     public uploadGalleryImages(req: Request, res: Response) {
      this.userGalleryServices.uploadImages(req,res).subscribe((result1)=>{

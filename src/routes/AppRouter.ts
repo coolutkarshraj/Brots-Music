@@ -99,6 +99,7 @@ export class AppRouter {
        app.post("/v1/user/updateAdharCard",(req:Request,res:Response) => this.editProfileController.updateAdharCard(req,res));   
        app.post("/v1/user/shareCode",(req:Request,res:Response) => this.editProfileController.shareCode(req,res));
        app.post("/v1/user/createGallery",(req:Request,res:Response)=>this.userGalleryController.addGalleryFolder(req,res))   
+       app.post("/v1/user/getGalleryFolder",(req:Request,res:Response)=>this.userGalleryController.getGalleryFolder(req,res))   
        app.post("/v1/user/uploadImage",(req:Request,res:Response)=>this.userGalleryController.uploadGalleryImages(req,res))   
        app.post("/v1/user/getGalleryImages",(req:Request,res:Response)=>this.userGalleryController.getGalleryImages(req,res))   
        app.post("/v1/user/bookmarkImage",(req:Request,res:Response)=>this.userGalleryController.getBookMarkedImages(req,res))   
@@ -107,7 +108,7 @@ export class AppRouter {
        app.post("/v1/user/getAllImagesAcToAlbum",(req:Request,res:Response)=>this.userGalleryController.getImageAccordingToAlbumFolder(req,res))   
        app.post("/v1/user/deleteUserProfileImages",(req:Request,res:Response)=>this.userGalleryController.deleteUserProfileImages(req,res))   
     
-       /** Admnin Destination Api Not Tested*/
+       /** Admin Destination Api Not Tested*/
        app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));
       
     
