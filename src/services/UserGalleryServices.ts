@@ -54,9 +54,6 @@ export class UserGalleryServices extends ServiceBase {
         return this.userExists(model.userId)
             .flatMap((userExistsResult) => {
                 if (!_.isEmpty(userExistsResult)) {
-                    console.log("djskjfhkdsjfhkjdfhdjkfhdjk")
-                    console.log(model.imageIcon)
-                    console.log("fcdiofdhfhdhfdhfhdfhdhfhdhfdkfhdhfhd")
                     const query = `INSERT INTO ${Tables.userimagegallery} (imageTitle, imageIcon, createdDate,total_like,total_comment,total_share,gallery_Id,isBookMarked )
                     VALUES ('${model.imageTitle}', '${model.imageIcon}', ${model.createdDate}, ${model.total_like},${model.total_comment},${model.total_share},
                         ${model.gallery_Id}, ${model.isBookMarked});` 

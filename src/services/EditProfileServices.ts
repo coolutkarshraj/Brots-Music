@@ -8,10 +8,10 @@ import { userProfilepublicTag } from "../models/userProfilepublicTag";
 import { userProfilePlace } from "../models/userProfilePlace";
 import { userProfileeducation } from "../models/userProfileeducation";
 const uploadProfileImage = require('../s3Services/S3Services');
-const profileImageUpload = uploadProfileImage.single('imageIcon');
+const profileImageUpload = uploadProfileImage.single('imageUrl');
 
 export class EditProfileServices extends ServiceBase {
-   
+    usermodel: UserModel;
     constructor() {
         super();
        
@@ -60,7 +60,7 @@ export class EditProfileServices extends ServiceBase {
     }
 
     public editPublicTagData(model: userProfilepublicTag):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.userExists(model.userId)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -78,7 +78,7 @@ export class EditProfileServices extends ServiceBase {
     }
 
     public editPlacePlaceData(model: userProfilePlace):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.userExists(model.userId)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -121,14 +121,22 @@ export class EditProfileServices extends ServiceBase {
         });
         return Rx.Observable.fromPromise(promise);
     }
-    public updateProfileImage(model: UserModel): Rx.Observable<any> {
+    public updateProfileImage(model: UserModel,imageUrl): Rx.Observable<any> {
         return this.userExists(model.id)
             .flatMap((userExistsResult) => {
                 if (!_.isEmpty(userExistsResult)) {
-                    const condition = 'where id = ' + model.id;
-                    delete model.id;
-                    const query = this.queryBuilderService.getUpdateQuery(Tables.user, model,condition);
-                    return this.sqlService.executeQuery(query); 
+                 
+                    const query1= `UPDATE ${Tables.user}
+                    SET imageUrl =  "${imageUrl}"
+                    WHERE id = ${model.id};`
+                    // model.imageUrl = imageUrl
+                    // const condition = 'where id = ' + model.id;
+                    // delete model.id;
+                    // console.log("dskjdhsjkdhsjdhshdsjkhdsjdhsdhs")
+                    // console.log(model)
+                    // const query = this.queryBuilderService.getUpdateQuery(Tables.user, model,condition);
+                    // console.log(query)
+                    return this.sqlService.executeQuery(query1); 
                 }
                     const error: ErrorModel = {
                         status: "false",

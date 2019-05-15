@@ -27,7 +27,6 @@ export class UserGalleryController extends BaseController {
     public uploadGalleryImages(req: Request, res: Response) {
      this.userGalleryServices.uploadImages(req,res).subscribe((result1)=>{
         if (!_.isEmpty(result1)) {
-            req.body.imageIcon = result1
              const user =  this.userGalleryServices.insertImage(req.body)
              this.sendResponseWithoutData(user,res)  
           
