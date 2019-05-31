@@ -4,6 +4,8 @@
   "description": "server to high mountains project",
   "main": "gruntfile.js",
   "dependencies": {
+    "@angular/cdk": "^8.0.0",
+    "@angular/material": "^8.0.0",
     "aws-sdk": "^2.452.0",
     "body-parser": "^1.16.0",
     "connect-multiparty": "^2.0.0",

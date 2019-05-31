@@ -128,6 +128,7 @@ export class UserController extends BaseController {
         }
         const promise = this.sqlService.getSingle(query);
         promise.subscribe((result: UserModel) => {
+            console.log(result)
             if (_.isEmpty(result)) {
                 const error: ErrorModel = {
                     status: "false",
