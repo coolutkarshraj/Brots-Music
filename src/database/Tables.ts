@@ -15,5 +15,6 @@ export class Tables {
     public static createUserGallery: string = "createUserGallery";
     public static userimagegallery: string = "userimagegallery";
     public static userBookMarkedImage: string = "userBookMarkedImage";
+    public static admin: string = "admin";
 
 }

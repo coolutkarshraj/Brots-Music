@@ -14,7 +14,7 @@ DROP SCHEMA IF EXISTS `high_mountains`;
 CREATE SCHEMA IF NOT EXISTS `high_mountains` DEFAULT CHARACTER SET utf8;
 USE `high_mountains`;
 
-
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imageUrl` varchar(255) DEFAULT NULL,
@@ -57,6 +57,51 @@ CREATE TABLE `user` (
    unique(`userName`),
    unique(`phone`)
 );
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imageUrl` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `middleName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
+  `referalCode` char(10) DEFAULT NULL,
+  `gender` smallint(2) DEFAULT NULL,
+  `dob` datetime DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `lastLogin` datetime DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `about` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `userStatus` varchar(255) DEFAULT NULL,
+  `languages` varchar(255) DEFAULT NULL,
+  `deviceToken` varchar(255) DEFAULT NULL,
+  `isLoggedIn` tinyint(2) not null DEFAULT 0,
+  `onlineStatus` tinyint(2) not null DEFAULT 0,
+  `interstedIn` tinyint(2) not null DEFAULT 0,
+  `adhar_number` varchar(255) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `isBloodDonated` varchar(255) DEFAULT NULL,
+  `isVolunterinComunityServices` varchar(255) DEFAULT NULL,
+  `wantToHelpPeople` varchar(255) DEFAULT NULL,
+  `religious` varchar(255) DEFAULT NULL,
+  `pets` smallint(3) DEFAULT NULL,
+  `smoke` smallint(3) DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   UNIQUE (`email`),
+   unique(`userName`),
+   unique(`phone`)
+);
+
 
 DROP TABLE IF EXISTS `userProfileeducation`;
 CREATE TABLE `userProfileeducation` (

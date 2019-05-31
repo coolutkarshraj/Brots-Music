@@ -13,6 +13,7 @@ import {UserProfileController} from "../controllers/UserProfileController"
 import {EditProfileController} from "../controllers/EditProfileController"
 import {DeleteUserProfileController} from "../controllers/DeleteUserProfileController"
 import {UserGalleryController} from "../controllers/UserGalleryController"
+import {AdminController} from "../controllers/AdminController"
 
 export class AppRouter {
     private userController: UserController;
@@ -28,6 +29,7 @@ export class AppRouter {
     private editProfileController :EditProfileController;
     private deleteUserProfileController :DeleteUserProfileController;
     private userGalleryController : UserGalleryController;
+    private adminController : AdminController;
    
 
     constructor(app: express.Application) {
@@ -44,6 +46,7 @@ export class AppRouter {
         this.editProfileController =  new EditProfileController();
         this.deleteUserProfileController =  new DeleteUserProfileController()
         this.userGalleryController = new UserGalleryController();
+        this.adminController = new AdminController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -109,7 +112,14 @@ export class AppRouter {
        app.post("/v1/user/deleteUserProfileImages",(req:Request,res:Response)=>this.userGalleryController.deleteUserProfileImages(req,res))   
     
        /** Admin Destination Api Not Tested*/
-       app.post("/v1/user/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));
+       app.post("/v1/admin/login", (req: Request, res: Response) => this.adminController.loginAdmin(req, res));
+       app.post("/v1/admin/addspringField", (req: Request, res: Response) => this.springField.addSpringFieldData(req, res));
+       app.post("/v1/admin/addContinent", (req: Request, res: Response) => this.adminController.addContinent(req, res));
+       app.post("/v1/admin/addCountry", (req: Request, res: Response) => this.adminController.addCountry(req, res));
+       app.post("/v1/admin/addStates", (req: Request, res: Response) => this.adminController.addStates(req, res));
+       app.post("/v1/admin/addCities", (req: Request, res: Response) => this.adminController.addcities(req, res));
+       app.post("/v1/admin/addTowns", (req: Request, res: Response) => this.adminController.addTowns(req, res));
+       app.post("/v1/admin/addPlaces", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
       
     
     }

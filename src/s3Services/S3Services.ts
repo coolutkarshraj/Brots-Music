@@ -5,9 +5,9 @@ var path = require('path')
 
 
 aws.config.update({
-    secretAccessKey: 'K0aSUOZ77DuefZlwuNxr8eaeLKJwCuCtMBDIgWoa', 
-    accessKeyId: 'AKIAJ4EY2E27YRYU5RUA',  
-	  region: 'us-west-2'
+    secretAccessKey: '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', 
+    accessKeyId: 'AKIAJKOUSHPAGVX2UB3A',  
+	  region: 'ap-south-1'
 });
  
 var s3 = new aws.S3({ })
