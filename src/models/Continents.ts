@@ -1,7 +1,9 @@
 export interface Continents{
     id?: number;
     continents_name?: String;
-    continents_image?: String;
+    image_url?: String;
     Star?: number;
     continentsStatus?: number;
+    overview?:String;
+    description?:String;
 }

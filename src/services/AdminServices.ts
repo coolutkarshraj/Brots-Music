@@ -3,8 +3,15 @@ import * as _ from "lodash";
 import { EmailService } from '../services/EmailServices';
 import { Config } from "../Config";
 import * as Rx from "rxjs/Rx";
+import { Continents } from "../models/Continents";
 const uploadcategory = require('../s3Services/uploadcategory');
-const uploadcategories = uploadcategory.single('image');
+const uploadcategories = uploadcategory.single('image_url');
+import {Tables} from "../database/Tables";
+import { CountriesList } from "../models/CountriesList";
+import { States } from "../models/States";
+import { Cities } from "../models/Cities";
+import { Towns } from "../models/Towns";
+import { SpringFieldModel } from "../models/SpringFieldModel";
 
 export class AdminServices extends ServiceBase {
     private emailService: EmailService;
@@ -29,46 +36,64 @@ export class AdminServices extends ServiceBase {
             this.emailService.sendMail(emailData, templateModal, Config.mailTemplate.loggedInMail); 
     }
 
-    public addContinent(req: Request, res: Response) {
-      
-    }
-
-    public uploadAdminSongBasicDetails(req, res): Rx.Observable<any> {
+    public addContinent(req, res): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
             uploadcategories (req, res, function (err) {
+              
                 if (err) {
                     console.log('error');
                     return res.status(422).send({ errors: [{ title: 'File Upload Error', detail: err.message }] });
                 }
-                let data = req.body;
-                let categoryId = data['categoryId']
-                let subCategortyId = data["subcategoryId"]
-                let songName = data["song_name"]
-                let ArtistName = data["artist_name"]
-                let albumName = data["album_name"]
-                let coverImage = req['file'].location
-                let artistId = data['artistId']
-
+              //  let coverImage = req['file'].location 
+                resolve(req)
             })
-
-
         });
         return Rx.Observable.fromPromise(promise);
     }
 
-    public addCountry(req: Request, res: Response) {
-      
+    public addContinentToDatatoDatabase(model: Continents): Rx.Observable<any> {
+       const promise = new Promise((resolve, reject) => {
+       const query = this.queryBuilderService.getInsertQuery(Tables.continents, model);
+        resolve(this.sqlService.executeQuery(query) )
+    });
+    return Rx.Observable.fromPromise(promise);     
     }
-    public addStates(req: Request, res: Response) {
-      
+
+
+    public addCountryToDatatoDatabase(model: CountriesList) {
+       const promise = new Promise((resolve, reject) => {
+       const query = this.queryBuilderService.getInsertQuery(Tables.countriesList, model);
+        resolve(this.sqlService.executeQuery(query) )
+    });
+    return Rx.Observable.fromPromise(promise);  
     }
-    public addcities(req: Request, res: Response) {
-      
+    public addStates(model: States) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.states, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
     }
-    public addTowns(req: Request, res: Response) {
-      
+    public addcities(model :Cities) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.cities, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise);  
     }
-    public addSpringFieldData(req: Request, res: Response) {
-      
+    public addTowns(model:Towns) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.towns, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
     }
+    public addSpringFieldData(model:SpringFieldModel) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
+    }
+    
 }

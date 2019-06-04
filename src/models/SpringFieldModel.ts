@@ -1,10 +1,11 @@
 export interface SpringFieldModel {
     id?: number;
-    imageUrl?: string;
+    image_url?: string;
     name?: string;
+    overview?: string;
     about?: string;
     description?: string;
     following?: number;
     followers?: number;
-    StarrLevel?: number;
+    StarLevel?: number;
 }

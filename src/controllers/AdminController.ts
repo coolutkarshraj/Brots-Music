@@ -9,6 +9,7 @@ import {ErrorModel} from "../models/ErrorModel";
 import {SucessModel} from "../models/SucessModel";
 import {AdminServices} from "../services/AdminServices"
 import {Logger} from "../services/common/Logger";
+import { access } from "fs";
 
 export class AdminController extends BaseController {
     private sqlService: SqlService;
@@ -17,6 +18,7 @@ export class AdminController extends BaseController {
     constructor() {
         super();
         this.sqlService = new SqlService();
+        this.adminServices = new AdminServices()
     }
 
     public loginAdmin(req: Request, res: Response) {
@@ -91,26 +93,191 @@ export class AdminController extends BaseController {
     }
 
     public addContinent(req: Request, res: Response) {
-     const uploadsongurl = this.adminServices.addContinent(req, res);
-     this.sendResponse(uploadsongurl, res)
+  
+     this.adminServices.addContinent(req, res).subscribe((result)=>{
+
+         if (_.isEmpty(result)) {
+                 res.json({
+                    status: "false",
+                    message: `Image not uploaded`,
+                    error:"false"        
+                 })
+                   
+        }else{
+            console.log(req.body)
+//            req.body.image_url = result;
+            const  a = {
+            continentsStatus :req.body.continentsStatus,
+            continents_name :req.body.continents_name,
+            overview :req.body.overview,
+            description :req.body.description,
+            image_url :req.body.description
+            }
+             this.adminServices.addContinentToDatatoDatabase(a);
+            res.json({
+                status: "true",
+                message: `Continent added successfully`,
+                error:"true"        
+             })
+        }
+    })
+    
         
     }
 
     public addCountry(req: Request, res: Response) {
-      
+        this.adminServices.addContinent(req, res).subscribe((result)=>{
+            console.log(result)
+            if (_.isEmpty(result)) {
+                    res.json({
+                       status: "false",
+                       message: `Image not uploaded`,
+                       error:"false"        
+                    })
+                      
+           }else{
+            req.body.image_url = result;
+              const  a = {
+                country_code :req.body.country_code,
+                country_name :req.body.country_name,
+                overview :req.body.overview,
+                description :req.body.description,
+                image_url :result,
+                countryStatus:req.body.countryStatus,
+                continentId:req.body.continentId,
+               }
+             
+                this.adminServices.addCountryToDatatoDatabase(a);
+               res.json({
+                   status: "true",
+                   message: `Continent added successfully`,
+                   error:"true"        
+                })
+           }
+       })
     }
     public addStates(req: Request, res: Response) {
-      
+        this.adminServices.addContinent(req, res).subscribe((result)=>{
+            console.log(result)
+            if (_.isEmpty(result)) {
+                    res.json({
+                       status: "false",
+                       message: `Image not uploaded`,
+                       error:"false"        
+                    })
+                      
+           }else{
+            req.body.image_url = result;
+            const  a = {
+                name :req.body.name,
+                overview :req.body.overview,
+                description :req.body.description,
+                country_id :req.body.country_id,
+                image_url :result,
+                countryStatus:req.body.countryStatus,
+               }
+              
+                this.adminServices.addStates(a);
+               res.json({
+                   status: "true",
+                   message: `Continent added successfully`,
+                   error:"true"        
+                })
+           }
+       })
     }
     public addcities(req: Request, res: Response) {
-      
+        this.adminServices.addContinent(req, res).subscribe((result)=>{
+            console.log(result)
+            if (_.isEmpty(result)) {
+                    res.json({
+                       status: "false",
+                       message: `Image not uploaded`,
+                       error:"false"        
+                    })
+                      
+           }else{
+            req.body.image_url = result;
+              const  a = {
+                name :req.body.name,
+                overview :req.body.overview,
+                description :req.body.description,
+                state_id :req.body.state_id,
+                image_url :result,
+                stateStatus :req.body.stateStatus
+               }
+                this.adminServices.addcities(a);
+               res.json({
+                   status: "true",
+                   message: `Continent added successfully`,
+                   error:"true"        
+                })
+           }
+       })
     }
     public addTowns(req: Request, res: Response) {
-      
+        this.adminServices.addContinent(req, res).subscribe((result)=>{
+            console.log(result)
+            if (_.isEmpty(result)) {
+                    res.json({
+                       status: "false",
+                       message: `Image not uploaded`,
+                       error:"false"        
+                    })
+                      
+           }else{
+            req.body.image_url = result;
+              const  a = {
+              towns_name :req.body.towns_name,
+               overview :req.body.overview,
+               description :req.body.description,
+               city_id :req.body.city_id,
+               state_id :req.body.state_id,
+               townsStatus :req.body.townsStatus,
+               image_url :result
+               }
+           
+                this.adminServices.addTowns(a);
+               res.json({
+                   status: "true",
+                   message: `Continent added successfully`,
+                   error:"true"        
+                })
+           }
+       })
     }
+
     public addSpringFieldData(req: Request, res: Response) {
-      
+        this.adminServices.addContinent(req, res).subscribe((result)=>{
+            console.log(result)
+            if (_.isEmpty(result)) {
+                    res.json({
+                       status: "false",
+                       message: `Image not uploaded`,
+                       error:"false"        
+                    })
+                      
+           }else{
+            req.body.image_url = result;
+              const a = {
+                name :req.body.name,
+                overview :req.body.overview,
+                description :req.body.description,
+                followers :req.body.followers,
+                following :req.body.following,
+                StarLevel :req.body.StarLevel,
+                image_url :result
+               }
+              this.adminServices.addSpringFieldData(a);
+               res.json({
+                   status: "true",
+                   message: `Continent added successfully`,
+                   error:"true"        
+                })
+           }
+       })
     }
+  
 
     private isAlreadyLoggedIn(user: UserModel): boolean {
         return user.isLoggedIn.toString() === "1";
