@@ -44,8 +44,8 @@ export class AdminServices extends ServiceBase {
                     console.log('error');
                     return res.status(422).send({ errors: [{ title: 'File Upload Error', detail: err.message }] });
                 }
-              //  let coverImage = req['file'].location 
-                resolve(req)
+               let coverImage = req['file'].location 
+                resolve(coverImage)
             })
         });
         return Rx.Observable.fromPromise(promise);
