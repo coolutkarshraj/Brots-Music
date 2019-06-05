@@ -258,15 +258,26 @@ export class AdminController extends BaseController {
                     })
                       
            }else{
-            req.body.image_url = result;
+            req.body.imageUrl = result;
               const a = {
                 name :req.body.name,
                 overview :req.body.overview,
                 description :req.body.description,
-                followers :req.body.followers,
-                following :req.body.following,
-                StarLevel :req.body.StarLevel,
-                image_url :result
+                followers :0,
+                following :0,
+                StarLevel :0,
+                imageUrl :result,
+                itinerary:req.body.itinerary,
+                Short_itinerary:req.body.Short_itinerary,
+                inclusion:req.body.inclusion,
+                Exclusion:req.body.Exclusion,
+                TNC:req.body.TNC,
+                Others:req.body.Others,
+                hm_policy:req.body.hm_policy,
+                about:req.body.about,
+                t_price:req.body.t_price,
+                d_price:req.body.d_price
+
                }
               this.adminServices.addSpringFieldData(a);
                res.json({

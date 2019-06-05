@@ -147,19 +147,26 @@ CREATE TABLE `userProfilepublicTag` (
 
 
 
-DROP TABLE IF EXISTS `springfield`;
 CREATE TABLE `springField` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `imageUrl` varchar(200) DEFAULT NULL,
-  `overview` varchar(350) NOT NULL default '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imageUrl` varchar(350) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
   `about` varchar(350) DEFAULT NULL,
-  `description` varchar(350) DEFAULT NULL,
- `followers` varchar(200) DEFAULT NULL,
- `following` varchar(200) DEFAULT NULL,
- `StarrLevel` varchar(200) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+  `StarLevel` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-
 );
 
 -- -----------------------------------------------------

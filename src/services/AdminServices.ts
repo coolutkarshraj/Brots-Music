@@ -5,7 +5,7 @@ import { Config } from "../Config";
 import * as Rx from "rxjs/Rx";
 import { Continents } from "../models/Continents";
 const uploadcategory = require('../s3Services/uploadcategory');
-const uploadcategories = uploadcategory.single('image_url');
+const uploadcategories = uploadcategory.single('imageUrl');
 import {Tables} from "../database/Tables";
 import { CountriesList } from "../models/CountriesList";
 import { States } from "../models/States";

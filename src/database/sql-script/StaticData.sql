@@ -159,12 +159,12 @@ UPDATE `high_mountains`.`countrieslist` SET `continentId` = '5' WHERE (`id` = '4
 UPDATE `high_mountains`.`countrieslist` SET `continentId` = '6' WHERE (`id` = '49');
 UPDATE `high_mountains`.`countrieslist` SET `continentId` = '1' WHERE (`id` = '50');
 
-UPDATE `high_mountains`.`springfield` SET `followers` = '1000k', `following` = '100k', `StarrLevel` = '4' WHERE (`id` = '1');
-UPDATE `high_mountains`.`springfield` SET `followers` = '2000k', `following` = '5000k', `StarrLevel` = '3' WHERE (`id` = '2');
-UPDATE `high_mountains`.`springfield` SET `followers` = '1500k', `following` = '8000k', `StarrLevel` = '5' WHERE (`id` = '3');
-UPDATE `high_mountains`.`springfield` SET `followers` = '1343k', `following` = '2000k', `StarrLevel` = '3' WHERE (`id` = '4');
-UPDATE `high_mountains`.`springfield` SET `followers` = '1880k', `following` = '1600k', `StarrLevel` = '6' WHERE (`id` = '5');
-UPDATE `high_mountains`.`springfield` SET `followers` = '50000k', `following` = '1200k', `StarrLevel` = '9' WHERE (`id` = '6');
+UPDATE `high_mountains`.`springfield` SET `followers` = '1000', `following` = '100', `StarLevel` = '4' WHERE (`id` = '1');
+UPDATE `high_mountains`.`springfield` SET `followers` = '2000', `following` = '5000', `StarLevel` = '3' WHERE (`id` = '2');
+UPDATE `high_mountains`.`springfield` SET `followers` = '1500', `following` = '8000', `StarLevel` = '5' WHERE (`id` = '3');
+UPDATE `high_mountains`.`springfield` SET `followers` = '1343', `following` = '2000', `StarLevel` = '3' WHERE (`id` = '4');
+UPDATE `high_mountains`.`springfield` SET `followers` = '1880', `following` = '1600', `StarLevel` = '6' WHERE (`id` = '5');
+UPDATE `high_mountains`.`springfield` SET `followers` = '50000', `following` = '1200', `StarLevel` = '9' WHERE (`id` = '6');
 
 
 UPDATE `high_mountains`.`countrieslist` SET `continentId` = '7' WHERE (`id` = '50');
@@ -179,6 +179,12 @@ INSERT INTO `high_mountains`.`continents` (`id`, `continents_name`, `image_url`,
 INSERT INTO `high_mountains`.`continents` (`id`, `continents_name`, `image_url`, `Star`, `continentsStatus`,`springFieldId`) VALUES ('6', 'Australia', 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Australia.png', '4', '1','1');
 INSERT INTO `high_mountains`.`continents` (`id`, `continents_name`, `image_url`, `Star`, `continentsStatus`,`springFieldId`) VALUES ('7', 'Antarctica', 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Antractica.jpg', '2', '1','1');
 
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also ' WHERE (`id` = '1');
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution .v' WHERE (`id` = '2');
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also ' WHERE (`id` = '3');
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly v' WHERE (`id` = '4');
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition.' WHERE (`id` = '5');
+UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved ' WHERE (`id` = '6');
 
 
 
