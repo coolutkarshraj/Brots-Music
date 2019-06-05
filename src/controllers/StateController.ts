@@ -14,7 +14,8 @@ export class StateController extends BaseController {
     }
 
     public getAllState(req: Request, res: Response) {
-        const user = this.sqlService.executeQuery(`select * from ${Tables.states} where country_id  = ${req.body.country_id}  ORDER BY name Asc;`);
+        // const user = this.sqlService.executeQuery(`select * from ${Tables.states} where country_id  = ${req.body.country_id}  ORDER BY name Asc;`);
+        const user = this.sqlService.executeQuery(`select * from ${Tables.states}  ORDER BY name Asc;`);
         this.sendResponse(user, res);     
        }
        

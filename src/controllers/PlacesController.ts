@@ -17,6 +17,16 @@ export class PlacesController extends BaseController {
         const user = this.sqlService.executeQuery(`select * from ${Tables.places} where city_id = ${req.body.city_id} ORDER BY places desc;`);
         this.sendResponse(user, res);     
        }
+       public getAlltowns(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.towns}  ORDER BY towns_name desc;`);
+        this.sendResponse(user, res);     
+       }
+       public getAllPlaces(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.places}  ORDER BY places desc;`);
+        this.sendResponse(user, res);     
+       }
+       
+       
        
        public getAllplacesOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
         const trending = this.sqlService.executeQuery(`select * from ${Tables.places} where townsStatus = '2' ORDER BY places Asc;`);

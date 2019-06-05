@@ -14,7 +14,8 @@ export class CityController extends BaseController {
     }
 
     public getAllCities(req: Request, res: Response) {
-        const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} where state_id = ${req.body.state_id} ORDER BY name Asc;`);
+        // const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} where state_id = ${req.body.state_id} ORDER BY name Asc;`);
+        const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} ORDER BY name Asc;`);
         this.sendResponse(cities, res);     
        }
        
