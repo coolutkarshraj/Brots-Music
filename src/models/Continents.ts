@@ -1,9 +1,22 @@
 export interface Continents{
     id?: number;
-    continents_name?: String;
-    image_url?: String;
-    Star?: number;
-    continentsStatus?: number;
-    overview?:String;
-    description?:String;
+    springFieldId?: number;
+    imageUrl?: String;
+    name?: string;
+    package_type?: string;
+    continentsStatus?:number;
+    overview?: string;
+    about?: string;
+    description?: string;
+    following?: number;
+    followers?: number;
+    itinerary?: string;
+    Short_itinerary?: string;
+    inclusion?: string;
+    Exclusion?: string;
+    TNC?: string;
+    Others?: string;
+    hm_policy?: number;
+    t_price?: number;
+    d_price?: number;
 }

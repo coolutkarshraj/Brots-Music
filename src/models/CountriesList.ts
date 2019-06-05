@@ -1,11 +1,22 @@
 export interface CountriesList{
-   id ?:number;
-   country_code?:String;
-   country_name?:String; 
-   Star?:number; 
-   countryStatus?:number; 
-   continentId?:number; 
-   image_url?: string;
-  overview?: string;
-  description?: string;
+    id ?:number;
+    continentId?:String;
+    country_code?:String; 
+    country_name?:number; 
+    countryStatus?:number; 
+    imageUrl?: String;
+    overview?: string;
+    about?: string;
+    description?: string;
+    following?: number;
+    followers?: number;
+    itinerary?: string;
+    Short_itinerary?: string;
+    inclusion?: string;
+    Exclusion?: string;
+    TNC?: string;
+    Others?: string;
+    hm_policy?: number;
+    t_price?: number;
+    d_price?: number;
 }

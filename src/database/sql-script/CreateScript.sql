@@ -172,39 +172,60 @@ CREATE TABLE `springfield` (
 -- -----------------------------------------------------
 -- Table ` List known as continent `
 -- -----------------------------------------------------
-
 DROP TABLE IF EXISTS `continents`; 
 CREATE TABLE `continents`(
-`id` int(11) NOT NULL auto_increment,
-`springFieldId` int(11) NOT NULL,
-`continents_name` varchar(100) NOT NULL default '',
-`overview` varchar(350) NOT NULL default '',
-`description` varchar(350) NOT NULL default '',
-`image_url` varchar(200) Not NULL default '',
-`Star` varchar(5) NOT NULL default '',
-`continentsStatus` varchar(5) NOT NULL default '',
+  `id` int(11) NOT NULL auto_increment,
+  `springFieldId` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `package_type` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+  `StarLevel` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
+  `continentsStatus` int(11) DEFAULT NULL,
 PRIMARY KEY (`id`)
 );
+
 
 -- -----------------------------------------------------
 -- Table ` List known as Countries List `
 -- -----------------------------------------------------
 
-
-DROP TABLE IF EXISTS `countrieslist`;
 CREATE TABLE `countrieslist` (
-`id` int(11) NOT NULL auto_increment,
-`country_code` varchar(2) NOT NULL default '',
-`country_name` varchar(100) NOT NULL default '',
-`overview` varchar(350) NOT NULL default '',
-`description` varchar(350) NOT NULL default '',
-`image_url` varchar(200) Not NULL default '',
-`Star` varchar(5) NOT NULL default '',
-`countryStatus` varchar(5) NOT NULL default '',
-`continentId` varchar(50) NOT NULL default '',
-PRIMARY KEY (`id`)
-) ;
-
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `continentId` int(11) DEFAULT NULL,
+  `country_code` varchar(2) NOT NULL default '',
+  `country_name` varchar(100) NOT NULL default '',
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+   `Star` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
+  `countryStatus` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
 
 -- -----------------------------------------------------
 -- Table ` List known as States `

@@ -100,29 +100,40 @@ export class AdminController extends BaseController {
                  res.json({
                     status: "false",
                     message: `Image not uploaded`,
-                    error:"false"        
+                    error:"false"
                  })
-                   
         }else{
-            console.log(req.body)
-//            req.body.image_url = result;
-            const  a = {
-            continentsStatus :req.body.continentsStatus,
-            continents_name :req.body.continents_name,
-            overview :req.body.overview,
-            description :req.body.description,
-            image_url :req.body.description
-            }
+            req.body.imageUrl = result;
+            const a = {
+              name :req.body.name,
+              overview :req.body.overview,
+              description :req.body.description,
+              followers :0,
+              following :0,
+              StarLevel :0,
+              imageUrl :result,
+              itinerary:req.body.itinerary,
+              Short_itinerary:req.body.Short_itinerary,
+              inclusion:req.body.inclusion,
+              Exclusion:req.body.Exclusion,
+              TNC:req.body.TNC,
+              Others:req.body.Others,
+              hm_policy:req.body.hm_policy,
+              about:req.body.about,
+              t_price:req.body.t_price,
+              d_price:req.body.d_price,
+              springFieldId:1,
+              continentsStatus:0
+
+             }
              this.adminServices.addContinentToDatatoDatabase(a);
             res.json({
                 status: "true",
                 message: `Continent added successfully`,
-                error:"true"        
+                error:"true"
              })
         }
     })
-    
-        
     }
 
     public addCountry(req: Request, res: Response) {
@@ -132,9 +143,8 @@ export class AdminController extends BaseController {
                     res.json({
                        status: "false",
                        message: `Image not uploaded`,
-                       error:"false"        
+                       error:"false"
                     })
-                      
            }else{
             req.body.image_url = result;
               const  a = {
