@@ -147,7 +147,7 @@ CREATE TABLE `userProfilepublicTag` (
 
 
 
-CREATE TABLE `springField` (
+CREATE TABLE `springfield` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imageUrl` varchar(350) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
@@ -184,7 +184,7 @@ CREATE TABLE `continents`(
 `Star` varchar(5) NOT NULL default '',
 `continentsStatus` varchar(5) NOT NULL default '',
 PRIMARY KEY (`id`)
-) ;
+);
 
 -- -----------------------------------------------------
 -- Table ` List known as Countries List `
@@ -192,7 +192,7 @@ PRIMARY KEY (`id`)
 
 
 DROP TABLE IF EXISTS `countrieslist`;
-CREATE TABLE `countriesList` (
+CREATE TABLE `countrieslist` (
 `id` int(11) NOT NULL auto_increment,
 `country_code` varchar(2) NOT NULL default '',
 `country_name` varchar(100) NOT NULL default '',
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `places` (
 -- Table ` BestOffer `
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `bestoffer` (
+CREATE TABLE IF NOT EXISTS `bestOffer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
