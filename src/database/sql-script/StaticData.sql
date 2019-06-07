@@ -188,7 +188,6 @@ UPDATE `high_mountains`.`springfield` SET `hm_policy` = 'packages and web page e
 
 
 
-use `high_mountains`;
 INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (1, 'Andaman and Nicobar Islands', 1),
 (2, 'Andhra Pradesh', 2),
@@ -389,38 +388,35 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (197, 'Sector claimed by France', 8),
 (198, 'Sector claimed by New Zealand', 8),
 (199, 'Sector claimed by Norway', 8),
-(200, 'Unclaimed Sector', 8)
+(200, 'Unclaimed Sector', 8);
 
 
 
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('1', 'Shivpuri ', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/rishikesh.jpg', '18250', '5', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('2', 'Tungnath', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/manali.jpg', '18250', '4', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('3', 'Ladakh', '1334', '80', 'https://www.travelogyindia.com/images/ladakh/sham-valley-ladakh-600x436.jpg', '18250', '4', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('25', 'MountAbu', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/mount-abu-tipl-600x436-1.jpg', '18250', '6', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('4', 'Goa', '1334', '80', 'https://www.travelogyindia.com/images/goa/vagator-beach-600x436.jpg', '18250', '5', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('5', 'Badrinath', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/manali.jpg', '18250', '6', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('6', 'TajMahal', '1334', '80', 'https://www.travelogyindia.com/images/agra/taj-mahal-tipl-3-600x436.jpg', '18250', '5', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('7', 'Manali', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/bharatouri-tipl-600x436-1.jpg', '18250', '4', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('8', 'jaisalmer', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '4', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('9', 'jodhpur', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jodhpuri-tipl-600x436-1.jpg', '18250', '4', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('10', 'Pushkar', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('11', 'GoldenTriangle', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '3', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('12', 'Chittorgarrh', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpg', '18250', '5', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('13', 'shekhawati', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '3', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('14', 'sariska', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '5', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('15', 'samode', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpgv', '18250', '5', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('16', 'Mandawa', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '4', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('17', 'Kota', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('18', 'Khimsarr', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '5', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('19', 'Alwar', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '1');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('20', 'Bikaner', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '5', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('21', 'Ajmer', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '5', '2');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('22', 'Ranakpur', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '4', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('23', 'Bundi', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '5', '3');
-INSERT INTO `high_mountains`.`places` (`id`, `places`, `state_id`, `country_id`, `image_url`, `city_id`, `star`, `townsStatus`) VALUES ('24', 'Mysore palace', '1334', '80', 'https://www.travelogyindia.com/images/kerala/kumarakom-tipl-600x436-1.jpg', '18250', '5', '2');
-
-
-
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('1', 'Shivpuri ', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/rishikesh.jpg', '18250', '5', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('2', 'Tungnath', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/manali.jpg', '18250', '4', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('3', 'Ladakh', '1334', '80', 'https://www.travelogyindia.com/images/ladakh/sham-valley-ladakh-600x436.jpg', '18250', '4', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('25', 'MountAbu', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/mount-abu-tipl-600x436-1.jpg', '18250', '6', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('4', 'Goa', '1334', '80', 'https://www.travelogyindia.com/images/goa/vagator-beach-600x436.jpg', '18250', '5', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('5', 'Badrinath', '1334', '80', 'https://www.travelogyindia.com/images/hill-station/manali.jpg', '18250', '6', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('6', 'TajMahal', '1334', '80', 'https://www.travelogyindia.com/images/agra/taj-mahal-tipl-3-600x436.jpg', '18250', '5', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('7', 'Manali', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/bharatouri-tipl-600x436-1.jpg', '18250', '4', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('8', 'jaisalmer', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '4', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('9', 'jodhpur', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jodhpuri-tipl-600x436-1.jpg', '18250', '4', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('10', 'Pushkar', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('11', 'GoldenTriangle', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '3', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('12', 'Chittorgarrh', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpg', '18250', '5', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('13', 'shekhawati', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '3', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('14', 'sariska', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '5', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('15', 'samode', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpgv', '18250', '5', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('16', 'Mandawa', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '4', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('17', 'Kota', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('18', 'Khimsarr', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '5', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('19', 'Alwar', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jaipur-tipl-600x436-6.jpgv', '18250', '5', '1');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('20', 'Bikaner', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/chitaurgarh-tipl-600x436-1.jpg', '18250', '5', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('21', 'Ajmer', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/sawai-madhopur-ranthambore-tiol-600x436.jpg', '18250', '5', '2');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('22', 'Ranakpur', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '4', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('23', 'Bundi', '1334', '80', 'https://www.travelogyindia.com/images/rajasthan/jisalmer-tipl-600x436-4.jpg', '18250', '5', '3');
+INSERT INTO `high_mountains`.`places` (`id`, `place_name`, `state_id`, `country_id`, `imageUrl`, `city_id`, `star`, `placeStatus`) VALUES ('24', 'Mysore palace', '1334', '80', 'https://www.travelogyindia.com/images/kerala/kumarakom-tipl-600x436-1.jpg', '18250', '5', '2');
 
 INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (48315,'Alcala',805),
@@ -502,7 +498,7 @@ INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('19', 'Benicav
 INSERT INTO `high_mountains`.`towns` (`id`, `towns_name`) VALUES ('20', 'ModelTown');
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE states SET `image_url` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
+UPDATE states SET `imageUrl` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE states SET `star` = '4';
@@ -573,25 +569,23 @@ UPDATE `high_mountains`.`cities` SET `state_id` = '18' WHERE (`id` = '48353');
 UPDATE `high_mountains`.`cities` SET `state_id` = '19' WHERE (`id` = '48354');
 UPDATE `high_mountains`.`cities` SET `state_id` = '20' WHERE (`id` = '48355');
 
-
 SET SQL_SAFE_UPDATES = 0;
-UPDATE cities SET `image_url` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
+UPDATE cities SET `imageUrl` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE cities SET `star` = '4';
-
 SET SQL_SAFE_UPDATES = 0;
-UPDATE cities SET `stateStatus` = '1';
+UPDATE cities SET `citieStatus` = '1';
 
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '2' WHERE (`id` = '48316');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '2' WHERE (`id` = '48318');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '2' WHERE (`id` = '48321');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '2' WHERE (`id` = '48324');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '3' WHERE (`id` = '48330');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '3' WHERE (`id` = '48342');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '3' WHERE (`id` = '48344');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '3' WHERE (`id` = '48346');
-UPDATE `high_mountains`.`cities` SET `stateStatus` = '3' WHERE (`id` = '48356');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '2' WHERE (`id` = '48316');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '2' WHERE (`id` = '48318');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '2' WHERE (`id` = '48321');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '2' WHERE (`id` = '48324');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '3' WHERE (`id` = '48330');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '3' WHERE (`id` = '48342');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '3' WHERE (`id` = '48344');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '3' WHERE (`id` = '48346');
+UPDATE `high_mountains`.`cities` SET `citieStatus` = '3' WHERE (`id` = '48356');
 
 
 UPDATE `high_mountains`.`towns` SET `state_id` = '1' WHERE (`id` = '1');
@@ -617,7 +611,7 @@ UPDATE `high_mountains`.`towns` SET `city_id` = '15', `state_id` = '1' WHERE (`i
 
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE towns SET `image_url` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
+UPDATE towns SET `imageUrl` = 'https://s3.ap-south-1.amazonaws.com/high-mountains-app-icon/Continent.jpg';
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE towns SET `star` = '4';
@@ -633,6 +627,10 @@ UPDATE `high_mountains`.`towns` SET `townsStatus` = '3' WHERE (`id` = '20');
 
 
 UPDATE `high_mountains`.`cities` SET `state_id` = '20' WHERE (`id` = '48356');
+
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE countrieslist SET `about` = 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and ';
 
 
 UPDATE `high_mountains`.`places` SET `state_id` = '1', `country_id` = '1', `city_id` = '48317' WHERE (`id` = '1');
@@ -652,7 +650,7 @@ UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '15');
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '16');
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '17');
-UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321v' WHERE (`id` = '18');
+UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '18');
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '19');
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '20');
 UPDATE `high_mountains`.`places` SET `state_id` = '2', `country_id` = '2', `city_id` = '48321' WHERE (`id` = '21');

@@ -150,7 +150,7 @@ CREATE TABLE `userProfilepublicTag` (
 CREATE TABLE `springfield` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `imageUrl` varchar(350) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
+  `name` varchar(350) DEFAULT NULL,
   `overview` varchar(1000) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `itinerary` varchar(1000) DEFAULT NULL,
@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `continents`;
 CREATE TABLE `continents`(
   `id` int(11) NOT NULL auto_increment,
   `springFieldId` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL default '',
+  `name` varchar(350) DEFAULT NULL,
   `imageUrl` varchar(350) DEFAULT NULL,
   `overview` varchar(1000) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
@@ -206,9 +206,10 @@ PRIMARY KEY (`id`)
 CREATE TABLE `countrieslist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `continentId` int(11) DEFAULT NULL,
-  `country_code` varchar(2) NOT NULL default '',
-  `country_name` varchar(100) NOT NULL default '',
+  `country_code` varchar(350) NOT NULL default '',
+  `country_name` varchar(350) NOT NULL default '',
   `overview` varchar(1000) DEFAULT NULL,
+  `imageUrl` varchar(350) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `itinerary` varchar(1000) DEFAULT NULL,
   `Short_itinerary` varchar(1000) DEFAULT NULL,
@@ -224,22 +225,37 @@ CREATE TABLE `countrieslist` (
   `t_price` int(11) DEFAULT NULL,
   `d_price` int(11) DEFAULT NULL,
   `countryStatus` int(11) DEFAULT NULL,
+  `adderss` varchar(350) NOT NULL default '',
+  `extra_information` varchar(1000) NOT NULL default '',
   PRIMARY KEY (`id`)
 );
 
 -- -----------------------------------------------------
 -- Table ` List known as States `
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `overview` varchar(350) NOT NULL default '',
- `description` varchar(350) NOT NULL default '',
-  `country_id` int(11) NOT NULL DEFAULT '1',
-  `image_url` varchar(200) Not NULL default '',
-  `Star` varchar(5) NOT NULL default '',
-  `stateStatus` varchar(5) NOT NULL default '',
+  `name` varchar(350) NOT NULL,
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(350) DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `imageUrl` varchar(200) DEFAULT NULL,
+  `stateStatus` int(11) DEFAULT NULL,
+  `adderss` varchar(350) DEFAULT NULL,
+  `extra_information` varchar(1000) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+   `Star` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
 
@@ -249,13 +265,27 @@ CREATE TABLE IF NOT EXISTS `states` (
 
 CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `overview` varchar(350) NOT NULL default '',
- `description` varchar(350) NOT NULL default '',
+  `name` varchar(350) NOT NULL,
+  `overview` varchar(1000) NOT NULL default '',
+  `description` varchar(1000) NOT NULL default '',
   `state_id` int(11) NOT NULL DEFAULT '1',
-  `image_url` varchar(200) Not NULL default '',
-  `Star` varchar(5) NOT NULL default '',
-  `stateStatus` varchar(5) NOT NULL default '',
+  `adderss` varchar(350) NOT NULL default '',
+  `extra_information` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(200) Not NULL default '',
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+   `Star` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
+  `citieStatus` int(11) default NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
 
@@ -265,34 +295,63 @@ CREATE TABLE IF NOT EXISTS `cities` (
 
 CREATE TABLE IF NOT EXISTS `towns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `towns_name` varchar(30) NOT NULL,
-  `overview` varchar(350) NOT NULL default '',
- `description` varchar(350) NOT NULL default '',
-  `city_id` int(11) NOT NULL DEFAULT '1',
-  `state_id` int(11) NOT NULL DEFAULT '0',
-  `image_url` varchar(200) Not NULL default '',
-  `Star` varchar(5) NOT NULL default '',
-  `townsStatus` varchar(5) NOT NULL default '',
+  `towns_name` varchar(350) NOT NULL,
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `adderss` varchar(350) DEFAULT NULL,
+  `extra_information` varchar(1000) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `imageUrl` varchar(350) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+   `Star` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
+  `townsStatus` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
 
 -- -----------------------------------------------------
 -- Table ` List known as places `
 -- -----------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS `places` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `places` varchar(30) NOT NULL,
-  `state_id` int(11) NOT NULL DEFAULT '1',
-  `country_id` varchar(200) Not NULL default '',
-  `image_url` varchar(200) Not NULL default '',
-   `overview` varchar(350) NOT NULL default '',
- `description` varchar(350) NOT NULL default '',
-  `city_id` varchar(11) NOT NULL default '',
-  `star` varchar(11) NOT NULL default '',
-  `townsStatus` varchar(5) NOT NULL default '',
+  `place_name` varchar(30) NOT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `country_id` varchar(200) DEFAULT NULL,
+  `imageUrl` varchar(350) DEFAULT NULL,
+  `overview` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `adderss` varchar(350) DEFAULT NULL,
+  `extra_information` varchar(350) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `town_id` int(11) DEFAULT NULL,
+  `itinerary` varchar(1000) DEFAULT NULL,
+  `Short_itinerary` varchar(1000) DEFAULT NULL,
+  `inclusion` varchar(1000) DEFAULT NULL,
+  `Exclusion` varchar(1000) DEFAULT NULL,
+  `TNC` varchar(1000) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `hm_policy` varchar(1000) DEFAULT NULL,
+  `about` varchar(350) DEFAULT NULL,
+  `followers` int(11) DEFAULT NULL,
+  `following` int(11) DEFAULT NULL,
+  `Star` int(11) DEFAULT NULL,
+  `t_price` int(11) DEFAULT NULL,
+  `d_price` int(11) DEFAULT NULL,
+  `placeStatus` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
 -- -----------------------------------------------------
 -- Table ` BestOffer `
 -- -----------------------------------------------------
@@ -379,5 +438,6 @@ CREATE TABLE `userImageGallery` (
    REFERENCES createUserGallery(`id`)
    ON UPDATE CASCADE
    ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
+
 

@@ -19,4 +19,6 @@ export interface CountriesList{
     hm_policy?: number;
     t_price?: number;
     d_price?: number;
+    adderss?:string;
+    extra_information?: string;
 }
