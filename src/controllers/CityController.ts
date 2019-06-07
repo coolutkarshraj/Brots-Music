@@ -18,7 +18,13 @@ export class CityController extends BaseController {
         const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} ORDER BY name Asc;`);
         this.sendResponse(cities, res);     
        }
-       
+
+       public getAllCitiesForAndroid(req: Request, res: Response) {
+         const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} where state_id = ${req.body.state_id} ORDER BY name Asc;`);
+       // const cities = this.sqlService.executeQuery(`select * from ${Tables.cities} ORDER BY name Asc;`);
+        this.sendResponse(cities, res);     
+       }
+
        public getAllcityOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
         const trending = this.sqlService.executeQuery(`select * from ${Tables.cities} where citieStatus = '2' ORDER BY name Asc;`);
         trending.subscribe((result) => {

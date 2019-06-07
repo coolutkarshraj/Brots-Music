@@ -87,6 +87,14 @@ export class AdminServices extends ServiceBase {
          });
          return Rx.Observable.fromPromise(promise); 
     }
+
+    public addplaces(model:Towns) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.places, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
+    }
     public addSpringFieldData(model:SpringFieldModel) {
         const promise = new Promise((resolve, reject) => {
             const query = this.queryBuilderService.getInsertQuery(Tables.springfield, model);

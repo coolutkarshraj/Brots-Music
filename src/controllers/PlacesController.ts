@@ -15,19 +15,27 @@ export class PlacesController extends BaseController {
 
     public getAllplaces(req: Request, res: Response) {
         const user = this.sqlService.executeQuery(`select * from ${Tables.places} where city_id = ${req.body.city_id} ORDER BY place_name desc;`);
-        this.sendResponse(user, res);     
+        this.sendResponse(user, res);
        }
        public getAlltowns(req: Request, res: Response) {
         const user = this.sqlService.executeQuery(`select * from ${Tables.towns}  ORDER BY towns_name desc;`);
-        this.sendResponse(user, res);     
+        this.sendResponse(user, res);
+       }
+
+       public getAlltownsforAndroid(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.towns} where city_id = ${req.body.city_id}  ORDER BY towns_name desc;`);
+        this.sendResponse(user, res);
        }
        public getAllPlaces(req: Request, res: Response) {
         const user = this.sqlService.executeQuery(`select * from ${Tables.places}  ORDER BY place_name desc;`);
-        this.sendResponse(user, res);     
+        this.sendResponse(user, res);
        }
-       
-       
-       
+
+       public getAllPlacesforAndroid(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.places} where city_id = ${req.body.city_id}  ORDER BY place_name desc;`);
+        this.sendResponse(user, res);
+       }
+
        public getAllplacesOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
         const trending = this.sqlService.executeQuery(`select * from ${Tables.places} where placeStatus = '2' ORDER BY place_name Asc;`);
         trending.subscribe((result) => {
@@ -47,7 +55,7 @@ export class PlacesController extends BaseController {
                 })
 
             })
-        })  
+        });
        }
 
        public getHomeData(req: Request, res: Response) {

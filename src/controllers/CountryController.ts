@@ -18,6 +18,11 @@ export class CountryController extends BaseController {
         this.sendResponse(user, res);
     }
 
+    public getAllCountryDataforAndroid(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.countriesList} where continentId = ${req.body.continentId} ORDER BY country_name Asc;`);
+        this.sendResponse(user, res);
+    }
+
     public getAllCountryOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
         const trending = this.sqlService.executeQuery(`select * from ${Tables.countriesList} where countryStatus = '1' ORDER BY country_name Asc;`);
         trending.subscribe((result) => {

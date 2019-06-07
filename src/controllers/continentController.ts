@@ -18,5 +18,10 @@ export class continentController extends BaseController {
         this.sendResponse(user, res);     
        }
 
+       public getAllContinentDataforAndroid(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.continents} where springFieldId = ${req.body.springFieldId} ORDER BY name Asc;`);
+        this.sendResponse(user, res);     
+       }   
+
 
 }

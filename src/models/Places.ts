@@ -2,7 +2,7 @@ export interface Places{
     id ?:number;
     place_name?:String;
     overview?:String; 
-    description?:number; 
+    description?:string; 
     state_id?:number; 
     country_id?:number; 
     imageUrl?: String;

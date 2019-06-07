@@ -2,7 +2,7 @@ export interface Towns{
     id ?:number;
     towns_name?:String;
     overview?:String; 
-    description?:number; 
+    description?:string; 
     city_id?:number; 
     state_id?:number; 
     imageUrl?: String;

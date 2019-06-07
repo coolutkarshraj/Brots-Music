@@ -61,19 +61,26 @@ export class AppRouter {
         app.post("/v1/user/sendforgetPasswordLink", (req: Request, res: Response) => this.userController.sendForgetPasswordLink(req, res));
         app.post("/v1/user/updatePassword", (req: Request, res: Response) => this.userController.updatePassword(req, res));
         app.post("/v1/user/checkForUserNameExistOrNot", (req: Request, res: Response) => this.userController.checkUserNameExistOrNot(req, res)); 
-       
-    
+
          /** User Destination continent Api*/
         app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
         app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
-        app.get("/v1/user/getAllContinents", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
+        app.get("/v1/user/getAllContinentsforweb", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
+        app.post("/v1/user/getAllContinentsforweb", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
+        app.get("/v1/user/getAllContinents", (req: Request, res: Response) => this.continentController.getAllContinentDataforAndroid(req, res));
         app.post("/v1/user/getAllCountryOnthebasisofContinent", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
-        app.get("/v1/user/getAllCountries", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
-        app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllState(req, res));
-        app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
+        app.get("/v1/user/getAllCountries", (req: Request, res: Response) => this.CountryController.getAllCountryDataforAndroid(req, res));
+        app.post("/v1/user/getAllCountriesforweb", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
+        app.get("/v1/user/getAllCountriesforweb", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
+        app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllStateforAndroid(req, res));
+        app.post("/v1/user/getAllStateforweb", (req: Request, res: Response) => this.StateController.getAllState(req, res));
+        app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCitiesForAndroid(req, res));
+        app.post("/v1/user/getAllCitiesforweb", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
         app.post("/v1/user/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllplaces(req, res));
-        app.post("/v1/user/getAllTowns", (req: Request, res: Response) => this.placesController.getAlltowns(req, res));
+        app.post("/v1/user/getAllTowns", (req: Request, res: Response) => this.placesController.getAlltownsforAndroid(req, res));
+        app.post("/v1/user/getAllTownsforWeb", (req: Request, res: Response) => this.placesController.getAlltowns(req, res));
         app.post("/v1/admin/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllPlaces(req, res));
+        app.post("/v1/admin/getAllPlacesforweb", (req: Request, res: Response) => this.placesController.getAllPlaces(req, res));
         app.post("/v1/user/city/bestOffer", (req: Request, res: Response) => this.bestOffer.getAllBestOffer(req, res));
 
         /** User Destination Country Api*/
@@ -123,7 +130,7 @@ export class AppRouter {
        app.post("/v1/admin/addStates", (req: Request, res: Response) => this.adminController.addStates(req, res));
        app.post("/v1/admin/addCities", (req: Request, res: Response) => this.adminController.addcities(req, res));
        app.post("/v1/admin/addTowns", (req: Request, res: Response) => this.adminController.addTowns(req, res));
-       app.post("/v1/admin/addPlaces", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
+       app.post("/v1/admin/addPlaces", (req: Request, res: Response) => this.adminController.addplaces(req, res));
 
        app.post("/v1/admin/editspringField", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
        app.post("/v1/admin/editContinent", (req: Request, res: Response) => this.adminController.addContinent(req, res));
