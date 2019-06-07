@@ -39,12 +39,11 @@ export class AdminServices extends ServiceBase {
     public addContinent(req, res): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
             uploadcategories (req, res, function (err) {
-              
                 if (err) {
                     console.log('error');
                     return res.status(422).send({ errors: [{ title: 'File Upload Error', detail: err.message }] });
                 }
-               let coverImage = req['file'].location 
+               let coverImage = req['file'].location ;
                 resolve(coverImage)
             })
         });

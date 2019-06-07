@@ -146,23 +146,34 @@ export class AdminController extends BaseController {
                        error:"false"
                     })
            }else{
-            req.body.image_url = result;
-              const  a = {
-                country_code :req.body.country_code,
+            req.body.imageUrl = result;
+            const a = {
                 country_name :req.body.country_name,
+                continentId :req.body.continentId,
                 overview :req.body.overview,
                 description :req.body.description,
-                image_url :result,
-                countryStatus:req.body.countryStatus,
-                continentId:req.body.continentId,
+                followers :0,
+                following :0,
+                Star :0,
+                imageUrl :result,
+                itinerary:req.body.itinerary,
+                Short_itinerary:req.body.Short_itinerary,
+                inclusion:req.body.inclusion,
+                Exclusion:req.body.Exclusion,
+                TNC:req.body.TNC,
+                Others:req.body.Others,
+                hm_policy:req.body.hm_policy,
+                about:req.body.about,
+                t_price:req.body.t_price,
+                d_price:req.body.d_price,
+                countryStatus:0
                }
-             
                 this.adminServices.addCountryToDatatoDatabase(a);
                res.json({
                    status: "true",
-                   message: `Continent added successfully`,
-                   error:"true"        
-                })
+                   message: `country added successfully`,
+                   error:"true",
+                });
            }
        })
     }
@@ -173,25 +184,36 @@ export class AdminController extends BaseController {
                     res.json({
                        status: "false",
                        message: `Image not uploaded`,
-                       error:"false"        
+                       error:"false",
                     })
-                      
            }else{
-            req.body.image_url = result;
-            const  a = {
+            req.body.imageUrl = result;
+            const a = {
                 name :req.body.name,
+                country_id :req.body.country_id,
                 overview :req.body.overview,
                 description :req.body.description,
-                country_id :req.body.country_id,
-                image_url :result,
-                countryStatus:req.body.countryStatus,
+                followers :0,
+                following :0,
+                Star :0,
+                imageUrl :result,
+                itinerary:req.body.itinerary,
+                Short_itinerary:req.body.Short_itinerary,
+                inclusion:req.body.inclusion,
+                Exclusion:req.body.Exclusion,
+                TNC:req.body.TNC,
+                Others:req.body.Others,
+                hm_policy:req.body.hm_policy,
+                about:req.body.about,
+                t_price:req.body.t_price,
+                d_price:req.body.d_price,
+                stateStatus:0
                }
-              
                 this.adminServices.addStates(a);
                res.json({
                    status: "true",
                    message: `Continent added successfully`,
-                   error:"true"        
+                   error:"true",
                 })
            }
        })

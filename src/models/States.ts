@@ -2,7 +2,7 @@ export interface States{
     id ?:number;
     name?:String;
     overview?:String; 
-    description?:number; 
+    description?:string; 
     country_id?:number; 
     imageUrl?: String;
     stateStatus?: number;
@@ -15,7 +15,7 @@ export interface States{
     Exclusion?: string;
     TNC?: string;
     Others?: string;
-    hm_policy?: number;
+    hm_policy?: string;
     t_price?: number;
     d_price?: number;
     adderss?:string;

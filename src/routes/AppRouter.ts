@@ -66,7 +66,9 @@ export class AppRouter {
          /** User Destination continent Api*/
         app.post("/v1/user/springField", (req: Request, res: Response) => this.springField.getAllSpringFieldData(req, res));
         app.post("/v1/user/getAllContinent", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
+        app.get("/v1/user/getAllContinents", (req: Request, res: Response) => this.continentController.getAllContinentData(req, res));
         app.post("/v1/user/getAllCountryOnthebasisofContinent", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
+        app.get("/v1/user/getAllCountries", (req: Request, res: Response) => this.CountryController.getAllCountryDataonTheBasisofContinent(req, res));
         app.post("/v1/user/getAllStateOnThebasisOfContry", (req: Request, res: Response) => this.StateController.getAllState(req, res));
         app.post("/v1/user/getAllCities", (req: Request, res: Response) => this.cityController.getAllCities(req, res));
         app.post("/v1/user/getAllPlaces", (req: Request, res: Response) => this.placesController.getAllplaces(req, res));

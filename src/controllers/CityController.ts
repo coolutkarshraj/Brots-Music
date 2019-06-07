@@ -20,9 +20,9 @@ export class CityController extends BaseController {
        }
        
        public getAllcityOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
-        const trending = this.sqlService.executeQuery(`select * from ${Tables.cities} where stateStatus = '2' ORDER BY name Asc;`);
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.cities} where citieStatus = '2' ORDER BY name Asc;`);
         trending.subscribe((result) => {
-            const featured = this.sqlService.executeQuery(`select * from ${Tables.cities} where stateStatus = '3' ORDER BY name Asc;`);
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.cities} where citieStatus = '3' ORDER BY name Asc;`);
             featured.subscribe((result1) => {
                 const allCountry = this.sqlService.executeQuery(`select * from ${Tables.cities} ORDER BY name Asc;`);
                 allCountry.subscribe((result3) => {

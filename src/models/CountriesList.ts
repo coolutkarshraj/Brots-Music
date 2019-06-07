@@ -2,7 +2,7 @@ export interface CountriesList{
     id ?:number;
     continentId?:String;
     country_code?:String; 
-    country_name?:number; 
+    country_name?:string; 
     countryStatus?:number; 
     imageUrl?: String;
     overview?: string;

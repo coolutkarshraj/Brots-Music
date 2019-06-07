@@ -574,6 +574,7 @@ UPDATE cities SET `imageUrl` = 'https://s3.ap-south-1.amazonaws.com/high-mountai
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE cities SET `star` = '4';
+
 SET SQL_SAFE_UPDATES = 0;
 UPDATE cities SET `citieStatus` = '1';
 
@@ -676,3 +677,18 @@ INSERT INTO `high_mountains`.`admin` (`id`, `imageUrl`, `name`, `firstName`, `la
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE continents SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected ';
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE springfield SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour';
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE states SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour';
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE cities SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour';
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE towns SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour';
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE places SET `about` = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour';
