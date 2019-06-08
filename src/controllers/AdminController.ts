@@ -403,6 +403,33 @@ private updateLoginStatus(onlineStatus: number, loggedInStatus: number, id:numbe
         }, (error) => null, null);
     }
 
-    
+
+    public booktour(req: Request, res: Response) {
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+            return res.json({
+                "status":"false",
+                "message":"book tour done",
+                "error":"false",
+            });
+        }
+     const user =  this.adminServices.booktour(req.body)
+     this.sendRegistrationResponse(user,res)
+        
+    }
+    public bookingEnquiry(req: Request, res: Response) {
+        if(req.body.constructor === Object && Object.keys(req.body).length === 0){
+            return res.json({
+                "status":"false",
+                "message":"Missing All Parameter",
+                "error":"false",
+            });
+        }
+     const user =  this.adminServices.bookingEnquiry(req.body)
+     res.json({
+        status: "true",
+        message: `booking enquiry done`,
+        error:"true",
+     })
+    }
 
 }

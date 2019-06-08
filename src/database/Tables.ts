@@ -16,5 +16,6 @@ export class Tables {
     public static userimagegallery: string = "userimagegallery";
     public static userBookMarkedImage: string = "userBookMarkedImage";
     public static admin: string = "admin";
-
+    public static booking_enquiry: string = "booking_enquiry";
+    public static book_tour: string = "book_tour";
 }

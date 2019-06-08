@@ -147,5 +147,8 @@ export class AppRouter {
        app.post("/v1/admin/deleteCities", (req: Request, res: Response) => this.adminController.addcities(req, res));
        app.post("/v1/admin/deleteTowns", (req: Request, res: Response) => this.adminController.addTowns(req, res));
        app.post("/v1/admin/deletePlaces", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
+   
+       app.post("/v1/user/booktour", (req: Request, res: Response) => this.adminController.booktour(req, res));
+       app.post("/v1/user/bookingenquiry", (req: Request, res: Response) => this.adminController.bookingEnquiry(req, res));
     }
 }

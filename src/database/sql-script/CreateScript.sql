@@ -441,3 +441,42 @@ CREATE TABLE `userImageGallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
 
 
+CREATE TABLE `booking_enquiry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customerId` int(11) DEFAULT NULL,
+  `from` varchar(350) NOT NULL default '',
+  `destination` varchar(350) NOT NULL default '',
+  `fromdate` varchar(1000) DEFAULT NULL,
+  `todate` varchar(350) DEFAULT NULL,
+  `guest` varchar(1000) DEFAULT NULL,
+  `Budget` varchar(1000) DEFAULT NULL,
+  `note` varchar(1000) DEFAULT NULL,
+  `transportprefered` varchar(1000) DEFAULT NULL,
+  `isconfirmed` int(11) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `extra_information` varchar(1000) NOT NULL default '',
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `book_tour` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customerId` int(11) DEFAULT NULL,
+  `from` varchar(350) NOT NULL default '',
+  `destination` varchar(350) NOT NULL default '',
+  `fromdate` varchar(1000) DEFAULT NULL,
+  `todate` varchar(350) DEFAULT NULL,
+  `guest` varchar(1000) DEFAULT NULL,
+  `Budget` varchar(1000) DEFAULT NULL,
+  `note` varchar(1000) DEFAULT NULL,
+  `transportprefered` varchar(1000) DEFAULT NULL,
+  `isconfirmed` int(11) DEFAULT NULL,
+  `Others` varchar(1000) DEFAULT NULL,
+  `extra_information` varchar(1000) NOT NULL default '',
+  `traveller_name` varchar(1000) NOT NULL default '',
+  `traveller_age` varchar(1000) NOT NULL default '',
+  `traveller_gender` varchar(1000) NOT NULL default '',
+  `traveller_room` varchar(1000) NOT NULL default '',
+  `category` varchar(1000) NOT NULL default '',
+  PRIMARY KEY (`id`)
+);
+

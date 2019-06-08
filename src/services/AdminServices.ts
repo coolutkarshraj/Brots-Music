@@ -12,7 +12,8 @@ import { States } from "../models/States";
 import { Cities } from "../models/Cities";
 import { Towns } from "../models/Towns";
 import { SpringFieldModel } from "../models/SpringFieldModel";
-
+import { book_tour } from "../models/book_tour";
+import { booking_enquiry } from "../models/booking_enquiry";
 export class AdminServices extends ServiceBase {
     private emailService: EmailService;
     constructor() {
@@ -102,5 +103,21 @@ export class AdminServices extends ServiceBase {
          });
          return Rx.Observable.fromPromise(promise); 
     }
-    
+
+    public booktour(model:book_tour) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.book_tour, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
+    }
+
+    public bookingEnquiry(model:booking_enquiry) {
+        const promise = new Promise((resolve, reject) => {
+            const query = this.queryBuilderService.getInsertQuery(Tables.booking_enquiry, model);
+             resolve(this.sqlService.executeQuery(query) )
+         });
+         return Rx.Observable.fromPromise(promise); 
+    }
+
 }
