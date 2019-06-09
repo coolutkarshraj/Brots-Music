@@ -152,6 +152,6 @@ export class AppRouter {
        app.post("/v1/user/booktour", (req: Request, res: Response) => this.adminController.booktour(req, res));
        app.post("/v1/user/bookingenquiry", (req: Request, res: Response) => this.adminController.bookingEnquiry(req, res));
     
-       app.post("/v1/user/getspringField", (req: Request, res: Response) => this.springField.getAllSpringFieldDatabyid(req, res));
+       app.post("/v1/user/getspringFieldbyId", (req: Request, res: Response) => this.springField.getAllSpringFieldDatabyid(req, res));
     }
 }
