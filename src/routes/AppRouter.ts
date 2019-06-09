@@ -84,6 +84,7 @@ export class AppRouter {
         app.post("/v1/user/city/bestOffer", (req: Request, res: Response) => this.bestOffer.getAllBestOffer(req, res));
 
         /** User Destination Country Api*/
+        
         app.post("/v1/user/getAllCountryOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.CountryController.getAllCountryOnbasiOfTrandingPopularDispopular(req, res));
         app.post("/v1/user/getAllstatesOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.StateController.getAllstatesOnbasiOfTrandingPopularDispopularv(req, res));
         app.post("/v1/user/getAllcitiesOnbasiOfTrandingPopularDispopular", (req: Request, res: Response) => this.cityController.getAllcityOnbasiOfTrandingPopularDispopular(req, res));
@@ -150,5 +151,7 @@ export class AppRouter {
    
        app.post("/v1/user/booktour", (req: Request, res: Response) => this.adminController.booktour(req, res));
        app.post("/v1/user/bookingenquiry", (req: Request, res: Response) => this.adminController.bookingEnquiry(req, res));
+    
+       app.post("/v1/user/getspringField", (req: Request, res: Response) => this.springField.getAllSpringFieldDatabyid(req, res));
     }
 }

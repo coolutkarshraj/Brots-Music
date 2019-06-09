@@ -21,7 +21,11 @@ export class springField extends BaseController {
         this.sendResponse(user, res);     
        }
 
-    
+       public getAllSpringFieldDatabyid(req: Request, res: Response) {
+        const user = this.sqlService.executeQuery(`select * from ${Tables.springfield} where id = ${req.body.id} ORDER BY id Asc;`);
+        this.sendResponse(user, res);     
+       }
+
 
        public addSpringFieldData(req: Request, res: Response) {
         if(req.body.constructor === Object && Object.keys(req.body).length === 0){
