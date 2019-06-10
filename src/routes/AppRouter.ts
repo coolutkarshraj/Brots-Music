@@ -14,6 +14,7 @@ import {EditProfileController} from "../controllers/EditProfileController"
 import {DeleteUserProfileController} from "../controllers/DeleteUserProfileController"
 import {UserGalleryController} from "../controllers/UserGalleryController"
 import {AdminController} from "../controllers/AdminController"
+import {DestinationController} from "../controllers/DestinationController"
 
 export class AppRouter {
     private userController: UserController;
@@ -30,6 +31,7 @@ export class AppRouter {
     private deleteUserProfileController :DeleteUserProfileController;
     private userGalleryController : UserGalleryController;
     private adminController : AdminController;
+    private destinationController : DestinationController;
    
 
     constructor(app: express.Application) {
@@ -47,6 +49,7 @@ export class AppRouter {
         this.deleteUserProfileController =  new DeleteUserProfileController()
         this.userGalleryController = new UserGalleryController();
         this.adminController = new AdminController();
+        this.destinationController = new DestinationController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -152,6 +155,13 @@ export class AppRouter {
        app.post("/v1/user/booktour", (req: Request, res: Response) => this.adminController.booktour(req, res));
        app.post("/v1/user/bookingenquiry", (req: Request, res: Response) => this.adminController.bookingEnquiry(req, res));
     
-       app.post("/v1/user/getspringFieldbyId", (req: Request, res: Response) => this.springField.getAllSpringFieldDatabyid(req, res));
+       /** get Admin Destination Api */
+       app.post("/v1/admin/getspringFieldbyId", (req: Request, res: Response) => this.destinationController.getAllSpringFieldDatabyid(req, res));
+       app.post("/v1/admin/getCountryById", (req: Request, res: Response) => this.destinationController.getAllcountryFieldDatabyid(req, res));
+       app.post("/v1/admin/getStateById", (req: Request, res: Response) => this.destinationController.getAllstateFieldDatabyid(req, res));
+       app.post("/v1/admin/getCityById", (req: Request, res: Response) => this.destinationController.getAllcityFieldDatabyid(req, res));
+       app.post("/v1/admin/getPlaceByid", (req: Request, res: Response) => this.destinationController.getAllplacesFieldDatabyid(req, res));
+       app.post("/v1/admin/getContinentById", (req: Request, res: Response) => this.destinationController.getAllcontinentFieldDatabyid(req, res));
+       app.post("/v1/admin/gettownsById", (req: Request, res: Response) => this.destinationController.getAlltownsFieldDatabyid(req, res));
     }
 }
