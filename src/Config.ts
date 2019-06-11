@@ -1,6 +1,6 @@
 export class Config {
     public static site = {
-        port: 9000,
+        port: 8090,
         baseUrl: `http://localhost:9000/`
     };
     public static db: any = {

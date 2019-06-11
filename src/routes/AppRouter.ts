@@ -15,6 +15,7 @@ import {DeleteUserProfileController} from "../controllers/DeleteUserProfileContr
 import {UserGalleryController} from "../controllers/UserGalleryController"
 import {AdminController} from "../controllers/AdminController"
 import {DestinationController} from "../controllers/DestinationController"
+import {EditDistinationController} from "../controllers/EditDistinationController"
 
 export class AppRouter {
     private userController: UserController;
@@ -32,6 +33,7 @@ export class AppRouter {
     private userGalleryController : UserGalleryController;
     private adminController : AdminController;
     private destinationController : DestinationController;
+    private editDestinatinController : EditDistinationController;
    
 
     constructor(app: express.Application) {
@@ -50,6 +52,7 @@ export class AppRouter {
         this.userGalleryController = new UserGalleryController();
         this.adminController = new AdminController();
         this.destinationController = new DestinationController();
+        this.editDestinatinController =  new EditDistinationController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -136,13 +139,13 @@ export class AppRouter {
        app.post("/v1/admin/addTowns", (req: Request, res: Response) => this.adminController.addTowns(req, res));
        app.post("/v1/admin/addPlaces", (req: Request, res: Response) => this.adminController.addplaces(req, res));
 
-       app.post("/v1/admin/editspringField", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
-       app.post("/v1/admin/editContinent", (req: Request, res: Response) => this.adminController.addContinent(req, res));
-       app.post("/v1/admin/editCountry", (req: Request, res: Response) => this.adminController.addCountry(req, res));
-       app.post("/v1/admin/editStates", (req: Request, res: Response) => this.adminController.addStates(req, res));
-       app.post("/v1/admin/editCities", (req: Request, res: Response) => this.adminController.addcities(req, res));
-       app.post("/v1/admin/editTowns", (req: Request, res: Response) => this.adminController.addTowns(req, res));
-       app.post("/v1/admin/editPlaces", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
+       app.post("/v1/admin/editspringField", (req: Request, res: Response) => this.editDestinatinController.editSpringFieldData(req, res));
+       app.post("/v1/admin/editContinent", (req: Request, res: Response) => this.editDestinatinController.editContinent(req, res));
+       app.post("/v1/admin/editCountry", (req: Request, res: Response) => this.editDestinatinController.editCountry(req, res));
+       app.post("/v1/admin/editStates", (req: Request, res: Response) => this.editDestinatinController.editStates(req, res));
+       app.post("/v1/admin/editCities", (req: Request, res: Response) => this.editDestinatinController.editcities(req, res));
+       app.post("/v1/admin/editTowns", (req: Request, res: Response) => this.editDestinatinController.editTowns(req, res));
+       app.post("/v1/admin/editPlaces", (req: Request, res: Response) => this.editDestinatinController.editplaces(req, res));
     
        app.post("/v1/admin/deletespringField", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
        app.post("/v1/admin/deleteContinent", (req: Request, res: Response) => this.adminController.addContinent(req, res));
