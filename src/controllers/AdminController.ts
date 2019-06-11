@@ -338,7 +338,7 @@ export class AdminController extends BaseController {
                 country_id: req.body.country_id,
                 city_id:req.body.city_id
                }
-                this.adminServices.addTowns(a);
+                this.adminServices.addplaces(a);
                res.json({
                    status: "true",
                    message: `Continent added successfully`,

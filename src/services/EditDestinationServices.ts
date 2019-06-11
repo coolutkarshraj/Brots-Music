@@ -23,6 +23,8 @@ export class EditDestinationServices extends ServiceBase {
     }
 
     public editSpringFieldData(model: SpringFieldModel): Rx.Observable<any> {
+        console.log("dhsjdhsjdhsjhdsjdjs");
+        console.log(model)
         return this.userExists(model.id)
             .flatMap((userExistsResult) => {
                 if (!_.isEmpty(userExistsResult)) {
@@ -41,7 +43,7 @@ export class EditDestinationServices extends ServiceBase {
     }
 
     public userExists(id): Rx.Observable<any> {
-        let query = `select id from ${Tables.user} where id = "${id}";`;
+        let query = `select id from ${Tables.springfield} where id = "${id}";`;
       return this.sqlService.executeQuery(query);
   }
     
@@ -154,7 +156,7 @@ export class EditDestinationServices extends ServiceBase {
         })
     }
 
-    public updateProfileImages(req, res): Rx.Observable<any> {
+    public uploadImages(req, res): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
             uploadcategories (req, res, function (err) {
                 if (err) {
