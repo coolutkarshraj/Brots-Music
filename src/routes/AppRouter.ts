@@ -147,6 +147,16 @@ export class AppRouter {
        app.post("/v1/admin/editTowns", (req: Request, res: Response) => this.editDestinatinController.editTowns(req, res));
        app.post("/v1/admin/editPlaces", (req: Request, res: Response) => this.editDestinatinController.editplaces(req, res));
     
+
+       app.post("/v1/admin/editspringFieldwithoutImages", (req: Request, res: Response) => this.editDestinatinController.editSpringFieldDatawithoutImages(req, res));
+       app.post("/v1/admin/editContinentwithoutImages", (req: Request, res: Response) => this.editDestinatinController.editContinentDatawithoutImages(req, res));
+       app.post("/v1/admin/editCountrywithoutImages", (req: Request, res: Response) => this.editDestinatinController.editCountryDatawithoutImages(req, res));
+       app.post("/v1/admin/editStateswithoutImages", (req: Request, res: Response) => this.editDestinatinController.editStateDatawithoutImages(req, res));
+       app.post("/v1/admin/editCitieswithoutImages", (req: Request, res: Response) => this.editDestinatinController.editCityDatawithoutImages(req, res));
+       app.post("/v1/admin/editTownswithoutImages", (req: Request, res: Response) => this.editDestinatinController.edittownsDatawithoutImages(req, res));
+       app.post("/v1/admin/editPlaceswithoutImages", (req: Request, res: Response) => this.editDestinatinController.editPlacesDatawithoutImages(req, res));
+    
+       
        app.post("/v1/admin/deletespringField", (req: Request, res: Response) => this.adminController.addSpringFieldData(req, res));
        app.post("/v1/admin/deleteContinent", (req: Request, res: Response) => this.adminController.addContinent(req, res));
        app.post("/v1/admin/deleteCountry", (req: Request, res: Response) => this.adminController.addCountry(req, res));

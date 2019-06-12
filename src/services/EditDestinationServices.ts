@@ -23,19 +23,19 @@ export class EditDestinationServices extends ServiceBase {
     }
 
     public editSpringFieldData(model: SpringFieldModel): Rx.Observable<any> {
-        console.log("dhsjdhsjdhsjhdsjdjs");
-        console.log(model)
         return this.userExists(model.id)
             .flatMap((userExistsResult) => {
+                console.log(userExistsResult);
                 if (!_.isEmpty(userExistsResult)) {
                     const condition = 'where id = ' + model.id;
                     delete model.id;
                     const query = this.queryBuilderService.getUpdateQuery(Tables.springfield, model,condition);
+                    console.log(query)
                     return this.sqlService.executeQuery(query); 
                 }
                     const error: ErrorModel = {
                         status: "false",
-                        message: `User with email ${model.id} not exists.`,
+                        message: `destination with this ${model.id} not exists.`,
                         error:"false"           
                     } 
                 return Rx.Observable.throw(error);
@@ -43,13 +43,13 @@ export class EditDestinationServices extends ServiceBase {
     }
 
     public userExists(id): Rx.Observable<any> {
-        let query = `select id from ${Tables.springfield} where id = "${id}";`;
+        let query = `select * from ${Tables.springfield} where id = "${id}";`;
       return this.sqlService.executeQuery(query);
   }
     
 
     public editContinent(model: Continents):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.continentExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -66,8 +66,13 @@ export class EditDestinationServices extends ServiceBase {
         })
     }
 
+    public continentExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.continents} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
+
     public editCountry(model: CountriesList):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.countryExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -84,8 +89,12 @@ export class EditDestinationServices extends ServiceBase {
         })
     }
 
+    public countryExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.countriesList} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
     public editStates(model: States):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.stateExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -102,8 +111,12 @@ export class EditDestinationServices extends ServiceBase {
         })
     }
 
+    public stateExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.states} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
     public editcities(model: Cities):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.citiesExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -119,9 +132,12 @@ export class EditDestinationServices extends ServiceBase {
             return Rx.Observable.throw(error);
         })
     }
-
+    public citiesExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.cities} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
     public editTowns(model: Towns):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.townsExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -137,9 +153,12 @@ export class EditDestinationServices extends ServiceBase {
             return Rx.Observable.throw(error);
         })
     }
-
+    public townsExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.towns} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
     public editplaces(model: Places):Rx.Observable<any> {
-        return this.userExists(model.id)
+        return this.placeExist(model.id)
         .flatMap((userExistsResult) => {
             if (!_.isEmpty(userExistsResult)) {
                 const condition = 'where id = ' + model.id;
@@ -155,6 +174,11 @@ export class EditDestinationServices extends ServiceBase {
             return Rx.Observable.throw(error);
         })
     }
+
+    public placeExist(id): Rx.Observable<any> {
+        let query = `select * from ${Tables.places} where id = "${id}";`;
+      return this.sqlService.executeQuery(query);
+  }
 
     public uploadImages(req, res): Rx.Observable<any> {
         const promise = new Promise((resolve, reject) => {
