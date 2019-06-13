@@ -20,4 +20,5 @@ export interface Cities{
     d_price?: number;
     adderss?:string;
     extra_information?: string;
+    country_id?:number
 }

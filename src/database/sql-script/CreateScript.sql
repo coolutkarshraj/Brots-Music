@@ -490,3 +490,6 @@ CREATE TABLE `revivew` (
   `others` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+ALTER TABLE cities
+ADD country_id int(11) default null;
