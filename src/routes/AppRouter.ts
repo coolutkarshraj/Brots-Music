@@ -186,5 +186,6 @@ export class AppRouter {
        app.post("/v1/admin/deleteRevivewApi", (req: Request, res: Response) => this.revivewController.deleteRevivew(req, res));
        app.post("/v1/admin/editRevivewApi", (req: Request, res: Response) => this.revivewController.editRevivewApi(req, res));
        app.post("/v1/admin/editRevivewApiWithoutImages", (req: Request, res: Response) => this.revivewController.editRevivewApiwithoutImages(req, res));
+       app.post("/v1/admin/getAllReview", (req: Request, res: Response) => this.revivewController.getAllRevivew(req, res));
     }
 }
