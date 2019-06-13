@@ -480,3 +480,12 @@ CREATE TABLE `book_tour` (
   PRIMARY KEY (`id`)
 );
 
+CREATE TABLE `revivew` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `imageUrl` varchar(350) DEFAULT NULL,
+  `review` varchar(350) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `dest_id` int(11) DEFAULT NULL,
+  `others` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);

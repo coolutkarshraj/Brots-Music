@@ -16,6 +16,7 @@ import {UserGalleryController} from "../controllers/UserGalleryController"
 import {AdminController} from "../controllers/AdminController"
 import {DestinationController} from "../controllers/DestinationController"
 import {EditDistinationController} from "../controllers/EditDistinationController"
+import {RevivewController} from "../controllers/RevivewController"
 
 export class AppRouter {
     private userController: UserController;
@@ -34,6 +35,7 @@ export class AppRouter {
     private adminController : AdminController;
     private destinationController : DestinationController;
     private editDestinatinController : EditDistinationController;
+    private revivewController : RevivewController;
    
 
     constructor(app: express.Application) {
@@ -53,6 +55,7 @@ export class AppRouter {
         this.adminController = new AdminController();
         this.destinationController = new DestinationController();
         this.editDestinatinController =  new EditDistinationController();
+        this.revivewController = new RevivewController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -176,5 +179,12 @@ export class AppRouter {
        app.post("/v1/admin/getPlaceByid", (req: Request, res: Response) => this.destinationController.getAllplacesFieldDatabyid(req, res));
        app.post("/v1/admin/getContinentById", (req: Request, res: Response) => this.destinationController.getAllcontinentFieldDatabyid(req, res));
        app.post("/v1/admin/gettownsById", (req: Request, res: Response) => this.destinationController.getAlltownsFieldDatabyid(req, res));
+   
+       /** user revvivew Api */
+       app.post("/v1/admin/addRevivewApi", (req: Request, res: Response) => this.revivewController.addRevivewApi(req, res));
+       app.post("/v1/admin/addRevivewWithoutImages", (req: Request, res: Response) => this.revivewController.addRevivewApiwithoutImages(req, res));
+       app.post("/v1/admin/deleteRevivewApi", (req: Request, res: Response) => this.revivewController.deleteRevivew(req, res));
+       app.post("/v1/admin/editRevivewApi", (req: Request, res: Response) => this.revivewController.editRevivewApi(req, res));
+       app.post("/v1/admin/editRevivewApiWithoutImages", (req: Request, res: Response) => this.revivewController.editRevivewApiwithoutImages(req, res));
     }
 }
