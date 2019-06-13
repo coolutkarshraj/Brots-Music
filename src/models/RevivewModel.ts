@@ -4,5 +4,6 @@ export interface RevivewModel{
     review?:String; 
     rating?:number; 
     dest_id?:number; 
+    user_id?:number; 
     others?:string;   
 }

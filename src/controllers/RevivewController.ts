@@ -33,7 +33,8 @@ export class RevivewController extends BaseController {
                 rating :req.body.rating,
                 review :req.body.review,
                 imageUrl :result,
-                others :req.body.others
+                others :req.body.others,
+                user_id :req.body.user_id
                }
               this.revivewServices.addRevivewToDatabase(a);
                res.json({
@@ -85,7 +86,8 @@ export class RevivewController extends BaseController {
                 rating :req.body.rating,
                 review :req.body.review,
                 imageUrl :result,
-                others :req.body.others
+                others :req.body.others,
+                user_id :req.body.user_id
                
 
                }

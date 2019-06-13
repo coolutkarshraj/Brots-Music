@@ -486,6 +486,7 @@ CREATE TABLE `revivew` (
   `review` varchar(350) DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
   `dest_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `others` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
