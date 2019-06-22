@@ -15,55 +15,44 @@ export class DeleteDestinationController extends BaseController {
         this.sqlService = new SqlService();
         this.editProfileServices = new EditProfileServices()
     }
-    public editBasicDetails(req: Request, res: Response) {
-        const user =  this.editProfileServices.editBasicDetails(req.body)
-        this.sendResponseWithoutData(user,res)
+    public deleteSpringFieldData(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.springfield} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        } 
-       public editUserPlaceData(req: Request, res: Response) {
-        const user =  this.editProfileServices.editPlacePlaceData(req.body)
-        this.sendResponseWithoutData(user,res)   
+       public deleteContinent(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.continents} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        }
 
-       public editUserPublicData(req: Request, res: Response) {
-        const user =  this.editProfileServices.editPublicTagData(req.body)
-        this.sendResponseWithoutData(user,res)  
+       public deleteCountry(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.countriesList} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        }
 
-       public editUsereducationData(req: Request, res: Response) {
-        const user =  this.editProfileServices.editEductionDetails(req.body)
-        this.sendResponseWithoutData(user,res)   
+       public deleteStates(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.states} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        }
 
-       public updateAdharCard(req: Request, res: Response) {
-        const query = `update ${Tables.user} set adhar_number = '${req.body.updatedAdharCardNumber}' where id = ${req.body.id};`;
-        const UpdatedData = this.sqlService.executeQuery(query);
-        this.sendResponseWithoutData(UpdatedData, res);     
+       public deletecities(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.cities} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res) 
        }
-       public shareCode(req: Request, res: Response) {
-       const sharecode = "http://13.233.155.12:9000/"+req.body.userName 
-       res.json({
-        "status":"true",
-        "Code":200,
-        "error":"true",
-         "data":sharecode
-           
-       })
+       public deleteTowns(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.towns} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        }
 
-       public updateProfilePic(req: Request, res: Response) {
-        this.editProfileServices.uploadImages(req,res).subscribe((result1)=>{
-           if (!_.isEmpty(result1)) {
-            const user =  this.editProfileServices.updateProfileImage(req.body,result1)
-            this.sendResponseWithoutData(user,res)  
-             
-           }else{
-               return res.json({
-                   "status":"false",
-                   "message":"Something Went Wrong",
-                   "error":"false"
-               })
-           }
-        }) 
+       public deleteplaces(req: Request, res: Response) {
+        const query =  `DELETE FROM  ${Tables.places} WHERE id = ${req.body.id};`
+        const executeQuery = this.sqlService.executeQuery(query)
+        this.sendResponseWithoutData(executeQuery,res)
        }
     
 }
