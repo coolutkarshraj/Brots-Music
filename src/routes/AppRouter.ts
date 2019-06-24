@@ -18,7 +18,7 @@ import {DestinationController} from "../controllers/DestinationController"
 import {EditDistinationController} from "../controllers/EditDistinationController"
 import {RevivewController} from "../controllers/RevivewController"
 import {DeleteDestinationController} from "../controllers/DeleteDestinationController"
-
+import {AdminUserrAction} from "../controllers/AdminUserrAction"
 
 export class AppRouter {
     private userController: UserController;
@@ -39,6 +39,7 @@ export class AppRouter {
     private editDestinatinController : EditDistinationController;
     private revivewController : RevivewController;
     private deleteDestinationController :DeleteDestinationController
+    private adminUserrAction :AdminUserrAction;
    
 
     constructor(app: express.Application) {
@@ -60,6 +61,7 @@ export class AppRouter {
         this.editDestinatinController =  new EditDistinationController();
         this.revivewController = new RevivewController();
         this.deleteDestinationController = new DeleteDestinationController();
+        this.adminUserrAction = new AdminUserrAction();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -191,5 +193,16 @@ export class AppRouter {
        app.post("/v1/admin/editRevivewApi", (req: Request, res: Response) => this.revivewController.editRevivewApi(req, res));
        app.post("/v1/admin/editRevivewApiWithoutImages", (req: Request, res: Response) => this.revivewController.editRevivewApiwithoutImages(req, res));
        app.post("/v1/admin/getAllReview", (req: Request, res: Response) => this.revivewController.getAllRevivew(req, res));
+     
+       /** user revvivew Api */
+       app.post("/v1/admin/blockUser", (req: Request, res: Response) => this.adminUserrAction.blockedUser(req, res));
+       app.post("/v1/admin/unBlockUser", (req: Request, res: Response) => this.adminUserrAction.unBlockedUser(req, res));
+       app.get("/v1/admin/getblockUser", (req: Request, res: Response) => this.adminUserrAction.getBlockedUser(req, res));
+       app.get("/v1/admin/getunBlockUser", (req: Request, res: Response) => this.adminUserrAction.getUnBlockedUser(req, res));
+       app.post("/v1/admin/contactUser", (req: Request, res: Response) => this.adminUserrAction.ContactUser(req, res));
+     
+       /** Admin Delete User Api */
+       app.post("/v1/admin/deleteUser", (req: Request, res: Response) => this.adminUserrAction.deleteUser(req, res));
+
     }
 }

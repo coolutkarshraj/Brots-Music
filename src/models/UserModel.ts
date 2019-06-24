@@ -30,4 +30,5 @@ export interface UserModel {
     wantToHelpPeople?: number;
     level?: number;
     interstedIn?: number;
+    isBlockedUserr:number;
 }

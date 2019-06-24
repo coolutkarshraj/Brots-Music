@@ -44,8 +44,7 @@ export class UserController extends BaseController {
             || req.body.userName == null || req.body.dob == null || 
             req.body.gender == null || req.body.email == null || req.body.phone  == null
             || req.body.password == null || req.body.followers == null
-            || req.body.following == null || req.body.adhar_number == null || 
-            req.body.adhar_number == null ){
+            || req.body.following == null || req.body.adhar_number == null ){
                 return  res.json({
                     "status":"false",
                     "message":"Missing Paramenter",
@@ -59,8 +58,7 @@ export class UserController extends BaseController {
                 || req.body.userName == '' || req.body.dob == '' || 
                 req.body.gender == '' || req.body.email == '' || req.body.phone  == ''
                 || req.body.password == '' || req.body.followers == ''
-                || req.body.following == '' || req.body.adhar_number == '' || 
-                req.body.adhar_number == '' ){
+                || req.body.following == '' || req.body.adhar_number == ''  ){
                     return  res.json({
                         "status":"false",
                         "message":"Missing Paramenter",
@@ -68,9 +66,8 @@ export class UserController extends BaseController {
                     });   
         
                 }
-     const user =  this.userService.registerUser(req.body)
-     this.sendRegistrationResponse(user,res)
-        
+     const user =  this.userService.registerUser(req.body);
+     this.sendRegistrationResponse(user,res);     
     }
     
     

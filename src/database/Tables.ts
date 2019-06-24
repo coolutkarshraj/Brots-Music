@@ -19,4 +19,6 @@ export class Tables {
     public static booking_enquiry: string = "booking_enquiry";
     public static book_tour: string = "book_tour";
     public static revivew: string = "revivew";
+    public static userQuery: string = "userQuery";
+    public static adminQuery: string = "adminQuery";
 }
