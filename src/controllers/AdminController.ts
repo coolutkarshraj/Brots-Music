@@ -65,20 +65,20 @@ export class AdminController extends BaseController {
                 res.send(error);
                 return;
             }
-            if (this.isAlreadyLoggedIn(result)) {
-                const sucessButAlreadyLoggedin: SucessModel = {
-                    status: "false",
-                    message: `User with email ${req.body.email} already Logged in From Device.`,
-                    error:"false" ,
-                    data:result.id 
+            // if (this.isAlreadyLoggedIn(result)) {
+            //     const sucessButAlreadyLoggedin: SucessModel = {
+            //         status: "false",
+            //         message: `User with email ${req.body.email} already Logged in From Device.`,
+            //         error:"false" ,
+            //         data:result.id 
 
-                }
-                res.send(sucessButAlreadyLoggedin);
-                return;
-            }
-            this.updateLoginStatus( 1,1,result.id, (err, success) => {
+            //     }
+            //     res.send(sucessButAlreadyLoggedin);
+            //     return;
+            // }
+            // this.updateLoginStatus( 1,1,result.id, (err, success) => {
                
-                if (err == null) {
+               // if (err == null) {
                     const sucess: SucessModel = {
                         status: "true",
                         message: `User with email ${req.body.email}  Logged inSuccessfull.`,
@@ -86,8 +86,8 @@ export class AdminController extends BaseController {
                         data: result.id         
                     }
                     res.send(sucess)
-                }
-            });
+             //   }
+            // });
 
         }, (error) => null, null);
     }
