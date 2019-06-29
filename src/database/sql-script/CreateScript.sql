@@ -1,19 +1,3 @@
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
--- -----------------------------------------------------
--- Schema edeals
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `high_mountains`;
-
--- -----------------------------------------------------
--- Schema edeals
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `high_mountains` DEFAULT CHARACTER SET utf8;
-USE `high_mountains`;
-
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -399,22 +383,7 @@ CREATE TABLE `createUserGallery` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
 
--- -----------------------------------------------------
--- Table ` User BookMark Image Gallery `
--- -----------------------------------------------------
 
-
- CREATE TABLE `userBookMarkedImage` (
-  `bookMarkId` int(11) NOT NULL AUTO_INCREMENT,
-  `isBookMarked` varchar(100) NOT NULL,
-  `user_Id` int(11) NOT NULL,
-  `imageId` int DEFAULT NULL,
-   PRIMARY KEY (`bookMarkId`),
-   FOREIGN KEY fk_image_id(`imageId`)
-   REFERENCES userImageGallery(`id`)
-   ON UPDATE CASCADE
-   ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
 
 
 
@@ -521,3 +490,20 @@ ALTER TABLE towns
   `email` varchar(350) NOT NULL default '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+
+-- -----------------------------------------------------
+-- Table ` User BookMark Image Gallery `
+-- -----------------------------------------------------
+
+
+ CREATE TABLE `userBookMarkedImage` (
+  `bookMarkId` int(11) NOT NULL AUTO_INCREMENT,
+  `isBookMarked` varchar(100) NOT NULL,
+  `user_Id` int(11) NOT NULL,
+  `imageId` int DEFAULT NULL,
+   PRIMARY KEY (`bookMarkId`),
+   FOREIGN KEY fk_image_id(`imageId`)
+   REFERENCES userImageGallery(`id`)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
