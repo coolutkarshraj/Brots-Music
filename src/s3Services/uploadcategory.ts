@@ -19,7 +19,7 @@ const uploadcategory = multer({
     storage: multerS3({
     fileFilter,
       s3,
-      bucket: 'high-mountains',
+      bucket: 'highmountainsimages',
       acl: 'public-read',
       metadata: function (req, file, cb) {
           console.log(file)

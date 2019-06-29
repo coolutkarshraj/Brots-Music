@@ -520,4 +520,4 @@ ALTER TABLE towns
   `desription` varchar(1000) NOT NULL default '',
   `email` varchar(350) NOT NULL default '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;v
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;

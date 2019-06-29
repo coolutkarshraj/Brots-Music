@@ -5,9 +5,9 @@ var path = require('path')
 
 
 aws.config.update({
-    secretAccessKey: 'iB9Bm5+76TGEPcCfew11jM0Lw31gczCALc16xt1q', 
-    accessKeyId: 'AKIAIBFSE7ZYANDGTMOA',  
-	  region: 'ap-south-1'
+    secretAccessKey: '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', 
+    accessKeyId: 'AKIAISYCY2TUA5K4DV7Q',  
+	  region: 'us-east-1'
 });
  
 var s3 = new aws.S3({ })
@@ -23,7 +23,7 @@ var s3 = new aws.S3({ })
     storage: multerS3({
       fileFilterimage,
       s3,
-      bucket: 'high-mountains',
+      bucket: 'highmountainsimages',
       acl: 'public-read',
       metadata: function (req, file, cb) {
         cb(null, {fieldName: 'TESTING_META_DATA1!'});

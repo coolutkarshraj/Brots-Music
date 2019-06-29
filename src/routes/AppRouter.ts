@@ -204,5 +204,21 @@ export class AppRouter {
        /** Admin Delete User Api */
        app.post("/v1/admin/deleteUser", (req: Request, res: Response) => this.adminUserrAction.deleteUser(req, res));
 
+       /** Admin create gallery */
+       app.post("/v1/admin/addContinentgallery", (req: Request, res: Response) => this.adminController.addContinent(req, res));
+       app.post("/v1/admin/addCountrygallery", (req: Request, res: Response) => this.adminController.addCountry(req, res));
+       app.post("/v1/admin/addStatesgallery", (req: Request, res: Response) => this.adminController.addStates(req, res));
+       app.post("/v1/admin/addCitiesgallery", (req: Request, res: Response) => this.adminController.addcities(req, res));
+       app.post("/v1/admin/addTownsgallery", (req: Request, res: Response) => this.adminController.addTowns(req, res));
+       app.post("/v1/admin/addPlacesgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
+       app.post("/v1/admin/addspringFieldgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
+       
+       app.post("/v1/admin/getContinentgallery", (req: Request, res: Response) => this.adminController.addContinent(req, res));
+       app.post("/v1/admin/getCountrygallery", (req: Request, res: Response) => this.adminController.addCountry(req, res));
+       app.post("/v1/admin/getStatesgallery", (req: Request, res: Response) => this.adminController.addStates(req, res));
+       app.post("/v1/admin/getCitiesgallery", (req: Request, res: Response) => this.adminController.addcities(req, res));
+       app.post("/v1/admin/getTownsgallery", (req: Request, res: Response) => this.adminController.addTowns(req, res));
+       app.post("/v1/admin/getPlacesgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
+       app.post("/v1/admin/getspringFieldgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
     }
 }
