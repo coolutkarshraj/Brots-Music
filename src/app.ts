@@ -22,7 +22,8 @@ app.use("/storage", express.static(path.join(__dirname, "storage")));
 
 new AppRouter(app);
 
-const httpServer: HttpServer = app.listen(Config.site.port, "18.208.183.9", () => {
-    const {address, port} = httpServer.address();
-    Logger.log(`Listening on ${address}:${port}`);
+const httpServer: HttpServer = app.listen(Config.site.port, "0.0.0.0", () => {
+    var host = httpServer.address()["address"];
+    var port = httpServer.address()["port:"];
+    Logger.log(`Listening on ${host}:${port}`);
 });
