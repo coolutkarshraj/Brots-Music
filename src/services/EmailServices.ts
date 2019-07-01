@@ -8,10 +8,8 @@ var smtpTransport = require('nodemailer-smtp-transport');
 var mailAccountUser = 'highmountainstest@gmail.com'
 var mailAccountPassword = 'saurrav123'
 var transport = nodemailer.createTransport(smtpTransport({
-    host:'3.82.198.247',
-    service: 'Gmail',
-    port: 26,
-    secure: false,
+    service: "gmail",
+    host: "smtp.gmail.com",
     auth: {
         user: mailAccountUser,
         pass: mailAccountPassword
