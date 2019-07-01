@@ -24,6 +24,6 @@ new AppRouter(app);
 
 const httpServer: HttpServer = app.listen(Config.site.port, "0.0.0.0", () => {
     var host = httpServer.address()["address"];
-    var port = httpServer.address()["port:"];
+    var port = httpServer.address()["port"];
     Logger.log(`Listening on ${host}:${port}`);
 });

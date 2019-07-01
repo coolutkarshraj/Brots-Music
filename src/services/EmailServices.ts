@@ -5,7 +5,7 @@ import {EmailData} from '../models/EmailData';
 import {Logger} from './common/Logger';
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
-var mailAccountUser = 'highmountainstest@gmail.com'
+var mailAccountUser = 'brotsservices@gmail.com'
 var mailAccountPassword = 'saurrav123'
 var transport = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
