@@ -9,13 +9,14 @@ var mailAccountUser = 'highmountainstest@gmail.com'
 var mailAccountPassword = 'saurrav123'
 var transport = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
-    port: 587,
+    port: 465,
+    host: 'smtp.gmail.com',
+    secure: true,
     auth: {
         user: mailAccountUser,
         pass: mailAccountPassword
     },
     tls: { rejectUnauthorized: false },
-    debug:true
 }))
 export class EmailService {
     public sendMail(emailData: EmailData, templateModel, templateName: string){
