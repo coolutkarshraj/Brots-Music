@@ -16,7 +16,7 @@ var transport = nodemailer.createTransport(smtpTransport({
         user: mailAccountUser,
         pass: mailAccountPassword
     },
-    tls: { rejectUnauthorized: false },
+
 }))
 export class EmailService {
     public sendMail(emailData: EmailData, templateModel, templateName: string){
