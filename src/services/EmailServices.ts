@@ -8,14 +8,15 @@ var smtpTransport = require('nodemailer-smtp-transport');
 var mailAccountUser = 'highmountainstest@gmail.com'
 var mailAccountPassword = 'saurrav123'
 var transport = nodemailer.createTransport(smtpTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         user: mailAccountUser,
         pass: mailAccountPassword
     },
-    tls: { rejectUnauthorized: false },
-    sendmail: true
+  
 }))
 export class EmailService {
     public sendMail(emailData: EmailData, templateModel, templateName: string){
