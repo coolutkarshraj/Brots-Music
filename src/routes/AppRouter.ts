@@ -214,7 +214,7 @@ export class AppRouter {
        app.post("/v1/admin/addCitiesgallery", (req: Request, res: Response) => this.destinationGalleryController.addcities(req, res));
        app.post("/v1/admin/addTownsgallery", (req: Request, res: Response) => this.destinationGalleryController.addTowns(req, res));
        app.post("/v1/admin/addPlacesgallery", (req: Request, res: Response) => this.destinationGalleryController.addplaces(req, res));
-       app.post("/v1/admin/addspringFieldgallery", (req: Request, res: Response) => this.destinationGalleryController.addplaces(req, res));
+       app.post("/v1/admin/addspringFieldgallery", (req: Request, res: Response) => this.destinationGalleryController.addSpringFieldData(req, res));
        
        app.post("/v1/admin/getContinentgallery", (req: Request, res: Response) => this.destinationGalleryController.getContinentgallery(req, res));
        app.post("/v1/admin/getCountrygallery", (req: Request, res: Response) => this.destinationGalleryController.getCountrygallery(req, res));
