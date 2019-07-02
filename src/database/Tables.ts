@@ -21,4 +21,13 @@ export class Tables {
     public static revivew: string = "revivew";
     public static userQuery: string = "userQuery";
     public static adminQuery: string = "adminQuery";
+
+
+    public static springFieldGallery: string = "springFieldGallery";
+    public static continentgallery: string = "continentgallery";
+    public static countryGallery: string = "countryGallery";
+    public static stateGallery: string = "stateGallery";
+    public static cityGalley: string = "cityGalley";
+    public static townsGalley: string = "townsGalley";
+    public static placeGalley: string = "placeGalley";
 }

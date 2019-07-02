@@ -19,6 +19,7 @@ import {EditDistinationController} from "../controllers/EditDistinationControlle
 import {RevivewController} from "../controllers/RevivewController"
 import {DeleteDestinationController} from "../controllers/DeleteDestinationController"
 import {AdminUserrAction} from "../controllers/AdminUserrAction"
+import {DestinationGalleryController} from "../controllers/DestinationGalleryController"
 
 export class AppRouter {
     private userController: UserController;
@@ -40,6 +41,7 @@ export class AppRouter {
     private revivewController : RevivewController;
     private deleteDestinationController :DeleteDestinationController
     private adminUserrAction :AdminUserrAction;
+    private destinationGalleryController:DestinationGalleryController;
    
 
     constructor(app: express.Application) {
@@ -62,6 +64,7 @@ export class AppRouter {
         this.revivewController = new RevivewController();
         this.deleteDestinationController = new DeleteDestinationController();
         this.adminUserrAction = new AdminUserrAction();
+        this.destinationGalleryController = new DestinationGalleryController();
  
         app.get("/v1/ping", (req: Request, res: Response) => this.userController.ping(req, res));
 
@@ -205,20 +208,28 @@ export class AppRouter {
        app.post("/v1/admin/deleteUser", (req: Request, res: Response) => this.adminUserrAction.deleteUser(req, res));
 
        /** Admin create gallery */
-       app.post("/v1/admin/addContinentgallery", (req: Request, res: Response) => this.adminController.addContinent(req, res));
-       app.post("/v1/admin/addCountrygallery", (req: Request, res: Response) => this.adminController.addCountry(req, res));
-       app.post("/v1/admin/addStatesgallery", (req: Request, res: Response) => this.adminController.addStates(req, res));
-       app.post("/v1/admin/addCitiesgallery", (req: Request, res: Response) => this.adminController.addcities(req, res));
-       app.post("/v1/admin/addTownsgallery", (req: Request, res: Response) => this.adminController.addTowns(req, res));
-       app.post("/v1/admin/addPlacesgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
-       app.post("/v1/admin/addspringFieldgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
+       app.post("/v1/admin/addContinentgallery", (req: Request, res: Response) => this.destinationGalleryController.addContinentGallery(req, res));
+       app.post("/v1/admin/addCountrygallery", (req: Request, res: Response) => this.destinationGalleryController.addCountry(req, res));
+       app.post("/v1/admin/addStatesgallery", (req: Request, res: Response) => this.destinationGalleryController.addStates(req, res));
+       app.post("/v1/admin/addCitiesgallery", (req: Request, res: Response) => this.destinationGalleryController.addcities(req, res));
+       app.post("/v1/admin/addTownsgallery", (req: Request, res: Response) => this.destinationGalleryController.addTowns(req, res));
+       app.post("/v1/admin/addPlacesgallery", (req: Request, res: Response) => this.destinationGalleryController.addplaces(req, res));
+       app.post("/v1/admin/addspringFieldgallery", (req: Request, res: Response) => this.destinationGalleryController.addplaces(req, res));
        
-       app.post("/v1/admin/getContinentgallery", (req: Request, res: Response) => this.adminController.addContinent(req, res));
-       app.post("/v1/admin/getCountrygallery", (req: Request, res: Response) => this.adminController.addCountry(req, res));
-       app.post("/v1/admin/getStatesgallery", (req: Request, res: Response) => this.adminController.addStates(req, res));
-       app.post("/v1/admin/getCitiesgallery", (req: Request, res: Response) => this.adminController.addcities(req, res));
-       app.post("/v1/admin/getTownsgallery", (req: Request, res: Response) => this.adminController.addTowns(req, res));
-       app.post("/v1/admin/getPlacesgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
-       app.post("/v1/admin/getspringFieldgallery", (req: Request, res: Response) => this.adminController.addplaces(req, res));
+       app.post("/v1/admin/getContinentgallery", (req: Request, res: Response) => this.destinationGalleryController.getContinentgallery(req, res));
+       app.post("/v1/admin/getCountrygallery", (req: Request, res: Response) => this.destinationGalleryController.getCountrygallery(req, res));
+       app.post("/v1/admin/getStatesgallery", (req: Request, res: Response) => this.destinationGalleryController.getStateGallery(req, res));
+       app.post("/v1/admin/getCitiesgallery", (req: Request, res: Response) => this.destinationGalleryController.getCitiesGallery(req, res));
+       app.post("/v1/admin/getTownsgallery", (req: Request, res: Response) => this.destinationGalleryController.getTownsGallery(req, res));
+       app.post("/v1/admin/getPlacesgallery", (req: Request, res: Response) => this.destinationGalleryController.getPlacesGallery(req, res));
+       app.post("/v1/admin/getspringFieldgallery", (req: Request, res: Response) => this.destinationGalleryController.getSpringFieldgallery(req, res));
+
+       app.post("/v1/admin/deleteContinentgallery", (req: Request, res: Response) => this.destinationGalleryController.deleteContinent(req, res));
+       app.post("/v1/admin/deleteCountrygallery", (req: Request, res: Response) => this.destinationGalleryController.deleteCountry(req, res));
+       app.post("/v1/admin/deleteStatesgallery", (req: Request, res: Response) => this.destinationGalleryController.deleteState(req, res));
+       app.post("/v1/admin/deleteCitiesgallery", (req: Request, res: Response) => this.destinationGalleryController.deleteCity(req, res));
+       app.post("/v1/admin/deleteTownsgallery", (req: Request, res: Response) => this.destinationGalleryController.deleteTowns(req, res));
+       app.post("/v1/admin/deletePlacesgallery", (req: Request, res: Response) => this.destinationGalleryController.deletePlaces(req, res));
+       app.post("/v1/admin/deletespringFieldgallery", (req: Request, res: Response) => this.destinationGalleryController.deleteSpringField(req, res));
     }
 }

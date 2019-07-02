@@ -507,3 +507,71 @@ ALTER TABLE towns
    ON UPDATE CASCADE
    ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121;
+
+-- -----------------------------------------------------
+-- Table Destination Image Gallery `
+-- -----------------------------------------------------
+
+CREATE TABLE `springFieldGallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `springFieldId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `continentgallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `continentId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+CREATE TABLE `countryGallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `countryId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `stateGallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stateId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `cityGalley` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cityId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `townsGalley` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `townId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `placeGalley` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `placeId` int(11) DEFAULT NULL,
+  `title` varchar(350) NOT NULL default '',
+  `description` varchar(350) NOT NULL default '',
+  `imageUrl` varchar(350) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
