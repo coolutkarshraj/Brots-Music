@@ -37,9 +37,9 @@ export class PlacesController extends BaseController {
        }
 
        public getAllplacesOnbasiOfTrandingPopularDispopular(req: Request, res: Response) {
-        const trending = this.sqlService.executeQuery(`select * from ${Tables.places} where placeStatus = '2' ORDER BY place_name Asc;`);
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.places} where placeStatus = '1' ORDER BY place_name Asc;`);
         trending.subscribe((result) => {
-            const featured = this.sqlService.executeQuery(`select * from ${Tables.places} where placeStatus = '3' ORDER BY place_name Asc;`);
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.places} where placeStatus = '2' ORDER BY place_name Asc;`);
             featured.subscribe((result1) => {
                 const allCountry = this.sqlService.executeQuery(`select * from ${Tables.places} ORDER BY place_name Asc;`);
                 allCountry.subscribe((result3) => {

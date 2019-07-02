@@ -25,9 +25,9 @@ export class StateController extends BaseController {
        }
 
        public getAllstatesOnbasiOfTrandingPopularDispopularv(req: Request, res: Response) {
-        const trending = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '2' ORDER BY name Asc;`);
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '1' ORDER BY name Asc;`);
         trending.subscribe((result) => {
-            const featured = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '3' ORDER BY name Asc;`);
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.states} where stateStatus = '2' ORDER BY name Asc;`);
             featured.subscribe((result1) => {
                 const allCountry = this.sqlService.executeQuery(`select * from ${Tables.states} ORDER BY name Asc;`);
                 allCountry.subscribe((result3) => {

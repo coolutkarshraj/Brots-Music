@@ -13,9 +13,9 @@ export class TownsController extends BaseController {
         this.sqlService = new SqlService();
     }
        public getAllTownsData(req: Request, res: Response) {
-        const trending = this.sqlService.executeQuery(`select * from ${Tables.towns} where townsStatus = '2' ORDER BY towns_name Asc;`);
+        const trending = this.sqlService.executeQuery(`select * from ${Tables.towns} where townsStatus = '1' ORDER BY towns_name Asc;`);
         trending.subscribe((result) => {
-            const featured = this.sqlService.executeQuery(`select * from ${Tables.towns} where townsStatus = '3' ORDER BY towns_name Asc;`);
+            const featured = this.sqlService.executeQuery(`select * from ${Tables.towns} where townsStatus = '2' ORDER BY towns_name Asc;`);
             featured.subscribe((result1) => {
                 const allCountry = this.sqlService.executeQuery(`select * from ${Tables.towns} ORDER BY towns_name Asc;`);
                 allCountry.subscribe((result3) => {
