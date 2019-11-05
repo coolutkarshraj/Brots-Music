@@ -1,0 +1,135 @@
+<div class="dashboard" *ngIf="!editMode">
+  <div class="songsClass">
+    <header id="HEADER_1">
+      <h2 id="H2_2">
+        All Songs 
+      </h2>
+    </header>
+    <div class="gridClass">
+      <mat-grid-list [cols]="columns" rowHeight="1:1" class="listClass" >
+        <mat-grid-tile
+            class="tileClass"
+            [style.background]="song.color"
+            *ngFor="let song of tracks; let i = index; " 
+            >
+            <div class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="song.CoverImage">
+                <div class="overlay">
+                <div class="text" (click)="editSong(i)">
+                    <img src="../../assets/icons/edit.png" style="width:50px; height:50px;"/>
+                </div>
+              </div>
+              </div>
+              <div class= "matTittle">
+                <h4 class="musicT" style="font-size: 15px;">{{song.SongName}}</h4>
+                <span class="artistN" style="font-size: 15px;">{{song.artistName}}</span>
+              </div>
+              
+            </div>
+            
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="editMode" class="container">
+
+  <div id="DIV_1">
+    <div id="DIV_2">
+      <section id="SECTION_3">
+        <header id="HEADER_4">
+          <h2 id="H2_5">
+            Song Basic Info
+          </h2>
+          <div id="DIV_3">
+            <i id="I_5" (click)="closeEdit()">close</i>
+          </div>
+        </header>
+        <div id="DIV_10">
+          <div id="DIV_11">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()" id="FORM_12">
+              <div id="DIV_13">
+                <div id="DIV_14">
+                  
+                  <label for="field-1" id="LABEL_15">
+                    Title
+                  </label><span id="SPAN_16"></span>
+                  <div id="DIV_17">
+                    <input type="text" [ngModel]="song.SongName" formControlName="SongName" id="INPUT_18" />
+                  </div>
+                </div>
+                <div id="DIV_19">
+                  
+                  <label for="field-1" id="LABEL_20">
+                    Artist
+                  </label><span id="SPAN_21"></span>
+                  <div id="DIV_22">
+                    <input type="text" [ngModel]="song.artistName" formControlName="artistName" id="INPUT_23" />
+                  </div>
+                </div>
+                <div id="DIV_19">
+                  
+                  <label for="field-1" id="LABEL_20">
+                    Album
+                  </label><span id="SPAN_21"></span>
+                  <div id="DIV_22">
+                    <input type="text" [ngModel]="song.album" formControlName="album" id="INPUT_23" />
+                  </div>
+                </div>
+                <div id="DIV_24">
+								 
+                  <label for="field-5" id="LABEL_25">
+                    Category
+                  </label><span id="SPAN_26"></span>
+                  <div id="DIV_27">
+                    <mat-select formControlName="category" id="SELECT_28" [ngModel]="song.categoryId" (ngModelChange)="onSelect($event)" >
+                      <mat-option *ngFor="let cat of categories " [value]="cat.id"  id="OPTION_30">
+                        <span> {{cat.name}}</span>
+                      </mat-option> 
+                    </mat-select>
+                  </div>
+							  </div>
+                <div id="DIV_24">
+								 
+                  <label for="field-5" id="LABEL_25">
+                    SubCategory
+                  </label><span id="SPAN_26"></span>
+                  <div id="DIV_27">
+                    <mat-select formControlName="subcategory" id="SELECT_28" [ngModel]="song.subcategoryId" required>
+                      <mat-option *ngFor="let scat of subcategories " [value]="scat.id">
+                        <span> {{scat.name}}</span>
+                      </mat-option>
+                    </mat-select>  
+                  </div>
+							  </div>
+                <div id="DIV_29">
+                  
+                  <label for="field-1" id="LABEL_30">
+                    Profile Image
+                  </label><span id="SPAN_31"></span><img alt="" [src]="thumbnail" id="IMG_32" />
+                  <div id="DIV_33">
+                    <input type="file" accept="image/*"  (change)="onImgFileChanged($event)" #imgfileInput/>
+                  </div>
+                </div>
+              </div>
+              <div id="DIV_45">
+                <div id="DIV_46">
+                  <button  id="BUTTON_47">
+                    Update
+                  </button> 
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div *ngIf="loading!=undefined && loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 90px; z-index:2; position: absolute; top: 70%; left: 50px;">
+      <app-progress-spinner >loading</app-progress-spinner>
+    </div>
+  </div>
+</div>

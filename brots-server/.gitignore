@@ -1,0 +1,13 @@
+.idea
+*/node_modules
+/src/**/*.js
+/src/*.js
+*/npm-debug*
+*.map
+app.js*tmp*
+.vscode
+/dist
+/node_modules
+/src/.baseDir.ts
+/npm-debug.log
+/src/database/sql-script/tables.sql

@@ -1,0 +1,151 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#0e1636"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:src="@drawable/back_arrow"
+                android:layout_weight="0.2"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1.6"
+                android:text="Notification"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:src="@drawable/back_arrow"
+                android:layout_weight="0.2"/>
+
+        </LinearLayout>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/cv">
+          <TextView
+              android:layout_width="wrap_content"
+              android:background="@null"
+              android:textColor="#787878"
+              android:textSize="14dp"
+              android:layout_margin="10dp"
+              android:layout_height="wrap_content"
+              android:text="Dr. Punam Suri,DAV College Managing Committee and Arya Pradeshik Pratinidhi Sabha"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+android:textColor="#9c9c9c"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12dp"
+                android:layout_height="wrap_content"
+                android:text="2019 has arrived in all its glory. I wish all my friends and colleagues in the DAV and the Arya Samaj the very best for the coming year. May the Almighty bless you with a good intellect so that you may achieve every goal you set for this year. May you all have a peaceful, healthy and fruitful year ahead."/>
+
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:layout_height="wrap_content"
+
+           >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:textColor="#787878"
+                android:textSize="14dp"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:text="Shoolini radio and Tv Studio inauguration"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="#9c9c9c"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="12dp"
+                android:layout_height="wrap_content"
+                android:text="2019 has arrived in all its glory. I wish all my friends and colleagues in the DAV and the Arya Samaj the very best for the coming year. May the Almighty bless you with a good intellect so that you may achieve every goal you set for this year. May you all have a peaceful, healthy and fruitful year ahead."/>
+
+        </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:background="#fff"
+                android:layout_height="wrap_content"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:textColor="#787878"
+                    android:textSize="14dp"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    android:text="AB+ Blood Group Required"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#9c9c9c"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="12dp"
+                    android:layout_height="wrap_content"
+                    android:text="2019 has arrived in all its glory. I wish all my friends and colleagues in the DAV and the Arya Samaj the very best for the coming year. May the Almighty bless you with a good intellect so that you may achieve every goal you set for this year. May you all have a peaceful, healthy and fruitful year ahead."/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

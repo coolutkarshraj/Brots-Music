@@ -1,0 +1,30 @@
+
+<body>
+  <div class="form" >
+
+    <div style="z-index: 1; position: absolute; top: 0px; left: 0px; min-width: 300px;">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input class="form-control" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="E-mail Address" required>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required" id="err">Username is required *</div>
+        </div>
+
+        <input class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" required>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required" id="err">Username is required *</div>
+        </div>
+
+        <div class="form-button">
+          <button class="Signbutton">Sign In</button>
+          <a [routerLink]="['/forgotp']" class="forgot">Forgot password ?</a>
+
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="loading!=undefined && loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 90px; z-index:2; position: absolute; top: 0px; left: 0px;">
+      <app-progress-spinner >loading</app-progress-spinner>
+    </div>
+
+  </div>
+</body>

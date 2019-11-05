@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/libshape">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/instantlinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/instantcircle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/instantsongname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Song Name(Heading)"
+                        android:textColor="#fff"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/instantartistname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Song Name(SubHeading)"
+                        android:textColor="#fff"
+
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/imglayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageback"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/instantbottomrelative"
+                tools:ignore="NotSibling" />
+        </RelativeLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/instantbottomrelative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#14f2f2f2"
+                tools:ignore="DuplicateIds">
+
+                <SeekBar
+                    android:id="@+id/SeekBarTestPlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/SeekBarTestPlay"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="12"
+                    tools:ignore="UnknownId">
+
+                    <TextView
+                        android:id="@+id/elapsedTimeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="0:00"
+                        android:textColor="#fff"
+                        android:textSize="12dp" />
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/p">
+                    <ImageView
+                        android:id="@+id/instantplayBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/playnew"
+                        android:onClick="playBtnClick" />
+
+                    <ImageView
+                        android:id="@+id/instantpause"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/pause"
+                        android:onClick="playBtnClick"
+                        android:visibility="gone" />
+</RelativeLayout>
+
+
+                        <ImageView
+                            android:id="@+id/instantnext"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/p"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/ic_skip_next_white_24dp"
+                            android:fitsSystemWindows="true"
+                            android:text="Skip "
+                            android:textColor="@color/white"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/previous"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/playBtn"
+                        android:background="@drawable/ic_skip_previous_white_24dp"
+                        android:onClick="playBtnClick"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/remainingTimeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:text="0:00"
+                        android:textColor="#fff"
+                        android:textSize="12dp" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <!--<android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#1f374d"
+            app:tabIndicatorColor="#2fbaf6"
+            app:tabGravity="fill"
+            app:tabMode="scrollable"
+            android:textAlignment="center"
+            app:tabMinWidth="100dp"
+            app:tabMaxWidth="130dp"
+            app:tabTextColor="#fff"
+            app:tabSelectedTextColor="#2fbaf6"
+            ></android.support.design.widget.TabLayout>
+        </android.support.v4.view.ViewPager>-->
+
+    </RelativeLayout>
+</FrameLayout>

@@ -1,1 +1,0 @@
-grunt ts:build && grunt serve

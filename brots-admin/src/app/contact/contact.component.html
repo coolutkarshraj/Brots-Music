@@ -1,0 +1,48 @@
+
+<body class="contactClass">
+
+  <h3 style="text-align: center;">Contact Us</h3>
+  <h3 style="text-align: center;">Got a question?We'd love to hear from you.Send us a message and we'll respond as soon as possible.</h3>
+
+  <div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="inputClass">
+        <label for="email">Gmail</label>
+        <input type="text" formControlName="email" placeholder="email..">
+        <div *ngIf="submitted && f.email.errors" >
+          <mat-error *ngIf="f.email.errors">You must enter email</mat-error>
+        </div>
+      </div>
+      <div class="inputClass">
+        <label for="tittle">Tittle</label>
+        <input type="text" formControlName="tittle" placeholder="tittle..">
+        <div *ngIf="submitted && f.tittle.errors" >
+          <mat-error *ngIf="f.tittle.errors">You must enter Tittle</mat-error>
+        </div>
+      </div>
+
+      <div class="inputClass">
+       <label for="subject">Subject</label>
+       <input id="subject" name="subject" formControlName="subject"  placeholder="Write something.." style="height:200px"/>
+       <div *ngIf="submitted && f.subject.errors" >
+         <mat-error *ngIf="f.subject.errors">You must enter Subject</mat-error>
+       </div>
+      </div>
+      
+      <div id="DIV_14">
+        <div id="DIV_15">
+          <button class="buttonClass">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+    
+  </div>
+
+  <div *ngIf="loading==true" class="mat-app-background basic-container" style="background-color:transparent; margin-left: 90px; z-index:2; position: absolute; top: 40%; left: 50px;">
+			<app-progress-spinner >loading</app-progress-spinner>
+    </div>
+
+</body>
+

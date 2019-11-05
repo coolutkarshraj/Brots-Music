@@ -1,0 +1,19 @@
+<div class="dashboard">
+ 
+ <div class="gridClass">
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile
+          *ngFor="let follower of followers; let i = index; " 
+          [style.background]="follower.color"
+          >
+          <mat-card class="card-picture" >
+            <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+              <span style="margin-right: auto;">{{follower.name}}</span>
+            </mat-card-title>
+            <img mat-card-image class= "songImage"[src]="follower.imageUrl">
+          </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
+</div>

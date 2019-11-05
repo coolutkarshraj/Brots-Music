@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0e1636"
+    tools:context=".activity.notifications.SendnotificationActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1.6"
+            android:text="Notification "
+            android:textSize="16dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:src="@drawable/back_arrow"
+            android:layout_weight="0.2"/>
+
+    </LinearLayout>
+    <RelativeLayout
+
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/showallmessage"
+        android:layout_marginTop="100dp"
+        android:padding="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/profile_imagex"
+            android:background="@drawable/userimg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_imagex"
+            android:layout_marginLeft="5dp"
+            android:text=""
+            android:padding="8dp"
+            android:textColor="#000"
+            android:background="@drawable/background_left"
+            android:id="@+id/show_message"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_seen"
+            android:text="seen"
+            android:visibility="gone"
+            android:layout_below="@+id/show_message"
+            />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#0e1636"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/text_send"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_toStartOf="@+id/btn_send"
+            android:layout_toLeftOf="@id/btn_send"
+            android:background="@drawable/round"
+            android:hint="Type a message you want publish."
+            android:textColorHint="#000"
+            android:paddingLeft="10dp" />
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/ic_send_black_24dp"
+            android:backgroundTint="#00B6EF" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

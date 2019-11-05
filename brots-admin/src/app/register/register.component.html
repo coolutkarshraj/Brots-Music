@@ -1,0 +1,65 @@
+<body>
+  <div class="form" >
+
+    <div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <input type="text" class="form-control" type="text" [ngModel]="firstname" placeholder="First Name"  formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required" id="err">FirstName is required *</div>
+        </div>
+        <input type="text" class="form-control" type="text" [ngModel]="lastname" type="text"  placeholder="Last Name" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required" id="err">Last Name is required *</div>
+        </div>
+        <input type="text" class="form-control" type="text" [ngModel]="city" formControlName="city" placeholder="City" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+          <div *ngIf="f.city.errors.required" id="err">city is required *</div>
+        </div>
+        <input type="text" class="form-control" type="text" [ngModel]="country" formControlName="country"placeholder="Country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+          <div *ngIf="f.country.errors.required" id="err">Country is required *</div>
+        </div>
+        <input type="text" class="form-control" type="text" [ngModel]="email" formControlName="email" placeholder="Email"[ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.required" id="err">Email is required *</div>
+        </div>
+        <input type="password" class="form-control" type="password" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required" id="err">Password is required *</div>
+        </div>
+        <input type="password" class="form-control" type="password" formControlName="rpassword"  placeholder="Confirm Password" [ngClass]="{ 'is-invalid': submitted && f.rpassword.errors }" />
+        <div *ngIf="submitted && f.rpassword.errors" class="invalid-feedback">
+          <div *ngIf="f.rpassword.errors.required" id="err">Password is required *</div>
+        </div>
+        <input class="form-control" type="text" style="min-height: 25px; border-radius: 4px; min-width: 250px;" placeholder="Gender" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" list="genderName">
+        <datalist id="genderName">
+          <option value="Male">
+          <option value="Female">
+          <option value="Other">
+        </datalist>
+        <input type="date" class="form-control"  placeholder="Birthday" style="min-height: 30px; border-radius: 4px; min-width: 250px; color: white;" formControlName="bday" [ngClass]="{ 'is-invalid': submitted && f.bday.errors }" />
+        <div *ngIf="submitted && f.bday.errors" class="invalid-feedback">
+          <div *ngIf="f.bday.errors.required" id="err">Birth Day is required *</div>
+        </div>
+        <div class="field-wrap">
+          <input type="checkbox" class="checkbox"  style ="text-align: left;" formControlName="tnc">
+          <label class="TermsConditionlabel">Accept Terms and Condition</label>
+        </div>
+        <div class="form-button">
+          <button class="Signbutton">Register</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 85px; z-index:2; position: absolute; top: 70%; left: 50px;">
+      <app-progress-spinner >loading</app-progress-spinner>
+    </div>
+
+    <div class="other-links">
+        <span>Or register with</span>
+        <span class="social" (click)="socialSignIn('facebook')" ><a  style="color:white">Facebook</a></span>
+        <span class="social" (click)="socialSignIn('google')"><a  style="color:white">Google</a></span>
+
+    </div>
+  </div>
+</body>

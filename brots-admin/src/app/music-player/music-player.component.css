@@ -1,0 +1,92 @@
+
+.player{
+  text-align: center;
+  /* margin-top: 30px; */
+  margin-bottom: 30px;
+  display: inline-flex;
+  width: 90%;
+  /* background:  rgb(117, 117, 117); */
+}
+
+.player div{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.cButton{
+  font-size: medium ;
+  color: white
+}
+
+.playerI{
+  font-size: 40px;
+}
+
+.player__backward .player__forward{
+  color: white;
+}
+.player .player__backward , .player .player__forward {
+  background: transparent;
+  text-align: center;
+  display: table-cell;
+  width: 50px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.player .player__main button {
+  background: transparent;
+  width: 50px;
+  /* height: 40px; */
+  border: none;
+  font-size: 40px;
+  outline: none;
+}
+
+.player .player__main button:hover, .player .player__backward button:hover, .player .player__forward button:hover{
+  color: white;
+  /* border: 1px solid rgba(21,96,150,0.7); */
+}
+
+.progress{
+  text-align: center;
+  height: 40px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 30px;
+  background-color: transparent ;
+}
+.progress progress {
+  cursor: pointer;
+}
+.progressv{
+  height: 4px;
+  color: red;
+  margin-bottom: 4px;
+}
+
+.progress progress[value] {
+  color: red;
+  width: 800px;
+  /* height: 7px; */
+  margin-left: 25px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.progress progress[value]::-webkit-progress-value {
+  background-color: black;
+
+}
+
+
+.player__time-elapsed{
+  color: white;
+  font-size: 18px;
+}
+.player__time-total{
+  color: white;
+    font-size: 18px;
+}

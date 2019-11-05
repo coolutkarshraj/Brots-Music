@@ -1,0 +1,57 @@
+<div class="dashboard">
+  <div class="songsClass">
+    <header id="HEADER_1">
+      <h2 id="H2_2">
+        All Songs 
+      </h2>
+      <div id="DIV_3">
+				<img id="I_4" [matMenuTriggerFor]="menu" src="../../assets/icons/menu.png"/>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="selctFullSong()" >Play Full Song</button>
+          <button mat-menu-item (click)="selct30SecSong()" >Play 30 Sec Song</button>
+          
+        </mat-menu>
+			</div>
+    </header>
+    <div class="gridClass">
+      <mat-grid-list [cols]="columns" rowHeight="1:1.05" class="listClass" >
+        <mat-grid-tile
+            class="tileClass"
+            [style.background]="song.color"
+            *ngFor="let song of tracks; let i = index; " 
+            >
+            <div class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="song.CoverImage">
+                <div class="overlay">
+                  <div *ngIf="song.paused" class="text" (click)="songSelect(i)">
+                      <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_play_blue.png" />
+                  </div>
+                  <div *ngIf="!song.paused" class="text" (click)="songSelect(i)">
+                      <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_pause_blue.png" />
+                  </div>
+                </div>
+              </div>
+              <div class= "matTittle">
+                <span class="musicT" style="font-size: 15px;">{{song.SongName}}</span>
+                <span class="artistN" style="font-size: 15px;">{{song.artistName}}</span>
+              </div>
+              <div style="display:flex;text-align: center;">
+                <div class="divClass">
+                  <img class="divClass" src="../../assets/icons/like.png" class="songIcon" alt="Like Photo">
+                  <span>{{song.like}}</span>
+                </div>
+                <div class="divClass">
+                  <img class="songIcon"  src="../../assets/icons/thumb-down.png" alt="Like Photo">
+                  <span>{{song.dislike}}</span>
+                </div>
+              </div>
+              
+            </div>
+            
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div id="DIV_1">
+	<section id="SECTION_2">
+		<header id="HEADER_3">
+			<h2 id="H2_4">
+				Artist Note Info
+			</h2>
+			<div id="DIV_3">
+				<i id="I_5" (click)="deleteNote()">close</i>
+			</div>
+		</header>
+		<div id="DIV_5">
+			<div id="DIV_6">
+				<form  id="FORM_7" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+					<div id="DIV_8">
+						<div id="DIV_9">
+							<label for="field-1" id="LABEL_10">
+								Note
+							</label><span id="SPAN_11"></span>
+							<div id="DIV_12">
+                				<input type="text" cols="5" class="textarea42" [ngModel]="addnote"  formControlName="note"  required/>
+								
+							</div>
+						</div>
+					</div>
+					<div id="DIV_14">
+						<div id="DIV_15">
+							<button id="BUTTON_16">
+								Update
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div *ngIf="loading==true" class="mat-app-background basic-container" style="background-color:transparent; margin-left: 90px; z-index:2; position: absolute; top: 40%; left: 50px;">
+				<app-progress-spinner >loading</app-progress-spinner>
+			</div>
+		</div>
+	</section>
+</div>

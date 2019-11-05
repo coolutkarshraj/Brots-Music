@@ -1,0 +1,336 @@
+.uploadsong{
+    
+    
+}
+
+.slidecontainer {
+    width: 80%;
+    text-align: center;
+    display: inline-flex;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.I_2 {
+    display: grid;
+    position: absolute;
+    left: 52%;  
+    top: 90%;
+    color: #3f51b5;
+    bottom: 0px;
+    box-sizing: border-box;
+    // color: rgb(240, 243, 246);
+    cursor: pointer;
+    // display: inline-block;
+    height: 24px;
+    // left: 0px;
+    // position: relative;
+    // right: 0px;
+    text-align: center;
+    text-decoration: none solid rgb(240, 243, 246);
+    text-rendering: optimizelegibility;
+    text-size-adjust: 100%;
+    // top: 0px;
+    white-space: nowrap;
+    width: 24px;
+    column-rule-color: rgb(240, 243, 246);
+    perspective-origin: 12px 12px;
+    transform-origin: 12px 12px;
+    caret-color: rgb(240, 243, 246);
+    border: 0px none rgb(240, 243, 246);
+    font: normal normal 400 normal 24px / 24px "Material Icons";
+    list-style: none outside none;
+    margin: 0px 0px 3px;
+    outline: rgb(240, 243, 246) none 0px;
+  }/*#I_2*/
+  
+
+.form-wrapper {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top:10%;
+    left: 15%;
+    // min-width: 600px;
+    padding: 50px;
+    // margin-top: 5%; 
+    // margin-left: 15%;
+    // display: flex;
+    justify-content: center;
+  
+    background-color: white;
+    // flex-direction: column;
+    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.form-wrapper mat-form-field {
+    margin-top: 20px; 
+}
+.profileImage{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.fileUpload{
+    width: 600px;
+    margin: 20px;
+    text-align: center;
+}
+.fileUpload h3{
+    margin-left: 20px;
+    // margin-right: 80px;
+    font-size: 25px;
+}
+
+.fileUpload button{
+    height: 30px;
+    font-size: 20px;
+    margin-right: 5px;
+    color: white;
+    background: blueviolet;
+    border: aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#DIV_19, #DIV_24 {
+    text-align: -webkit-center;;
+    bottom: 0px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    // float: left;
+    height: 40px;
+    // left: 0px;
+    min-height: 1px;
+    // position: relative;
+    // right: 0px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    top: 0px;
+    width: 864px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 432px 20px;
+    transform-origin: 432px 20px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 normal 18px / 25.7143px "Proxima Nova";
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px 15px;
+}/*#DIV_19, #DIV_24*/
+
+#DIV_19:after, #DIV_24:after {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(51, 51, 51);
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 normal 18px / 25.7143px "Proxima Nova";
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIV_19:after, #DIV_24:after*/
+
+#DIV_19:before, #DIV_24:before {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(51, 51, 51);
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 normal 18px / 25.7143px "Proxima Nova";
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIV_19:before, #DIV_24:before*/
+
+#INPUT_20, #INPUT_25, #INPUT_46 {
+    position: relative;
+    left: 2%;
+    box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset;
+    color: rgb(85, 85, 85);
+    display: block;
+    height: 40px;
+    text-decoration: none solid rgb(85, 85, 85);
+    text-size-adjust: 100%;
+    width: 292px;
+    column-rule-color: rgb(85, 85, 85);
+    perspective-origin: 146px 20px;
+    transform-origin: 146px 20px;
+    caret-color: rgb(85, 85, 85);
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal 400 normal 14px / 20px "Proxima Nova";
+    outline: rgb(85, 85, 85) none 0px;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}/*#INPUT_20, #INPUT_25, #INPUT_46*/
+
+#INPUT_20:after, #INPUT_25:after, #INPUT_46:after {
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    text-decoration: none solid rgb(85, 85, 85);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(85, 85, 85);
+    caret-color: rgb(85, 85, 85);
+    border: 0px none rgb(85, 85, 85);
+    font: normal normal 400 normal 14px / 20px "Proxima Nova";
+    outline: rgb(85, 85, 85) none 0px;
+}/*#INPUT_20:after, #INPUT_25:after, #INPUT_46:after*/
+
+#INPUT_20:before, #INPUT_25:before, #INPUT_46:before {
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    text-decoration: none solid rgb(85, 85, 85);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(85, 85, 85);
+    caret-color: rgb(85, 85, 85);
+    border: 0px none rgb(85, 85, 85);
+    font: normal normal 400 normal 14px / 20px "Proxima Nova";
+    outline: rgb(85, 85, 85) none 0px;
+}/*#INPUT_20:before, #INPUT_25:before, #INPUT_46:before*/
+
+.inputClass{
+    display: inline-flex;
+    width: inherit;
+    margin-top: 20px;
+    // text-align: center;
+}
+
+.spanClass{
+    width: 150px;
+    margin-top: 10px;
+}
+.songTittle{
+    text-align: -webkit-center;
+    margin-bottom: 5px;
+}
+.buttonClass{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.imgClass{
+    position: relative;
+    text-align: center;
+}
+
+.card-picture {
+    background: white ;
+    height: 250px;
+    width: 250px;
+    border:1px solid white;
+}
+.simg{
+    margin-top: 0px;
+    height: 80% !important;
+    width: 100%!important;
+    margin: 0;
+}
+.songImage{
+    margin-top: 0px;
+    height: 100% !important;
+    width: 100%!important;
+    margin: 0;
+    // border-radius: 50%;
+}
+
+.matTittle{
+    display: grid;
+    text-align: left;
+}
+
+.songsClass{
+    margin-top: 20px ;
+    background: transparent;
+}
+.gridClass{
+    box-shadow: 1px 2px 4px white(0, 0, 0, .5);
+    background: white;
+    border:1px solid whitesmoke;
+    margin-top: 10px;  
+}
+
+.tileClass{
+    
+    width: 50px;
+    height: 50px;
+}
+
+.simg:hover .overlay  {
+   opacity: 1;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 16%;
+    left: 17.5%;
+    height: 200px;
+    width: 250px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(33,33,33,0.5);
+}
+.text {
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.musicT{
+    font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration: none;
+}
+.artistN{
+    font-family: 'Open Sans',Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    // line-height: 23px;
+    color: #757575;
+}

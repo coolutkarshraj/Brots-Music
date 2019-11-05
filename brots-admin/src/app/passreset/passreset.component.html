@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+</head>
+<div *ngIf ="!showOtpPage && !optVerify" style="margin-bottom:70px;" class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <div class="website-logo-inside" style=margin-top:70px;margin-bottom:70px;vertical-align:middle;>
+            <img class="logo-size" src="../../assets/icons/logo.png" alt="Brots" style=width:100px;>
+          </div>
+          <h3 id="H3_1"style=margin-bottom:-10px;>Password Reset</h3>
+          <p style=margin-top:35px;margin-bottom:35px;>To reset your password, enter the email address you use to sign in to iofrm</p>
+        </div>
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+          <input class="form-control"  type="text" placeholder="Email Address" formControlName="email" [ngClass]=
+            "{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required" id="err">Email is required *</div>
+          </div>
+          <div style="display: flex;">
+            <button class="reset" style=height:35px;>Send OTP</button>
+            <button class="reset" (click)="onCancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf ="showOtpPage && !optVerify" class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content"> 
+        <div class="form-items"> 
+          <div class="website-logo-inside">
+            <img class="logo-size" src="../../assets/icons/logo.png" alt="Brots">
+          </div>
+          <h3>Verify OTP</h3>
+          <p>To reset your password, enter the otp send to your email address</p>
+        </div> 
+        <form [formGroup]="otpForm" (ngSubmit)="onOtpSubmit()">
+          <input class="form-control"  type="text" placeholder="Otp" formControlName="otp" [ngClass]=
+            "{ 'is-invalid': submitted && of.otp.errors }" />
+          <div *ngIf="osubmitted && of.otp.errors" class="invalid-feedback">
+            <div *ngIf="of.otp.errors.required" id="err">Email is required *</div>
+          </div>
+          <div style="display: flex;">
+            <button class="reset">Submit</button>
+            <button class="reset" (click)="onCancel()">Cancel</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf ="!showOtpPage && optVerify " class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content"> 
+        <div class="form-items"> 
+          <div class="website-logo-inside">
+            <img class="logo-size" src="../../assets/icons/logo.png" alt="Brots">
+          </div>
+          <h3>Update Password</h3>
+          <p>Enter Your New Password</p>
+        </div> 
+        <form [formGroup]="passwordForm" (ngSubmit)="onPasswordSubmit()">
+          <input matInput class="form-control"  type="password" placeholder="Enter Password" formControlName="password"/>
+          
+          <input matInput class="form-control"  type="password" placeholder="Confirm Password" formControlName="rpassword" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="passwordForm.hasError('notSame')">
+              Passwords do not match
+            </mat-error> 
+           <div style="display: flex;">
+            <button class="reset">Submit</button>
+            <button class="reset" (click)="onCancel()">Cancel</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

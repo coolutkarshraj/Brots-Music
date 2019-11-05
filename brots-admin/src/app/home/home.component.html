@@ -1,0 +1,47 @@
+
+
+<div class="flex-row dashboard" >
+  <div class="header">
+    <app-header (toggle)="handleToggle()"></app-header>
+  </div>
+  
+  <div >
+    <mat-sidenav-container  >
+        <mat-sidenav  #drawer mode="side" opened role="navigation" class="container" [fixedInViewport]="true">
+          <div class="parent">
+            <div class="child">
+              <div style="text-align:centre; display:grid; margin-top: 20px; overflow: none;">  
+                <img [src]="imgSrc" alt="Smiley face" class="center" >
+                <span style="text-align: center;">{{userName}}</span>
+              </div>
+              <mat-nav-list class="side-nav">
+                <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+              </mat-nav-list>
+            </div>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content class="main-pane">
+          <router-outlet (activate)="componentAdded($event)" (deactivate)="componentRemoved($event)" ></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+
+  <div *ngIf="music" class="music">
+    <div class="musicPlayer">
+      <music-player
+        (pauseplay)="handlePausePlay()"
+        (previous)="previousSong()"
+        (nexttime)="nextTime($event)"
+        (next)="nextSong()"
+        (stop)="handleStop()"
+        [paused]="paused"
+        [current]="position"
+        [elapsed]="elapsed"
+        [total]="duration"
+        [totalD]="totald"
+      ></music-player>
+    </div>
+  </div>
+
+</div>
+

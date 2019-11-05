@@ -1,0 +1,31 @@
+
+
+<div class="player">
+  <div class="player__main">
+    <button  (click)="previous.emit()"><i class="fa fa-backward cButton"></i></button>
+    <button *ngIf="!paused" (click)="pauseplay.emit()"><i class="fa fa-pause cButton"></i></button>
+    <button *ngIf="paused" (click)="pauseplay.emit()"><i class="fa fa-play cButton"></i></button>
+    <button *ngIf="false" (click)="random.emit()"><i class="fa fa-random"></i></button>
+    <button  (click)="next.emit()"><i class="fa fa-forward cButton"></i></button>
+  </div>
+
+  
+
+  <div class="progress">
+    <span *ngIf="elapsed==undefined" class="player__time-elapsed">00:00</span>
+    <span class="player__time-elapsed">{{elapsed}}</span>
+    
+    <progress
+      class="progressv"
+      (click)="forwardSong($event)"
+      value="{{current}}"
+      max="100">
+    </progress>
+    <span class="player__time-total">{{total}}</span>
+    <span *ngIf="total==undefined" class="player__time-elapsed">00:00</span>
+  </div>
+</div>
+
+
+
+

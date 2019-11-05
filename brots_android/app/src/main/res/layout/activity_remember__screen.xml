@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_height="wrap_content"
+
+    >
+
+
+
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/brotswithtext"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grow India"
+                android:textColor="#000"
+                android:visibility="gone"
+                android:textSize="25dp"
+                android:id="@+id/be_a_traveller"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already a Member,\n is it you?"
+                android:layout_marginTop="15dp"
+                android:id="@+id/already_text"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/profileimage"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+
+                android:gravity="center"
+                android:textSize="18dp"
+                android:text="Brots App"
+                android:layout_gravity="center"
+                android:id="@+id/name"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="abc@gmail.com"
+                android:textSize="14dp"
+                android:layout_gravity="center"
+                android:id="@+id/email"
+                />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:inputType="textPassword"
+                android:hint="Your Password"
+                android:text=""
+                android:drawablePadding="5dp"
+                android:textAlignment="viewStart"
+                android:textSize="13sp"
+               />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign in with another account"
+                android:gravity="center"
+
+                android:id="@+id/signIn_text"
+                android:textSize="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                />
+            <!--<Button android:layout_width="match_parent"-->
+            <!--android:layout_height="45dp"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:text="SIGN IN"-->
+            <!--android:textColor="#fff"-->
+            <!--android:id="@+id/button_sign_up"-->
+            <!--android:textSize="16dp"-->
+            <!--android:background="#0c84b6"-->
+            <!--/>-->
+
+            <Button
+                android:id="@+id/button_sign_up"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape_green"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+    </ScrollView>
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#090816</color>
+    <color name="colorPrimaryDark">#090816</color>
+    <color name="colorAccent">#fff</color>
+
+    <color name="green">#91dc5a</color>
+    <array name="dot_on_page_active">
+        <item>#dadde3</item>
+        <item>#dadde3</item>
+        <item>#dadde3</item>
+        <item>#dadde3</item>
+
+    </array>
+
+    <array name="dot_on_page_not_active">
+        <item>#80dadde3</item>
+        <item>#80dadde3</item>
+        <item>#80dadde3</item>
+        <item>#80dadde3</item>
+    </array>
+
+    <!--<array name="dot_on_page_active">-->
+        <!--<item>#B71C1C</item>-->
+        <!--<item>#8BC34A</item>-->
+        <!--<item>#4A148C</item>-->
+
+    <!--</array>-->
+
+    <!--<array name="dot_on_page_not_active">-->
+        <!--<item>#FF5252</item>-->
+        <!--<item>#CCFF90</item>-->
+        <!--<item>#E040FB</item>-->
+    <!--</array>-->
+
+    <color name="red">#f00</color>
+    <color name="white">#fff</color>
+    <color name="blue">#0e1636</color>
+
+    <color name="skyblue">#2fbaf6</color>
+</resources>

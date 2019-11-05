@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_image"
+    android:layout_height="match_parent"
+    tools:context=".activity.AfterSplash.After_Splash">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+   android:layout_marginTop="50dp"
+        android:src="@drawable/brotswithtext" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+android:textSize="14dp"
+            android:background="@drawable/button_shape_color"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#fff"></Button>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_shape_color"
+            android:gravity="center"
+            android:id="@+id/login"
+            android:textSize="14dp"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="#fff"></Button>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_shape_green"
+            android:gravity="center"
+            android:id="@+id/register"
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="#fff">
+
+
+        </Button>
+    </LinearLayout></RelativeLayout>

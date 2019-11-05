@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="form-wrapper ">
+  <mat-tab-group animationDuration="0ms" [@.disabled]="true" 
+    [selectedIndex]="selected.value"
+    (selectedIndexChange)="selected.setValue($event)"
+  >
+    <mat-tab [disabled]='basa' label="Song Info" >
+
+      <form class="example-container" [formGroup]="uploadForm" (ngSubmit)="onSubmit()" >
+        
+        <div class="imgClass">
+          <img [src]= "thumbnail" class="profileImage" alt="profileImage">
+          <input style="display: none" type="file" accept="image/*"  (change)="onImgFileChanged($event)" #imgfileInput/>
+          <i class="I_2" (click)="imgfileInput.click()">add_a_photo</i>
+        </div> 
+        
+        <div class="inputClass">
+          <div class="spanClass"> <span>Song Name</span> </div>
+          
+          <div id="DIV_19">
+            <input  matInput id= "INPUT_20"  formControlName="songName" required>
+            <div *ngIf="submitted && f.songName.errors" >
+                  <mat-error *ngIf="f.songName.errors">You must enter song name</mat-error>
+            </div>
+          </div> 
+        </div>
+
+        <div class="inputClass">
+          <div class="spanClass"> <span>Artist Name</span></div>
+          <div id="DIV_19">
+            <input matInput id= "INPUT_20"  formControlName="artistName" required>
+            <div *ngIf="submitted && f.artistName.errors" >
+                  <mat-error *ngIf="f.artistName.errors">You must enter artist name</mat-error>
+            </div>
+          </div> 
+        </div>
+
+        <div class="inputClass">
+          <div class="spanClass"> <span>Album Name</span></div>
+          <div id="DIV_19">
+            <input matInput id= "INPUT_20"  formControlName="albumName" required>
+            <div *ngIf="submitted && f.albumName.errors" >
+                  <mat-error *ngIf="f.albumName.errors">You must enter album name</mat-error>
+            </div>
+          </div> 
+        </div>
+
+        <div class="inputClass">
+          <div class="spanClass"> <span>Select Category</span></div>
+          <div id="DIV_19">
+            <mat-select formControlName="category" id= "INPUT_20" (selectionChange) ="onSelect($event)" required>
+              <mat-option *ngFor="let cat of categories " [value]="cat.id">
+                <span> {{cat.name}}</span>
+              </mat-option>
+            </mat-select>
+          </div> 
+        </div>
+
+        <div class="inputClass">
+          <div class="spanClass"> <span>Select Sub-Category</span></div>
+          <div id="DIV_19">
+            <mat-select formControlName="subCategory" id= "INPUT_20" required>
+              <mat-option *ngFor="let scat of subcategories " [value]="scat.id">
+                <span> {{scat.name}}</span>
+              </mat-option>
+            </mat-select>  
+          </div> 
+        </div>
+        <div class="buttonClass">
+          <button mat-flat-button color="primary"> Submit </button>
+        </div>
+      </form>
+      <div *ngIf="loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 330px; z-index:2; position: absolute; top: 70%; left: 50px;">
+        <app-progress-spinner >loading</app-progress-spinner>
+      </div>
+    </mat-tab>
+     <mat-tab  [disabled]='upla' label="Upload Song">
+      <div class="fileUpload flex-row" >
+        <div class="songTittle">
+          <h3>Select Song</h3>
+          <div *ngIf="file_name!='Select Song'" class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="song.CoverImage">
+                <div class="overlay">             
+                  <div *ngIf="song.paused" class="text" (click)="songSelect()">
+                    <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_play_blue.png" />
+                  </div>
+                  <div *ngIf="!song.paused" class="text" (click)="songSelect()">
+                    <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_pause_blue.png" />
+                  </div>
+                </div>
+              </div>
+              <div class= "matTittle">
+                <h4 class="musicT" style="font-size: 15px;">{{file_name}}</h4>
+                <span class="artistN" style="font-size: 15px;">{{artistName}}</span>
+              </div>
+              
+            </div>
+        </div>
+        <input
+          style="display: none"
+          type="file"
+          accept="audio/*"
+          (change)="onFileChanged($event)"
+          #fileInput
+        />
+        
+        <button (click)="fileInput.click()" >Select Mp3</button>
+        <button (click)="onUpload()" [disabled]="uploadDisable">Upload</button>
+      </div>
+      <div *ngIf="loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 200px; z-index:2; position: absolute; top: 70%; left: 50px;">
+        <app-progress-spinner >loading</app-progress-spinner>
+      </div>
+    </mat-tab>
+    <mat-tab  [disabled]='cuta' label="Cut Song">
+      <div class="fileUpload flex-row" >
+        <div class="songTittle">
+          <h3>Select Song</h3>
+          <div *ngIf="file_name!='Select File'" class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="thumbnail">
+                <div class="overlay">             
+                  <div *ngIf="song.paused" class="text" (click)="songSelect()">
+                    <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_play_blue.png" />
+                  </div>
+                  <div *ngIf="!song.paused" class="text" (click)="songSelect()">
+                    <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_pause_blue.png" />
+                  </div>
+                </div>
+              </div>
+              <div class= "matTittle">
+                <h4 class="musicT" style="font-size: 15px;">{{file_name}}</h4>
+                <span class="artistN" style="font-size: 15px;">{{artistName}}</span>
+              </div>
+              
+          </div>
+
+          <h1>Select time to cut</h1>
+
+          <form [formGroup]="cutForm" (ngSubmit) = "cutSong()">
+            <div style="display: grid;">
+              <div style="display: flex;margin-left: 15%;">
+                <span style="margin-right: 2%;">StartTime: {{ startCutS }}</span>
+                <span style="margin-right: 2%;">StartTime: {{ endCutS }}</span>
+                <span>CutDuration: {{ totalcut }}</span>
+              </div>
+              <div class="slidecontainer">
+                <span style="margin-right:5%;">{{start}}</span>
+                <nouislider #slider style="width: 700px;" [config]="someKeyboardConfig" formControlName="cTime" (ngModelChange)="cutTime($event)"></nouislider>
+                <span style="margin-left: 5%;">{{end}}</span>
+              </div>
+              <button style="width: fit-content; margin-top: 5px;" >Cut and Upload</button>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="loading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 210px; z-index:2; position: absolute; top: 70%; left: 50px;">
+          <app-progress-spinner >loading</app-progress-spinner>
+        </div>
+        
+      </div>
+    </mat-tab>
+   
+  </mat-tab-group>
+  
+</div>

@@ -1,0 +1,29 @@
+
+<div class="form-body">
+  <div class="row">
+    <div class="form-holder">
+      <div class="form-content">
+        <div class="form-items">
+          <div class="website-logo-inside" style=margin-top:60px;margin-bottom:60px; >
+            <img class="logo-size" src="../../assets/icons/logo.png" alt="Brots" style=width:100px;>
+          </div>
+          <h3><b>Get more things done with Loggin platform.</b></h3>
+          <p >Access to the most powerfull tool in the entire design and web industry.</p>
+        </div>
+        <div class="page-links">
+            <span class="active" style=text-decoration:underline;   (click)="signinfun()" ><a  class="logi" >Login</a></span>
+            <span class="active" style=text-decoration:underline; (click)="signupfun()" style=font-weight:300;font-size:15px;><a  class="loggi">Register</a></span>
+         </div>
+         <div *ngIf="signin == true">
+            <app-login (logged)="handleLogged($event)">
+            </app-login>
+          </div>
+          <div *ngIf="signup == true">
+            <app-register (registered)="handleRegistered($event)">
+            </app-register>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-home *ngIf="logged"></app-home>

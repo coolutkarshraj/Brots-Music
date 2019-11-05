@@ -1,0 +1,243 @@
+
+<div id="DIV_1">
+	<div id="DIV_2">
+		<section id="SECTION_3">
+			<header id="HEADER_4">
+				<h2 id="H2_5">
+					Artist Basic Info
+				</h2>
+			</header>
+			<div id="DIV_10">
+				<div id="DIV_11">
+					<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" id="FORM_12">
+						<div id="DIV_13">
+							<div id="DIV_14">
+								 
+								<label for="field-1" id="LABEL_15">
+									First Name
+								</label><span id="SPAN_16"></span>
+								<div id="DIV_17">
+									<input type="text" [ngModel]="artist.firstName" formControlName="firstName" require id="INPUT_18" />
+									<div *ngIf="submitted && f.firstName.errors" >
+										<mat-error *ngIf="f.firstName.errors">You must enter first name</mat-error>
+									</div>
+								</div>
+							</div>
+							<div id="DIV_14">
+								 
+								<label for="field-1" id="LABEL_15">
+									SurName
+								</label><span id="SPAN_16"></span>
+								<div id="DIV_17">
+									<input type="text" [ngModel]="artist.lastName" formControlName="surName" required id="INPUT_18" />
+									<div *ngIf="submitted && f.surName.errors" >
+										<mat-error *ngIf="f.surName.errors">You must enter SurName</mat-error>
+									</div>
+
+								</div>
+							</div>
+							<div id="DIV_14">
+								 
+								<label for="field-1" id="LABEL_15">
+									City
+								</label><span id="SPAN_16"></span>
+								<div id="DIV_17">
+									<input type="text" formControlName="city" [ngModel]="artist.city" required id="INPUT_18" />
+									<div *ngIf="submitted && f.city.errors" >
+										<mat-error *ngIf="f.city.errors">You must enter CityName</mat-error>
+									</div>
+
+								</div>
+							</div>
+							<div id="DIV_14">
+								 
+								<label for="field-1" id="LABEL_15">
+									Country
+								</label><span id="SPAN_16"></span>
+								<div id="DIV_17">
+									<input type="text" formControlName="country" [ngModel]="artist.country" required id="INPUT_18" />
+									<div *ngIf="submitted && f.country.errors" >
+										<mat-error *ngIf="f.country.errors">You must enter Country</mat-error>
+									</div>
+
+								</div>
+							</div>
+							<div id="DIV_14">
+								 
+								<label for="field-1" id="LABEL_15">
+									Mobile Num
+								</label><span id="SPAN_16"></span>
+								<div id="DIV_17">
+									<input type="text" [ngModel]="artist.mobile" formControlName="mobileNum"  id="INPUT_18" />
+									
+
+								</div>
+							</div>
+							<div id="DIV_19">
+								 
+								<label for="field-5" id="LABEL_20">
+									Date of Birth
+								</label> <span id="SPAN_21">e.g. "04/03/2015"</span>
+								<div id="DIV_22">
+									<input type="text" name="masked" [ngModel]="artist.dob" formControlName="dob"  required id="INPUT_23" />
+									<div *ngIf="submitted && f.firstName.errors" >
+										<mat-error *ngIf="f.firstName.errors">You must enter first name</mat-error>
+									</div>
+								</div>
+							</div>
+							<div id="DIV_24">
+								 
+								<label for="field-5" id="LABEL_25">
+									Gender
+								</label><span id="SPAN_26"></span>
+								<div id="DIV_27">
+									 
+									<select id="SELECT_28" [ngModel]="artist.gender"formControlName="gender"  >
+										<option id="OPTION_29">
+										</option> 
+										<option selected="selected"  value="1" id="OPTION_30">
+											Male
+										</option> 
+										<option value="2" id="OPTION_31">
+											Female
+										</option>
+									</select>
+								</div>
+							</div>
+							<div id="DIV_32">
+								 
+								<label for="field-1" id="LABEL_33">
+									Profile Image
+								</label><span id="SPAN_34"></span><img style="border-radius: 50%;" alt="" [src]= "thumbnail" id="IMG_35" />
+								<div id="DIV_36">
+									<input style="display: none" type="file" accept="image/*"  (change)="onImgFileChanged($event)" #imgfileInput/>
+         							 <i class="icon2" (click)="imgfileInput.click()">add_a_photo</i>								</div>
+							</div>
+							<div id="DIV_38">
+								 
+								<label for="field-6" id="LABEL_39">
+									Brief
+								</label> <span id="SPAN_40">e.g. "Enter any size of text description here"</span>
+								<div id="DIV_41">
+									<textarea cols="5" id="TEXTAREA_42" formControlName="about" [ngModel]="artist.about" >
+									</textarea>
+									
+								</div>
+							</div>
+						</div>
+						<div id="DIV_48">
+							<div id="DIV_49">
+								 
+								<button  id="BUTTON_50">
+								Update
+								</button> 
+							</div>
+						</div>
+					</form>
+				</div>
+				<div *ngIf="ploading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 90px; z-index:2; position: absolute; top: 90%; left: 10px;">
+					<app-progress-spinner >loading</app-progress-spinner>
+				</div>
+
+			</div>
+		</section>
+	</div>
+	<div id="DIV_52">
+		<section id="SECTION_53">
+			<header id="HEADER_54">
+				<h2 id="H2_55">
+					Artist Account Info
+				</h2>
+			</header>
+			<div id="DIV_60">
+				<div id="DIV_61">
+					<form action="#" [formGroup]="emailForm" (ngSubmit)="onEmailSubmit()" id="FORM_62">
+						<div id="DIV_63">
+							<div id="DIV_64">
+								 
+								<label for="field-1" id="LABEL_65">
+									Email
+								</label><span id="SPAN_66"></span>
+								<div id="DIV_67">
+									<input type="text" [ngModel]="artist.email" formControlName="emailf"  required id="INPUT_68" />
+									<div *ngIf="emailsubmitted && ef.emailf.errors" >
+										<mat-error *ngIf="ef.emailf.errors">You must enter email</mat-error>
+									</div> 
+								</div>
+							</div>
+						</div>
+						<div id="DIV_84">
+							<div id="DIV_85">
+								 
+								<button type="button" id="BUTTON_86">
+									Update
+								</button> 
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<div *ngIf="gloading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 70px; z-index:2; position: absolute; top: 55%; left: 10px;">
+			<app-progress-spinner >loading</app-progress-spinner>
+		</div>
+	</div>
+
+	<div id="DIV_88">
+		<section id="SECTION_89">
+			<header id="HEADER_90">
+				<h2 id="H2_91">
+					Artist Password Update
+				</h2>
+			</header>
+			<div id="DIV_96">
+				<div id="DIV_97">
+					<form action="#" [formGroup]="passwordform" (ngSubmit)="onPasswordSubmit()" *ngIf="!submitted" id="FORM_98">
+						<div id="DIV_99">
+
+							<label for="field-1" id="LABEL_65">
+									Old Password
+							</label><span id="SPAN_66"></span>
+							<div id="DIV_67">
+								<input  type="password" formControlName="opassword" required id="INPUT_68" />
+								<div *ngIf="passwordSubmitted && pf.opassword.errors" >
+									<mat-error *ngIf="pf.opassword.errors">You must enter old password</mat-error>
+								</div> 
+							</div>
+							<label for="field-1" id="LABEL_65">
+								New Password
+							</label><span id="SPAN_66"></span>
+							<div id="DIV_67">
+								<input  type="password" formControlName="npassword" required id="INPUT_68" />
+								<div *ngIf="passwordSubmitted && pf.npassword.errors" >
+									<mat-error *ngIf="pf.npassword.errors">You must Enter Password</mat-error>
+								</div> 
+							</div>
+							<label for="field-1" id="LABEL_65">
+								Confirm Password
+							</label><span id="SPAN_66"></span>
+							<div id="DIV_67">
+								<input type="password" formControlName="rpassword" id="INPUT_68" />
+								<div *ngIf="passwordSubmitted && pf.rpassword.errors" >
+									<mat-error *ngIf="pf.rpassword.errors">You must Enter Password</mat-error>
+								</div> 
+							</div>
+
+						</div>
+						<div id="DIV_115">
+							<div id="DIV_116">
+								 
+								<button type="button" id="BUTTON_117">
+									Save
+								</button> 
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<div  *ngIf="paloading==true"  class="mat-app-background basic-container" style="background-color:transparent; margin-left: 70px; z-index:2; position: absolute; top: 70%; left: 10px;">
+			<app-progress-spinner >loading</app-progress-spinner>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,120 @@
+<div class="dashboard">
+
+  <header id="HEADER_1">
+    <h2 id="H2_2">
+      Page Views
+    </h2>
+
+  </header>
+  <div class="cardclass" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-card class="example-card" [routerLink]="['/startapp/song/all-songs']">
+      <mat-card-content style="margin-top: 40px">
+        <img mat-card-image src="../../assets/icons/like.png" class="likeImg" alt="Like Photo">
+        <h3 class="textClass">
+          {{likes}}
+        </h3>
+        <p class="textClass">
+          Total Likes
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card1">
+      <mat-card-content style="margin-top: 40px">
+        <img mat-card-image src="../../assets/icons/follower.png" class="likeImg" alt="Like Photo">
+        <h3 class="textClass">
+          {{followers}}
+        </h3>
+        <p class="textClass">
+          Total  Points
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card2" >
+      <mat-card-content style="margin-top: 40px">
+        <img mat-card-image src="../../assets/icons/music-player.png" class="likeImg" alt="Like Photo">
+        <h3 class="textClass">
+          {{totalSongs}}
+        </h3>
+        <p class="textClass">
+          Total Song
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card3" style="width: 175px;" [routerLink]="['/startapp/song/all-songs']">
+      <mat-card-content style="margin-top: 40px">
+        <img mat-card-image src="../../assets/icons/thumb-down.png" class="likeImg" alt="Like Photo">
+        <h3 class="textClass">
+          {{dislikes}}
+        </h3>
+        <p class="textClass">
+          Total Dislikes
+        </p>
+        <p style =""class="textClass">
+
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="songsClass">
+    <header id="HEADER_1">
+      <h2 id="H2_2">
+        Trending Albums
+      </h2>
+      <div id="DIV_3">
+				<img id="I_4" [matMenuTriggerFor]="menu" src="../../assets/icons/menu.png"/>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="selctFullSong()" >Play Full Song</button>
+          <button mat-menu-item (click)="selct30SecSong()" >Play 30 Sec Song</button>
+          
+        </mat-menu>
+			</div>
+    </header>
+    <div class="gridClass">
+      <mat-grid-list [cols]="columns" rowHeight="1:1.1" class="listClass" >
+        <mat-grid-tile
+            class="tileClass"
+            [style.background]="song.color"
+            *ngFor="let song of tracks; let i = index; "
+            >
+            <div class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="song.CoverImage">
+                <div class="overlay">
+                  <div *ngIf="song.paused" class="text" (click)="songSelect(i)" >
+                      <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_play_blue.png" />
+                  </div>
+                  
+
+                  <div *ngIf="!song.paused" class="text" (click)="songSelect(i)">
+                      <img src="http://cdn1.iconfinder.com/data/icons/flavour/button_pause_blue.png" />
+                  </div>
+                </div>
+              </div>
+              <div class= "matTittle">
+                <h4 class="musicT" style="font-size: 15px;">{{song.SongName}}</h4>
+                <span class="artistN" style="font-size: 15px;">{{song.artistName}}</span>
+              </div>
+
+              <div style="display:flex;text-align: center;">
+                <div class="divClass">
+                  <img class="divClass" src="../../assets/icons/like.png" class="songIcon" alt="Like Photo">
+                  <span>{{song.like}}</span>
+                </div>
+                <div class="divClass">
+                  <img class="songIcon"  src="../../assets/icons/thumb-down.png" alt="Like Photo">
+                  <span>{{song.dislike}}</span>
+                </div>
+              </div>
+
+            </div>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+</div>

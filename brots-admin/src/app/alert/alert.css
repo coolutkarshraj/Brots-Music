@@ -1,0 +1,48 @@
+h1 {
+  text-align: left;
+  color:white;
+
+  font-weight: 100;
+  margin: 0 0 4px;
+}
+
+h2 {
+  text-align: left;
+  color:black;
+  font-weight: 50;
+  margin: 0 0 60px;
+}
+
+mat-dialog-actions{
+  align-content: center
+}
+#close {
+  size: 80px ;
+
+  margin-left: 100%;
+  align-content: center ;
+  color:  #ffffff ;
+  background: #9a999e ;
+}
+.title{
+height: 50%;
+margin-left: -30%;
+margin-top: -5.3%;
+margin-right: -5.3%;
+background: #36bbe6;
+}
+.sec_div{
+margin-left: 20%;
+margin-right: 5.3%;
+}
+.bottom_1{
+height: 65%;
+background: #dddddd;
+width: 110%;
+margin-left: -5%;
+margin-right: -500%;
+margin-top: 8.5%;
+overflow:hidden;
+margin-bottom: -15%;
+
+}

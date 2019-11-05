@@ -1,0 +1,126 @@
+@import "../../styles/mixins";
+
+
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  .mat-list-item.active {
+    // font-weight: bold !important;
+    color: $secondary--color !important;
+    background: rgba(0, 0, 0, 0.04) !important;
+  }
+  &:hover,
+  &:focus {
+    >.mat-list-item:not(.expanded) {
+      background: rgba(0, 0, 0, 0.04) !important;
+    }
+  }
+  .menu-list-item {
+    padding-top: 20px;
+    min-height: 40px;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: webkit-center;
+  }
+  .menu-list-item:hover {
+    text-decoration: none;
+  }
+}
+
+.sub-menu {
+  padding-left: 20px;
+  // background-color: #293138;
+}
+
+.mat-list-item {
+  padding: 8px 0;
+  display: flex;
+  width: auto;
+
+  .routeIcon {
+    margin-right: 40px;
+  }
+}
+
+.largeMargin{
+  margin-left: 20px;
+}
+.iconText{
+  // color: #b0bec5;
+  font-family: 'Roboto Condensed',Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  list-style-type: none;
+  display: block;
+  margin-left: 10px;
+}
+
+.iconText1{
+  // color: #b0bec5;
+  font-family: 'Roboto Condensed',Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  list-style-type: none;
+  display: block;
+  margin-left:18px;
+}
+
+
+.I_2 {
+  bottom: 0px;
+  box-sizing: border-box;
+  color: rgb(240, 243, 246);
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  left: 0px;
+  position: relative;
+  right: 0px;
+  text-align: center;
+  text-decoration: none solid rgb(240, 243, 246);
+  text-rendering: optimizelegibility;
+  text-size-adjust: 100%;
+  top: 0px;
+  white-space: nowrap;
+  width: 24px;
+  column-rule-color: rgb(240, 243, 246);
+  perspective-origin: 12px 12px;
+  transform-origin: 12px 12px;
+  caret-color: rgb(240, 243, 246);
+  border: 0px none rgb(240, 243, 246);
+  font: normal normal 400 normal 24px / 24px "Material Icons";
+  list-style: none outside none;
+  margin: 0px 0px 3px;
+  outline: rgb(240, 243, 246) none 0px;
+}/*#I_2*/
+
+.div1{
+  bottom: 0px;
+  box-sizing: border-box;
+  clear: both;
+  color: rgb(176, 190, 197);
+  display: block;
+  left: 0px;
+  position: relative;
+  right: 0px;
+  text-align: center;
+  text-decoration: none solid rgb(176, 190, 197);
+  text-size-adjust: 100%;
+  top: 0px;
+  column-rule-color: rgb(176, 190, 197);
+  perspective-origin: 100px 37.5px;
+  transform-origin: 100px 37.5px;
+  caret-color: rgb(176, 190, 197);
+  border: 0px none rgb(176, 190, 197);
+  font: normal normal 300 normal 16px / 23px "Roboto Condensed", Arial, Helvetica, sans-serif;
+  list-style: none outside none;
+  outline: rgb(176, 190, 197) none 0px;
+  padding: 10px 0px;
+
+  width:200px; /* or whatever width you want. */
+  max-width:200px; /* or whatever width you want. */
+  display: inline-block;
+}

@@ -1,0 +1,36 @@
+<div class="dashboard">
+  <div class="songsClass">
+    <header id="HEADER_1">
+      <h2 id="H2_2">
+        All Songs 
+      </h2>
+    </header>
+    <div class="gridClass">
+      <mat-grid-list [cols]="columns" rowHeight="1:1" class="listClass" >
+        <mat-grid-tile
+            class="tileClass"
+            [style.background]="song.color"
+            *ngFor="let song of tracks; let i = index; " 
+            >
+            <div class="card-picture" >
+              <div class="simg">
+                <img mat-card-image class="songImage" style="margin-top: 0px;"[src]="song.CoverImage">
+                <div class="overlay">
+                <div class="text" (click)="deleteSong(i)">
+                    <img src="../../assets/icons/delete.png" style="width:50px; height:50px;"/>
+                </div>
+              </div>
+              </div>
+              <div class= "matTittle">
+                <h4 class="musicT" style="font-size: 15px;">{{song.SongName}}</h4>
+                <span class="artistN" style="font-size: 15px;">{{song.artistName}}</span>
+              </div>
+              
+            </div>
+            
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+</div>

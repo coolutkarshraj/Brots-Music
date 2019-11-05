@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Brots</string>
+    <string name="title_home">Explore</string>
+    <string name="title_dashboard">Library</string>
+    <string name="title_notifications">Profile</string>
+    <string name="title_home1">Songs</string>
+    <string name="title_dashboard1">Notification</string>
+
+    <string name="back"><![CDATA[<]]></string>
+    <string name="rewind"><![CDATA[<<]]></string>
+    <string name="forward"><![CDATA[>>]]></string>
+    <string name="pause">||</string>
+    <!-- Button text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="play_vector_path" translatable="false">M6,5 l12,7 l0,0 l-12,0z M6,12 l12,0 l0,0 l-12,7z</string>
+
+
+    <string name="your_string_here"><u>Private Information</u></string>
+
+
+    <string name="facebook_app_id">673724083058461</string>
+    <string name="fb_login_protocol_scheme">fb673724083058461</string>
+
+</resources>

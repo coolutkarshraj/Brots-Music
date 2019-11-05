@@ -1,0 +1,20 @@
+<a mat-list-item style="overflow: none;" [ngStyle]="{' margin-top': !item.parent ? '20px' : '0px'}" [ngStyle]="{'padding-left': (depth * 12) + 'px'}" (click)="onItemSelected(item)"
+   [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': expanded}"
+   class="div1">
+    <div style="display: flex; overflow: none;" >
+      <div style="display: grid; text-align: -webkit-center; flex: 1 1 0%;" >
+        <i *ngIf="item.iconName!=undefined" class="I_2" >{{item.iconName}} </i>
+        <span [ngClass]="{'iconText1': item.children.length>0, 'iconText':item.children.length==0}">{{item.displayName}}</span>
+      </div>
+      <span style="cursor:pointer;" *ngIf="item.children && item.children.length">
+        <mat-icon >
+          {{!expanded  ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
+        </mat-icon>
+      </span>
+    </div>
+
+</a>
+<div  *ngIf="expanded">
+  <app-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth+1">
+  </app-menu-list-item>
+</div>
