@@ -1,8 +1,8 @@
 # Brots Discover The Music
 
-Free Open Source Music app anyone can use and Modify The code it contains three part
-1.Brots music App
-2.Brots Server
+Free Open Source Music app anyone can use and Modify The code it contains three part <br>
+1.Brots music App <br>
+2.Brots Server <br>
 3.Brots Admin which is divided in two part First Artist Registration and 2 nd is Admin who will manage all the artist.
 
 ## Getting Started
