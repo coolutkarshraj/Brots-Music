@@ -24,11 +24,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class InsetsPercentRelativeLayout extends PercentRelativeLayout {
-
     public InsetsPercentRelativeLayout(Context context) {
         this(context, null, 0);
     }
-
     public InsetsPercentRelativeLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }

@@ -1,5 +1,5 @@
 export class Tables {
-    public static user: string = "user";
+    public static user: string = "users";
     public static artist: string = "artist";
     public static artistsong: string = "artistsong";
     public static category: string = "category";

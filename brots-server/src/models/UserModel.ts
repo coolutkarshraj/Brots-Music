@@ -1,97 +1,125 @@
 const Sequelize = require('sequelize');
 
 
-const UserModel = (sequelize, type) => {
-    return sequelize.define('user', {
+const UserModel = (sequelize) => {
+    return sequelize.define('users', {
+        id: {
+            primaryKey: true,
+            field: 'id' ,
+            type: Sequelize.UUID,
+            allowNull :false,
+            defaultValue: Sequelize.UUIDV4,
+          },
         Name: {
             type: Sequelize.STRING,
-            field: 'name' 
+            field: 'name' ,
+            allowNull: false,
         },
         FirstName: {
             type: Sequelize.STRING,
-            field: 'firstName' 
+            field: 'firstName' ,
+            allowNull: false,
         },
         MiddileName: {
             type: Sequelize.STRING,
-            field: 'middleName' 
+            field: 'middleName' ,
+            allowNull: true,
         },
         LastName: {
             type: Sequelize.STRING,
-            field: 'lastName' 
+            field: 'lastName' ,
+            allowNull: false,
         },
         Email: {
             type: Sequelize.STRING,
-            field: 'email' 
+            field: 'email' ,
+            allowNull: false,
         },
         Gender: {
-            type: Sequelize.STRING,
-            field: 'gender' 
+            type: Sequelize.INTEGER,
+            field: 'gender' ,
+            allowNull: false,
         },
         DOB: {
-            type: Sequelize.STRING,
-            field: 'dob' 
+            type: Sequelize.DATE,
+            field: 'dob' ,
+            allowNull: false,
         },
         imageUrl: {
             type: Sequelize.STRING,
-            field:'imageUrl'
+            field:'imageUrl',
+            allowNull: true,
         },
         
         Password: {
             type: Sequelize.STRING,
-            field: 'password' 
+            field: 'password' ,
+            allowNull: false,
         },
         LastLogin: {
-            type: Sequelize.STRING,
-            field: 'lastLogin' 
+            type: Sequelize.DATE,
+            field: 'lastLogin',
+            allowNull: true, 
         },
         City: {
             type: Sequelize.STRING,
-            field: 'city' 
+            field: 'city' ,
+            allowNull: true, 
         },
         State: {
             type: Sequelize.STRING,
-            field: 'state' 
+            field: 'state',
+            allowNull: true,  
         },
         Country: {
             type: Sequelize.STRING,
-            field: 'country' 
+            field: 'country' ,
+            allowNull: true, 
         },
         Address: {
             type: Sequelize.STRING,
-            field: 'address' 
+            field: 'address' ,
+            allowNull: true, 
         },
-    
         UserType: {
-            type: Sequelize.STRING,
-            field: 'userType' 
+            type: Sequelize.INTEGER,
+            field: 'userType' ,
+            allowNull: true, 
         },
         DeviceToken: {
             type: Sequelize.STRING,
-            field: 'deviceToken' 
+            field: 'deviceToken',
+            allowNull: true, 
         },
         Status: {
             type: Sequelize.STRING,
-            field: 'status' 
+            field: 'status' ,
+            allowNull: true, 
         },
         IsLoggedIn: {
-            type: Sequelize.STRING,
-            field: 'isLoggedIn' 
+            type: Sequelize.INTEGER,
+            field: 'isLoggedIn' ,
+            defaultValue:0  
         },
         IsTncAccepted: {
             type: Sequelize.INTEGER,
-            field: 'isTncAccepted' 
+            field: 'isTncAccepted' ,
+            defaultValue:0 
         },
-        RegistrrationDate: {
-            type: Sequelize.STRING,
-            field:'registratioDate'
+        RegistrationDate: {
+            type: Sequelize.DATE,
+            field:'registratioDate',
+            allowNull: true, 
         },
         DeviceType: {
-            type: Sequelize.STRING,
-            field: 'deviceType' 
+            type: Sequelize.INTEGER,
+            field: 'deviceType' ,
+            defaultValue:0 
         },
         OnlineStatus: {
             type:Sequelize.INTEGER,
-            field: 'onlineStatus' 
+            field: 'onlineStatus' ,
+            defaultValue:0
         },
         friendCount: {
             type: Sequelize.INTEGER,
@@ -104,30 +132,43 @@ const UserModel = (sequelize, type) => {
             defaultValue:0
         },
         phone: {
-            type: Sequelize.STRING,
-            field: 'phone' 
+            type: Sequelize.INTEGER,
+            field: 'phone' ,
+            allowNull: false, 
         },
         About: {
             type: Sequelize.STRING,
-            field: 'about' 
+            field: 'about' ,
+            allowNull: true, 
         },
          SavedSongMemory: {
             type: Sequelize.INTEGER,
-            field: 'savedSongMemory' 
+            field: 'savedSongMemory' ,
+            defaultValue:0
         },
         InstaMixMemory: {
             type: Sequelize.INTEGER,
-            field: 'instamixMemory' 
+            field: 'instamixMemory' ,
+            defaultValue:0
         },
         TotalLike: {
             type: Sequelize.INTEGER,
-            field: 'total_like' 
+            field: 'total_like',
+            defaultValue:0 
         },
         TotalDislike: {
             type: Sequelize.INTEGER,
-            field: 'total_disLike' 
+            field: 'total_disLike',
+            defaultValue:0 
         },
        
+    },{
+        indexes: [
+            {
+                unique: true,
+                fields: ['email', 'phone', 'name']
+            }
+        ]
     },{
         freezeTableName: true 
     })

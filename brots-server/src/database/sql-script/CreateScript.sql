@@ -15,9 +15,7 @@ DROP SCHEMA IF EXISTS `brots`;
 CREATE SCHEMA IF NOT EXISTS `brots` DEFAULT CHARACTER SET utf8;
 USE `brots`;
 
--- -----------------------------------------------------
--- Table `user`
--- -----------------------------------------------------
+
 
 
 

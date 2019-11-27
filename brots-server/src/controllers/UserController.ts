@@ -49,8 +49,7 @@ export class UserController extends BaseController {
         } else if(email == null){
             return res.json({
                 "status":"false",
-
-                "message":"Missing Paramenter email",
+               "message":"Missing Paramenter email",
                 "error":"false",  
             });     
         }else if(otp == null){

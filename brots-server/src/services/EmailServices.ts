@@ -8,7 +8,7 @@ import * as Rx from 'rxjs/Rx';
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var mailAccountUser = 'brotsservices@gmail.com'
-var mailAccountPassword = 'saurrav123'
+var mailAccountPassword = 'mummyiloveyou123.'
 var transport = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {

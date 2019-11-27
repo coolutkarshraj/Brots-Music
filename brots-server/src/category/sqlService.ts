@@ -8,7 +8,7 @@ const {InstaMixTable} =  require('../models/InstaMixTable')
 const {ContactModel} = require ('../models/ContactModel')
 const {NotifacationsModel} = require ('../models/NotifacationsModel')
 const {sukhmehalModel} = require ('../models/SukhmahalImages')
-const sequelize = new Sequelize(Config.db['database'], Config.db.user, 'Brots.4root', {
+const sequelize = new Sequelize(Config.db['database'], Config.db.user, '', {
 
     host: Config.db.host,
     dialect: 'mysql',
@@ -82,7 +82,7 @@ user.belongsToMany(Song,{as:'isSongHeared', through: isSongHeared, allowNull:tru
 Song.belongsToMany(user,{as:'SongHearedByUser',through: isSongHeared, allowNull:true})
 
 
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
 .then(() => {
     console.log("Database table created")
 })

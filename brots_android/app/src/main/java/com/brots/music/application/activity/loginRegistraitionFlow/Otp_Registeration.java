@@ -304,8 +304,8 @@ public class Otp_Registeration extends AppCompatActivity {
             endpoint = Config.Base_url + "user/registrationVerify";
         }
 
-        if (endpoint.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/user/registrationVerify")
-                || endpoint.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/artist/registrationVerify")) {
+        if (endpoint.equals("http://192.168.43.24:9000/v1/user/registrationVerify")
+                || endpoint.equals("http://192.168.43.24:9000/v1/artist/registrationVerify")) {
 
         } else {
             usertype = sharedPreferences.getString(PreferenceManager.userType);
@@ -367,8 +367,8 @@ public class Otp_Registeration extends AppCompatActivity {
             endpointTokenUpdate = Config.Base_url + "user/updateDeviceToken";
         }
 
-        if (endpointTokenUpdate.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/artist/updateDeviceToken")
-                || endpointTokenUpdate.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/user/updateDeviceToken")) {
+        if (endpointTokenUpdate.equals("http://192.168.43.24:9000/v1/artist/updateDeviceToken")
+                || endpointTokenUpdate.equals("http://192.168.43.24:9000/v1/user/updateDeviceToken")) {
 
         } else {
             usertype = sharedPreferences.getString(PreferenceManager.userType);
@@ -481,8 +481,8 @@ public class Otp_Registeration extends AppCompatActivity {
             endpointRegister = Config.Base_url + "user/register";
         }
 
-        if (endpointRegister.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/artist/register")
-                || endpointRegister.equals("http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/user/register")) {
+        if (endpointRegister.equals("http://192.168.43.24:9000/v1/artist/register")
+                || endpointRegister.equals("http://192.168.43.24:9000/v1/user/register")) {
 
         } else {
             usertype = sharedPreferences.getString(PreferenceManager.userType);

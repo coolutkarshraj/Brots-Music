@@ -5,16 +5,14 @@ export class Config {
     };
     public static db: any = {
 
-        host: `brots.ck8fgawtqpcw.us-west-2.rds.amazonaws.com`,
-        port:"3306",
-        user: "brots",
+        // host: `brots.ck8fgawtqpcw.us-west-2.rds.amazonaws.com`,
+        // port:"3306",
+        // user: "brots",
+        // database: "brots",
+        // password:"Brots.4root"
+        host: `127.0.0.1`,
+        user: "root",
         database: "brots",
-        password:"Brots.4root"
-    //     host: `127.0.0.1`,
-    //    // user: "root",
-    //      user:"brots",
-    //     password: 'Brots.4root',
-    //     database: "brots",
     };
     public static gcmAPIKey: string = "AAAAgYJ2mIM:APA91bFO4q73h9T4MUp3Uo5d16AxeeXjTTY32EU88ghgTzwS0pBv7MiG-wIpQAhzRu8yOFl3yxYEdp-VoBMu0AjJnXZrVN-sUXmYktBhXEKoCRf2ebWD69PAfy0GpSwhLm7i3Of2_TJB";
     public static messages = {

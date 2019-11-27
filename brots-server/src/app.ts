@@ -6,7 +6,6 @@ import * as path from "path";
 import {Config} from "./Config";
 import {Logger} from "./services/common/Logger";
 import {  } from "./category/sqlService";
-const socketio = require('socket.io');
 
 
 const app: express.Application = express();
@@ -26,6 +25,7 @@ app.use("/storage", express.static(path.join(__dirname, "storage")));
 new AppRouter(app);
 
 const httpServer: HttpServer = app.listen(Config.site.port, "0.0.0.0", () => {
-    const {address, port} = httpServer.address();
-    Logger.log(`Listening on ${address}:${port}`);
+    var host = httpServer.address()["address"];
+    var port = httpServer.address()["port"];
+    Logger.log(`Listening on ${host}:${port}`);
 });

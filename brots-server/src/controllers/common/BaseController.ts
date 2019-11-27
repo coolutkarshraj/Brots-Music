@@ -296,7 +296,7 @@ export class BaseController {
                res.json({
                 "status":"False",
                 "message":"Email Already Exist",
-                "error":"False", 
+                "error":err, 
               })
             }
         }, null);

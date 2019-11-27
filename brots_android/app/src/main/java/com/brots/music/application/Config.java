@@ -7,10 +7,10 @@ import com.google.gson.JsonObject;
 public class Config {
 
 
-    public static String Baseurl = "ec2-54-184-212-143.us-west-2.compute.amazonaws.com";
-   //  public static String Baseurl = "192.168.43.56";
-    public static String Base_url = "http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/";
-   // public static String Base_url = "http://192.168.43.56:9000/v1/";
+    //public static String Baseurl = "ec2-54-184-212-143.us-west-2.compute.amazonaws.com";
+    public static String Baseurl = "192.168.43.24";
+    //public static String Base_url = "http://ec2-54-184-212-143.us-west-2.compute.amazonaws.com:9000/v1/";
+    public static String Base_url = "http://192.168.43.24:9000/v1/";
     public static CategorySubCategoryResponseModel CatSubCat;
     public static ArtistSongResponseModel allArtistSong;
     public static String musiPlayerScreenType = "";

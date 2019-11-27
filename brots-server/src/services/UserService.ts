@@ -34,6 +34,8 @@ export class UserService extends ServiceBase {
                         about:'',Status:'0',IsLoggedIn:'0',TotalLike:0,TotalDislike:0,SavedSongMemoryv:'0',InstaMixMemory:'0'
                     });
                     return createUser;
+                }else{
+return userExistsResult
                 }  
             })
             .flatMap((createUser) => {
@@ -72,8 +74,12 @@ export class UserService extends ServiceBase {
             const user1 =  user.findAll({
                 where: {
                     email:email
-                },attributes: ['id']})  
-                resolve(user1);
+                },attributes: ['id']}
+                
+                ).then((err =>{
+                    reject(err)
+                }))  
+              resolve(user1) 
         });
         return Rx.Observable.fromPromise(promise);
     }
